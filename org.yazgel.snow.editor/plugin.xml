@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Snow -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.yazgel.snow.presentation.SnowModelWizardID"
+            name="%_UI_SnowModelWizard_label"
+            class="org.yazgel.snow.presentation.SnowModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SnowModelFile.gif">
+         <description>%_UI_SnowModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Snow -->
+      <editor
+            id="org.yazgel.snow.presentation.SnowEditorID"
+            name="%_UI_SnowEditor_label"
+            icon="icons/full/obj16/SnowModelFile.gif"
+            extensions="snow"
+            class="org.yazgel.snow.presentation.SnowEditor"
+            contributorClass="org.yazgel.snow.presentation.SnowActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
