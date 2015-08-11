@@ -22,6 +22,15 @@ public interface SnowFactory extends EFactory {
 	SnowFactory eINSTANCE = org.yazgel.snow.impl.SnowFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Persistence Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Persistence Model</em>'.
+	 * @generated
+	 */
+	PersistenceModel createPersistenceModel();
+
+	/**
 	 * Returns a new object of class '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

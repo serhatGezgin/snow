@@ -68,6 +68,10 @@ public class SnowAdapterFactory extends AdapterFactoryImpl {
 	protected SnowSwitch<Adapter> modelSwitch =
 		new SnowSwitch<Adapter>() {
 			@Override
+			public Adapter casePersistenceModel(PersistenceModel object) {
+				return createPersistenceModelAdapter();
+			}
+			@Override
 			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
 			}
@@ -90,6 +94,20 @@ public class SnowAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.yazgel.snow.PersistenceModel <em>Persistence Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.yazgel.snow.PersistenceModel
+	 * @generated
+	 */
+	public Adapter createPersistenceModelAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link org.yazgel.snow.Entity <em>Entity</em>}'.

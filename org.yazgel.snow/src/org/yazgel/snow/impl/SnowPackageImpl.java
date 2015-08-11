@@ -2,12 +2,15 @@
  */
 package org.yazgel.snow.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.yazgel.snow.Entity;
+import org.yazgel.snow.PersistenceModel;
 import org.yazgel.snow.SnowFactory;
 import org.yazgel.snow.SnowPackage;
 
@@ -18,6 +21,13 @@ import org.yazgel.snow.SnowPackage;
  * @generated
  */
 public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass persistenceModelEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,8 +101,53 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPersistenceModel() {
+		return persistenceModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistenceModel_BasePackage() {
+		return (EAttribute)persistenceModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPersistenceModel_Entities() {
+		return (EReference)persistenceModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEntity() {
 		return entityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEntity_Name() {
+		return (EAttribute)entityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEntity_TableName() {
+		return (EAttribute)entityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -123,7 +178,13 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		persistenceModelEClass = createEClass(PERSISTENCE_MODEL);
+		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__BASE_PACKAGE);
+		createEReference(persistenceModelEClass, PERSISTENCE_MODEL__ENTITIES);
+
 		entityEClass = createEClass(ENTITY);
+		createEAttribute(entityEClass, ENTITY__NAME);
+		createEAttribute(entityEClass, ENTITY__TABLE_NAME);
 	}
 
 	/**
@@ -156,7 +217,13 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(persistenceModelEClass, PersistenceModel.class, "PersistenceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPersistenceModel_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPersistenceModel_Entities(), this.getEntity(), null, "entities", null, 0, -1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntity_TableName(), ecorePackage.getEString(), "tableName", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

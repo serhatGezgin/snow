@@ -72,6 +72,29 @@ public class SnowItemProviderAdapterFactory extends SnowAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.yazgel.snow.PersistenceModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PersistenceModelItemProvider persistenceModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.yazgel.snow.PersistenceModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPersistenceModelAdapter() {
+		if (persistenceModelItemProvider == null) {
+			persistenceModelItemProvider = new PersistenceModelItemProvider(this);
+		}
+
+		return persistenceModelItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.yazgel.snow.Entity} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,6 +216,7 @@ public class SnowItemProviderAdapterFactory extends SnowAdapterFactory implement
 	 * @generated
 	 */
 	public void dispose() {
+		if (persistenceModelItemProvider != null) persistenceModelItemProvider.dispose();
 		if (entityItemProvider != null) entityItemProvider.dispose();
 	}
 

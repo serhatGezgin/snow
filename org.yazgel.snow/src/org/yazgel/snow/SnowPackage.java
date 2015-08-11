@@ -2,8 +2,10 @@
  */
 package org.yazgel.snow;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +57,52 @@ public interface SnowPackage extends EPackage {
 	SnowPackage eINSTANCE = org.yazgel.snow.impl.SnowPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link org.yazgel.snow.impl.PersistenceModelImpl <em>Persistence Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yazgel.snow.impl.PersistenceModelImpl
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getPersistenceModel()
+	 * @generated
+	 */
+	int PERSISTENCE_MODEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Base Package</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL__BASE_PACKAGE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Entities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL__ENTITIES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Persistence Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Persistence Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.yazgel.snow.impl.EntityImpl <em>Entity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +110,25 @@ public interface SnowPackage extends EPackage {
 	 * @see org.yazgel.snow.impl.SnowPackageImpl#getEntity()
 	 * @generated
 	 */
-	int ENTITY = 0;
+	int ENTITY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Table Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__TABLE_NAME = 1;
 
 	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
@@ -71,7 +137,7 @@ public interface SnowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = 0;
+	int ENTITY_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Entity</em>' class.
@@ -84,6 +150,38 @@ public interface SnowPackage extends EPackage {
 
 
 	/**
+	 * Returns the meta object for class '{@link org.yazgel.snow.PersistenceModel <em>Persistence Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Persistence Model</em>'.
+	 * @see org.yazgel.snow.PersistenceModel
+	 * @generated
+	 */
+	EClass getPersistenceModel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getBasePackage <em>Base Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Package</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getBasePackage()
+	 * @see #getPersistenceModel()
+	 * @generated
+	 */
+	EAttribute getPersistenceModel_BasePackage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.yazgel.snow.PersistenceModel#getEntities <em>Entities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Entities</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getEntities()
+	 * @see #getPersistenceModel()
+	 * @generated
+	 */
+	EReference getPersistenceModel_Entities();
+
+	/**
 	 * Returns the meta object for class '{@link org.yazgel.snow.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +190,28 @@ public interface SnowPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEntity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.Entity#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.yazgel.snow.Entity#getName()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EAttribute getEntity_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.Entity#getTableName <em>Table Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Table Name</em>'.
+	 * @see org.yazgel.snow.Entity#getTableName()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EAttribute getEntity_TableName();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -117,6 +237,32 @@ public interface SnowPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link org.yazgel.snow.impl.PersistenceModelImpl <em>Persistence Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yazgel.snow.impl.PersistenceModelImpl
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getPersistenceModel()
+		 * @generated
+		 */
+		EClass PERSISTENCE_MODEL = eINSTANCE.getPersistenceModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENCE_MODEL__BASE_PACKAGE = eINSTANCE.getPersistenceModel_BasePackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSISTENCE_MODEL__ENTITIES = eINSTANCE.getPersistenceModel_Entities();
+
+		/**
 		 * The meta object literal for the '{@link org.yazgel.snow.impl.EntityImpl <em>Entity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -125,6 +271,22 @@ public interface SnowPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ENTITY = eINSTANCE.getEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTITY__NAME = eINSTANCE.getEntity_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Table Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTITY__TABLE_NAME = eINSTANCE.getEntity_TableName();
 
 	}
 
