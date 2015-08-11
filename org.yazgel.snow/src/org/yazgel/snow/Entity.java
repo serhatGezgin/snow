@@ -2,6 +2,8 @@
  */
 package org.yazgel.snow;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.yazgel.snow.Entity#getName <em>Name</em>}</li>
  *   <li>{@link org.yazgel.snow.Entity#getTableName <em>Table Name</em>}</li>
+ *   <li>{@link org.yazgel.snow.Entity#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @see org.yazgel.snow.SnowPackage#getEntity()
@@ -73,5 +76,21 @@ public interface Entity extends EObject {
 	 * @generated
 	 */
 	void setTableName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link org.yazgel.snow.Property}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see org.yazgel.snow.SnowPackage#getEntity_Properties()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Property> getProperties();
 
 } // Entity

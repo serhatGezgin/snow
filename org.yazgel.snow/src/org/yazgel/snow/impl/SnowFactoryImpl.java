@@ -58,6 +58,7 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 		switch (eClass.getClassifierID()) {
 			case SnowPackage.PERSISTENCE_MODEL: return createPersistenceModel();
 			case SnowPackage.ENTITY: return createEntity();
+			case SnowPackage.PROPERTY: return createProperty();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -81,6 +82,16 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 	public Entity createEntity() {
 		EntityImpl entity = new EntityImpl();
 		return entity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Property createProperty() {
+		PropertyImpl property = new PropertyImpl();
+		return property;
 	}
 
 	/**

@@ -14,6 +14,11 @@
     <genClasses ecoreClass="Snow.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Entity/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Entity/tableName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//Entity/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Property/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -2,14 +2,24 @@
  */
 package org.yazgel.snow.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.yazgel.snow.Entity;
+import org.yazgel.snow.Property;
 import org.yazgel.snow.SnowPackage;
 
 /**
@@ -22,6 +32,7 @@ import org.yazgel.snow.SnowPackage;
  * <ul>
  *   <li>{@link org.yazgel.snow.impl.EntityImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.yazgel.snow.impl.EntityImpl#getTableName <em>Table Name</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.EntityImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +77,16 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 	 * @ordered
 	 */
 	protected String tableName = TABLE_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Property> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +154,32 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Property> getProperties() {
+		if (properties == null) {
+			properties = new EObjectContainmentEList<Property>(Property.class, this, SnowPackage.ENTITY__PROPERTIES);
+		}
+		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SnowPackage.ENTITY__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +187,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 				return getName();
 			case SnowPackage.ENTITY__TABLE_NAME:
 				return getTableName();
+			case SnowPackage.ENTITY__PROPERTIES:
+				return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,6 +198,7 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -157,6 +207,10 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 				return;
 			case SnowPackage.ENTITY__TABLE_NAME:
 				setTableName((String)newValue);
+				return;
+			case SnowPackage.ENTITY__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +230,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 			case SnowPackage.ENTITY__TABLE_NAME:
 				setTableName(TABLE_NAME_EDEFAULT);
 				return;
+			case SnowPackage.ENTITY__PROPERTIES:
+				getProperties().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +249,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SnowPackage.ENTITY__TABLE_NAME:
 				return TABLE_NAME_EDEFAULT == null ? tableName != null : !TABLE_NAME_EDEFAULT.equals(tableName);
+			case SnowPackage.ENTITY__PROPERTIES:
+				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
