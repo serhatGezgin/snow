@@ -1,0 +1,3 @@
+[submodule "yazgel-utils"]
+	path = yazgel-utils
+	url = https://github.com/akgun/yazgel-utils.git
