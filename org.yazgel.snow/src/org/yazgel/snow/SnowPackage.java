@@ -67,13 +67,22 @@ public interface SnowPackage extends EPackage {
 	int PERSISTENCE_MODEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Base Package</b></em>' attribute.
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_MODEL__BASE_PACKAGE = 0;
+	int PERSISTENCE_MODEL__GROUP_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Artifact Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL__ARTIFACT_ID = 1;
 
 	/**
 	 * The feature id for the '<em><b>Entities</b></em>' containment reference list.
@@ -82,7 +91,16 @@ public interface SnowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_MODEL__ENTITIES = 1;
+	int PERSISTENCE_MODEL__ENTITIES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Output Folder</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL__OUTPUT_FOLDER = 3;
 
 	/**
 	 * The number of structural features of the '<em>Persistence Model</em>' class.
@@ -91,7 +109,7 @@ public interface SnowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_MODEL_FEATURE_COUNT = 2;
+	int PERSISTENCE_MODEL_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Persistence Model</em>' class.
@@ -215,15 +233,26 @@ public interface SnowPackage extends EPackage {
 	EClass getPersistenceModel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getBasePackage <em>Base Package</em>}'.
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getGroupId <em>Group Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base Package</em>'.
-	 * @see org.yazgel.snow.PersistenceModel#getBasePackage()
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getGroupId()
 	 * @see #getPersistenceModel()
 	 * @generated
 	 */
-	EAttribute getPersistenceModel_BasePackage();
+	EAttribute getPersistenceModel_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getArtifactId <em>Artifact Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Artifact Id</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getArtifactId()
+	 * @see #getPersistenceModel()
+	 * @generated
+	 */
+	EAttribute getPersistenceModel_ArtifactId();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.yazgel.snow.PersistenceModel#getEntities <em>Entities</em>}'.
@@ -235,6 +264,17 @@ public interface SnowPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPersistenceModel_Entities();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getOutputFolder <em>Output Folder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Folder</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getOutputFolder()
+	 * @see #getPersistenceModel()
+	 * @generated
+	 */
+	EAttribute getPersistenceModel_OutputFolder();
 
 	/**
 	 * Returns the meta object for class '{@link org.yazgel.snow.Entity <em>Entity</em>}'.
@@ -345,12 +385,20 @@ public interface SnowPackage extends EPackage {
 		EClass PERSISTENCE_MODEL = eINSTANCE.getPersistenceModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PERSISTENCE_MODEL__BASE_PACKAGE = eINSTANCE.getPersistenceModel_BasePackage();
+		EAttribute PERSISTENCE_MODEL__GROUP_ID = eINSTANCE.getPersistenceModel_GroupId();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifact Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENCE_MODEL__ARTIFACT_ID = eINSTANCE.getPersistenceModel_ArtifactId();
 
 		/**
 		 * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.
@@ -359,6 +407,14 @@ public interface SnowPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PERSISTENCE_MODEL__ENTITIES = eINSTANCE.getPersistenceModel_Entities();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Folder</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENCE_MODEL__OUTPUT_FOLDER = eINSTANCE.getPersistenceModel_OutputFolder();
 
 		/**
 		 * The meta object literal for the '{@link org.yazgel.snow.impl.EntityImpl <em>Entity</em>}' class.

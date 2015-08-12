@@ -30,32 +30,54 @@ import org.yazgel.snow.SnowPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getBasePackage <em>Base Package</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getEntities <em>Entities</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getOutputFolder <em>Output Folder</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PersistenceModelImpl extends MinimalEObjectImpl.Container implements PersistenceModel {
 	/**
-	 * The default value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
+	 * The default value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBasePackage()
+	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BASE_PACKAGE_EDEFAULT = null;
+	protected static final String GROUP_ID_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBasePackage() <em>Base Package</em>}' attribute.
+	 * The cached value of the '{@link #getGroupId() <em>Group Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBasePackage()
+	 * @see #getGroupId()
 	 * @generated
 	 * @ordered
 	 */
-	protected String basePackage = BASE_PACKAGE_EDEFAULT;
+	protected String groupId = GROUP_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArtifactId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ARTIFACT_ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getArtifactId() <em>Artifact Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArtifactId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String artifactId = ARTIFACT_ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference list.
@@ -66,6 +88,26 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected EList<Entity> entities;
+
+	/**
+	 * The default value of the '{@link #getOutputFolder() <em>Output Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OUTPUT_FOLDER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOutputFolder() <em>Output Folder</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputFolder()
+	 * @generated
+	 * @ordered
+	 */
+	protected String outputFolder = OUTPUT_FOLDER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,8 +133,8 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBasePackage() {
-		return basePackage;
+	public String getGroupId() {
+		return groupId;
 	}
 
 	/**
@@ -100,11 +142,32 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBasePackage(String newBasePackage) {
-		String oldBasePackage = basePackage;
-		basePackage = newBasePackage;
+	public void setGroupId(String newGroupId) {
+		String oldGroupId = groupId;
+		groupId = newGroupId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.PERSISTENCE_MODEL__BASE_PACKAGE, oldBasePackage, basePackage));
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.PERSISTENCE_MODEL__GROUP_ID, oldGroupId, groupId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getArtifactId() {
+		return artifactId;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setArtifactId(String newArtifactId) {
+		String oldArtifactId = artifactId;
+		artifactId = newArtifactId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.PERSISTENCE_MODEL__ARTIFACT_ID, oldArtifactId, artifactId));
 	}
 
 	/**
@@ -117,6 +180,27 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 			entities = new EObjectContainmentEList<Entity>(Entity.class, this, SnowPackage.PERSISTENCE_MODEL__ENTITIES);
 		}
 		return entities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getOutputFolder() {
+		return outputFolder;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputFolder(String newOutputFolder) {
+		String oldOutputFolder = outputFolder;
+		outputFolder = newOutputFolder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER, oldOutputFolder, outputFolder));
 	}
 
 	/**
@@ -141,10 +225,14 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SnowPackage.PERSISTENCE_MODEL__BASE_PACKAGE:
-				return getBasePackage();
+			case SnowPackage.PERSISTENCE_MODEL__GROUP_ID:
+				return getGroupId();
+			case SnowPackage.PERSISTENCE_MODEL__ARTIFACT_ID:
+				return getArtifactId();
 			case SnowPackage.PERSISTENCE_MODEL__ENTITIES:
 				return getEntities();
+			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
+				return getOutputFolder();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,12 +246,18 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SnowPackage.PERSISTENCE_MODEL__BASE_PACKAGE:
-				setBasePackage((String)newValue);
+			case SnowPackage.PERSISTENCE_MODEL__GROUP_ID:
+				setGroupId((String)newValue);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__ARTIFACT_ID:
+				setArtifactId((String)newValue);
 				return;
 			case SnowPackage.PERSISTENCE_MODEL__ENTITIES:
 				getEntities().clear();
 				getEntities().addAll((Collection<? extends Entity>)newValue);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
+				setOutputFolder((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -177,11 +271,17 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SnowPackage.PERSISTENCE_MODEL__BASE_PACKAGE:
-				setBasePackage(BASE_PACKAGE_EDEFAULT);
+			case SnowPackage.PERSISTENCE_MODEL__GROUP_ID:
+				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__ARTIFACT_ID:
+				setArtifactId(ARTIFACT_ID_EDEFAULT);
 				return;
 			case SnowPackage.PERSISTENCE_MODEL__ENTITIES:
 				getEntities().clear();
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
+				setOutputFolder(OUTPUT_FOLDER_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -195,10 +295,14 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SnowPackage.PERSISTENCE_MODEL__BASE_PACKAGE:
-				return BASE_PACKAGE_EDEFAULT == null ? basePackage != null : !BASE_PACKAGE_EDEFAULT.equals(basePackage);
+			case SnowPackage.PERSISTENCE_MODEL__GROUP_ID:
+				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
+			case SnowPackage.PERSISTENCE_MODEL__ARTIFACT_ID:
+				return ARTIFACT_ID_EDEFAULT == null ? artifactId != null : !ARTIFACT_ID_EDEFAULT.equals(artifactId);
 			case SnowPackage.PERSISTENCE_MODEL__ENTITIES:
 				return entities != null && !entities.isEmpty();
+			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
+				return OUTPUT_FOLDER_EDEFAULT == null ? outputFolder != null : !OUTPUT_FOLDER_EDEFAULT.equals(outputFolder);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,8 +317,12 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (basePackage: ");
-		result.append(basePackage);
+		result.append(" (groupId: ");
+		result.append(groupId);
+		result.append(", artifactId: ");
+		result.append(artifactId);
+		result.append(", outputFolder: ");
+		result.append(outputFolder);
 		result.append(')');
 		return result.toString();
 	}

@@ -63,25 +63,71 @@ public class PersistenceModelItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBasePackagePropertyDescriptor(object);
+			addGroupIdPropertyDescriptor(object);
+			addArtifactIdPropertyDescriptor(object);
+			addOutputFolderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Base Package feature.
+	 * This adds a property descriptor for the Group Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBasePackagePropertyDescriptor(Object object) {
+	protected void addGroupIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PersistenceModel_basePackage_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_basePackage_feature", "_UI_PersistenceModel_type"),
-				 SnowPackage.Literals.PERSISTENCE_MODEL__BASE_PACKAGE,
+				 getString("_UI_PersistenceModel_groupId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_groupId_feature", "_UI_PersistenceModel_type"),
+				 SnowPackage.Literals.PERSISTENCE_MODEL__GROUP_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Artifact Id feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArtifactIdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PersistenceModel_artifactId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_artifactId_feature", "_UI_PersistenceModel_type"),
+				 SnowPackage.Literals.PERSISTENCE_MODEL__ARTIFACT_ID,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Output Folder feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutputFolderPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PersistenceModel_outputFolder_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_outputFolder_feature", "_UI_PersistenceModel_type"),
+				 SnowPackage.Literals.PERSISTENCE_MODEL__OUTPUT_FOLDER,
 				 true,
 				 false,
 				 false,
@@ -139,7 +185,7 @@ public class PersistenceModelItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PersistenceModel)object).getBasePackage();
+		String label = ((PersistenceModel)object).getGroupId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_PersistenceModel_type") :
 			getString("_UI_PersistenceModel_type") + " " + label;
@@ -158,7 +204,9 @@ public class PersistenceModelItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PersistenceModel.class)) {
-			case SnowPackage.PERSISTENCE_MODEL__BASE_PACKAGE:
+			case SnowPackage.PERSISTENCE_MODEL__GROUP_ID:
+			case SnowPackage.PERSISTENCE_MODEL__ARTIFACT_ID:
+			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SnowPackage.PERSISTENCE_MODEL__ENTITIES:

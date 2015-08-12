@@ -118,7 +118,7 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPersistenceModel_BasePackage() {
+	public EAttribute getPersistenceModel_GroupId() {
 		return (EAttribute)persistenceModelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -127,8 +127,26 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPersistenceModel_ArtifactId() {
+		return (EAttribute)persistenceModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getPersistenceModel_Entities() {
-		return (EReference)persistenceModelEClass.getEStructuralFeatures().get(1);
+		return (EReference)persistenceModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistenceModel_OutputFolder() {
+		return (EAttribute)persistenceModelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -223,8 +241,10 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 
 		// Create classes and their features
 		persistenceModelEClass = createEClass(PERSISTENCE_MODEL);
-		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__BASE_PACKAGE);
+		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__GROUP_ID);
+		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__ARTIFACT_ID);
 		createEReference(persistenceModelEClass, PERSISTENCE_MODEL__ENTITIES);
+		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__OUTPUT_FOLDER);
 
 		entityEClass = createEClass(ENTITY);
 		createEAttribute(entityEClass, ENTITY__NAME);
@@ -267,8 +287,10 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(persistenceModelEClass, PersistenceModel.class, "PersistenceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPersistenceModel_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceModel_GroupId(), ecorePackage.getEString(), "groupId", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceModel_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPersistenceModel_Entities(), this.getEntity(), null, "entities", null, 0, -1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceModel_OutputFolder(), ecorePackage.getEString(), "outputFolder", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

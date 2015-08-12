@@ -9,11 +9,11 @@ import org.yazgel.util.ecore.ModelIO
 class SnowGenerator {
 	val persistenceGenerator = new PersistenceModelGenerator
 
-	def generate(PersistenceModel persistenceModel, String folder) {
-		persistenceGenerator.generate(persistenceModel, folder)
+	def generate(PersistenceModel persistenceModel) {
+		persistenceGenerator.generate(persistenceModel)
 	}
 
-	def generate(URI inputUri, String folder) {
+	def generate(URI inputUri) {
 		var modelIO = new ModelIO {
 
 			override protected registerPackages(Registry packageRegistry) {
@@ -24,6 +24,6 @@ class SnowGenerator {
 
 		var PersistenceModel model = modelIO.read(inputUri).get(0) as PersistenceModel
 
-		generate(model, folder)
+		generate(model)
 	}
 }

@@ -8,8 +8,10 @@
   <genPackages prefix="Snow" basePackage="org.yazgel" disposableProviderFactory="true"
       ecorePackage="Snow.ecore#/">
     <genClasses ecoreClass="Snow.ecore#//PersistenceModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/basePackage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/groupId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/artifactId"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//PersistenceModel/entities"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/outputFolder"/>
     </genClasses>
     <genClasses ecoreClass="Snow.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Entity/name"/>
