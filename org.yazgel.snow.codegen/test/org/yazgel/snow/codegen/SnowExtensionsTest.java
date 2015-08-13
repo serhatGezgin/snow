@@ -53,20 +53,62 @@ public class SnowExtensionsTest {
 	}
 
 	@Test
-	public void testExtEntityPackage() {
+	public void testExtEntityModelPackage() {
 		Entity entity = createEntity();
 
-		String entityPackage = snowExtensions.extEntityPackage(entity);
+		String entityPackage = snowExtensions.extEntityModelPackage(entity);
 
 		assertEquals("com.akgund.myproj.model", entityPackage);
+	}
+
+	@Test
+	public void testExtEntityServicePackage() {
+		Entity entity = createEntity();
+
+		String entityServicePackage = snowExtensions.extEntityServicePackage(entity);
+
+		assertEquals("com.akgund.myproj.service", entityServicePackage);
+	}
+
+	@Test
+	public void testExtICrudServicePackage() {
+		String crudServicePackage = snowExtensions.extICrudServicePackage(createPersistenceModel());
+
+		assertEquals("com.akgund.myproj.service", crudServicePackage);
 	}
 
 	@Test
 	public void testExtEntiyModelPath() {
 		Entity entity = createEntity();
 
-		String entityModelPath = snowExtensions.extEntiyModelPath(entity);
+		String entityModelPath = snowExtensions.extEntityModelPath(entity);
 		assertEquals("c:/workspace/myproj/src/main/java/com/akgund/myproj/model/Ogrenci.java", entityModelPath);
+	}
+
+	@Test
+	public void testExtEntityServiceName() {
+		Entity entity = createEntity();
+
+		String entityServiceName = snowExtensions.extEntityServiceName(entity);
+		assertEquals("IOgrenciPersistence", entityServiceName);
+	}
+
+	@Test
+	public void testExtEntityServicePath() {
+		Entity entity = createEntity();
+
+		String entityServicePath = snowExtensions.extEntityServicePath(entity);
+
+		assertEquals("c:/workspace/myproj/src/main/java/com/akgund/myproj/service/IOgrenciPersistence.java",
+				entityServicePath);
+	}
+
+	@Test
+	public void testExtICrudServicePath() {
+		String crudServicePath = snowExtensions.extICrudServicePath(createPersistenceModel());
+
+		assertEquals("c:/workspace/myproj/src/main/java/com/akgund/myproj/service/ICrudPersistence.java",
+				crudServicePath);
 	}
 
 	@Test

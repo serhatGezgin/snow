@@ -8,13 +8,17 @@ class PersistenceModelGenerator {
 	val fs = new SnowFileSystemAccess
 
 	def generate(PersistenceModel model) {
-		/* Generate entities */
-		model.entities.forEach [ e |
-			fs.write(e.extEntiyModelPath, e.generateEntity)
-		]
-
 		/* Generate pom.xml */
 		fs.write(model.extProjectRootPath + '/pom.xml', model.generatePom)
+
+		/* Genereate ICrudService.java */
+		fs.write(model.extICrudServicePath, model.generateICrudPersistence)
+
+		/* Generate entities */
+		model.entities.forEach [ e |
+			fs.write(e.extEntityModelPath, e.generateEntity)
+			fs.write(e.extEntityServicePath, e.generateEntityService)
+		]
 	}
 
 	def protected String generatePom(PersistenceModel persistence) '''
@@ -78,8 +82,23 @@ class PersistenceModelGenerator {
 		</project>
 	'''
 
+	def protected String generateICrudPersistence(PersistenceModel model) '''
+		package «model.extICrudServicePackage»;
+		
+		public interface ICrudPersistence<T> {
+		
+			void save(T entity);
+		
+			T get(Long id);
+		
+			java.util.List<T> list();
+		
+			Class<T> getPersistenceClass();
+		}
+	'''
+
 	def protected String generateEntity(Entity entity) '''
-		package «entity.extEntityPackage»;
+		package «entity.extEntityModelPackage»;
 		
 		@javax.persistence.Entity
 		«IF entity.tableName != null»@javax.persistence.Table(name="«entity.tableName»")«ENDIF»
@@ -117,5 +136,12 @@ class PersistenceModelGenerator {
 		public void «property.extSetterName»(«property.type» «property.name»){
 			this.«property.name» = «property.name»;
 		}
+	'''
+
+	def protected String generateEntityService(Entity entity) '''
+	package «entity.extEntityServicePackage»;
+
+	public interface «entity.extEntityServiceName» extends ICrudPersistence<«entity.extEntityModelPackage».«entity.name»> {
+	}
 	'''
 }

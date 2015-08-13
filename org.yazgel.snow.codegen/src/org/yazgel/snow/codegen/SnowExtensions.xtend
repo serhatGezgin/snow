@@ -13,16 +13,43 @@ class SnowExtensions {
 		return String.format("%s/src/main/java", persistenceModel.extProjectRootPath)
 	}
 
-	def extEntityPackage(Entity entity) {
-		var PersistenceModel model = entity.eContainer as PersistenceModel
+	def extEntityModelPackage(Entity entity) {
+		var model = entity.eContainer as PersistenceModel
 
 		return String.format('%s.%s.model', model.groupId, model.artifactId)
 	}
 
-	def extEntiyModelPath(Entity entity) {
+	def extEntityServicePackage(Entity entity) {
+		var model = entity.eContainer as PersistenceModel
+
+		return String.format('%s.%s.service', model.groupId, model.artifactId)
+	}
+
+	def extICrudServicePackage(PersistenceModel model) {
+		return String.format('%s.%s.service', model.groupId, model.artifactId)
+	}
+
+	def extEntityModelPath(Entity entity) {
 		var model = entity.eContainer as PersistenceModel;
-		return String.format('%s/%s/%s.java', model.extMainJavaPath, entity.extEntityPackage.extPackageToPath,
+
+		return String.format('%s/%s/%s.java', model.extMainJavaPath, entity.extEntityModelPackage.extPackageToPath,
 			entity.name)
+	}
+
+	def extEntityServiceName(Entity entity) {
+		return String.format('I%sPersistence', entity.name)
+	}
+
+	def extEntityServicePath(Entity entity) {
+		var model = entity.eContainer as PersistenceModel;
+
+		return String.format('%s/%s/%s.java', model.extMainJavaPath, entity.extEntityServicePackage.extPackageToPath,
+			entity.extEntityServiceName)
+	}
+
+	def extICrudServicePath(PersistenceModel model) {
+		return String.format('%s/%s/ICrudPersistence.java', model.extMainJavaPath,
+			model.extICrudServicePackage.extPackageToPath)
 	}
 
 	def extPackageToPath(String str) {

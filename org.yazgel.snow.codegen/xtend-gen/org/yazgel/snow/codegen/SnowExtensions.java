@@ -20,7 +20,7 @@ public class SnowExtensions {
     return String.format("%s/src/main/java", _extProjectRootPath);
   }
   
-  public String extEntityPackage(final Entity entity) {
+  public String extEntityModelPackage(final Entity entity) {
     EObject _eContainer = entity.eContainer();
     PersistenceModel model = ((PersistenceModel) _eContainer);
     String _groupId = model.getGroupId();
@@ -28,14 +28,50 @@ public class SnowExtensions {
     return String.format("%s.%s.model", _groupId, _artifactId);
   }
   
-  public String extEntiyModelPath(final Entity entity) {
+  public String extEntityServicePackage(final Entity entity) {
+    EObject _eContainer = entity.eContainer();
+    PersistenceModel model = ((PersistenceModel) _eContainer);
+    String _groupId = model.getGroupId();
+    String _artifactId = model.getArtifactId();
+    return String.format("%s.%s.service", _groupId, _artifactId);
+  }
+  
+  public String extICrudServicePackage(final PersistenceModel model) {
+    String _groupId = model.getGroupId();
+    String _artifactId = model.getArtifactId();
+    return String.format("%s.%s.service", _groupId, _artifactId);
+  }
+  
+  public String extEntityModelPath(final Entity entity) {
     EObject _eContainer = entity.eContainer();
     PersistenceModel model = ((PersistenceModel) _eContainer);
     String _extMainJavaPath = this.extMainJavaPath(model);
-    String _extEntityPackage = this.extEntityPackage(entity);
-    String _extPackageToPath = this.extPackageToPath(_extEntityPackage);
+    String _extEntityModelPackage = this.extEntityModelPackage(entity);
+    String _extPackageToPath = this.extPackageToPath(_extEntityModelPackage);
     String _name = entity.getName();
     return String.format("%s/%s/%s.java", _extMainJavaPath, _extPackageToPath, _name);
+  }
+  
+  public String extEntityServiceName(final Entity entity) {
+    String _name = entity.getName();
+    return String.format("I%sPersistence", _name);
+  }
+  
+  public String extEntityServicePath(final Entity entity) {
+    EObject _eContainer = entity.eContainer();
+    PersistenceModel model = ((PersistenceModel) _eContainer);
+    String _extMainJavaPath = this.extMainJavaPath(model);
+    String _extEntityServicePackage = this.extEntityServicePackage(entity);
+    String _extPackageToPath = this.extPackageToPath(_extEntityServicePackage);
+    String _extEntityServiceName = this.extEntityServiceName(entity);
+    return String.format("%s/%s/%s.java", _extMainJavaPath, _extPackageToPath, _extEntityServiceName);
+  }
+  
+  public String extICrudServicePath(final PersistenceModel model) {
+    String _extMainJavaPath = this.extMainJavaPath(model);
+    String _extICrudServicePackage = this.extICrudServicePackage(model);
+    String _extPackageToPath = this.extPackageToPath(_extICrudServicePackage);
+    return String.format("%s/%s/ICrudPersistence.java", _extMainJavaPath, _extPackageToPath);
   }
   
   public String extPackageToPath(final String str) {
