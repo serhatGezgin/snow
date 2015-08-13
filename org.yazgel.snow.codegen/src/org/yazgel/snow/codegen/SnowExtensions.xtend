@@ -13,8 +13,16 @@ class SnowExtensions {
 		return String.format("%s/src/main/java", persistenceModel.extProjectRootPath)
 	}
 
+	def extRootPackage(PersistenceModel model) {
+		return String.format('%s.%s', model.groupId, model.artifactId)
+	}
+
+	def extRootPath(PersistenceModel model) {
+		return String.format('%s/%s', model.extMainJavaPath, model.extRootPackage.extPackageToPath)
+	}
+
 	def extModelPackage(PersistenceModel model) {
-		return String.format('%s.%s.model', model.groupId, model.artifactId)
+		return String.format('%s.model', model.extRootPackage)
 	}
 
 	def extModelPath(PersistenceModel model) {
@@ -22,7 +30,7 @@ class SnowExtensions {
 	}
 
 	def extServicePackage(PersistenceModel model) {
-		return String.format('%s.%s.service', model.groupId, model.artifactId)
+		return String.format('%s.service', model.extRootPackage)
 	}
 
 	def extServicePath(PersistenceModel model) {
@@ -69,11 +77,20 @@ class SnowExtensions {
 		return String.format('I%sPersistence', entity.name)
 	}
 
+	def extEntityPersistenceFullName(Entity entity) {
+		return String.format('%s.%s', entity.extPersistenceModel.extServicePackage, entity.extEntityPeristenceName)
+	}
+
 	def extEntityPeristenceImplName(Entity entity) {
 		return String.format('Db%sPersistence', entity.name)
 	}
 
-	def extEntityPersistenceFullName(Entity entity) {
-		return String.format('%s.%s', entity.extPersistenceModel.extServicePackage, entity.extEntityPeristenceName)
+	def extEntityPersistenceImplFullName(Entity entity) {
+		return String.format('%s.%s', entity.extPersistenceModel.extServiceImplPackage,
+			entity.extEntityPeristenceImplName)
+	}
+
+	def extFactoryName(PersistenceModel model) {
+		return String.format('%sPersistenceFactory', model.artifactId.toFirstUpper)
 	}
 }

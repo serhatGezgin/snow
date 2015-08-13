@@ -34,9 +34,17 @@ class PersistenceModelGenerator {
 			fs.write(e.extPersistenceModel.extServiceImplPath + '/' + e.extEntityPeristenceImplName + '.java',
 				e.generateEntityServiceImpl)
 		]
+
+		/* Generate injection module. */
+		fs.write(model.extServicePath + '/' + 'PersistenceInjectionModule.java', model.generateInjectionModule)
+
+		fs.write(model.extRootPath + '/' + model.artifactId.toFirstUpper + 'PersistenceFactory.java',
+			model.generateFactory)
 	}
 
-	def protected String generatePom(PersistenceModel persistence) '''
+	def protected String generatePom(
+		PersistenceModel persistence
+	) '''
 		<?xml version="1.0"?>
 		<project
 			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
@@ -97,7 +105,9 @@ class PersistenceModelGenerator {
 		</project>
 	'''
 
-	def protected String generateICrudPersistence(PersistenceModel model) '''
+	def protected String generateICrudPersistence(
+		PersistenceModel model
+	) '''
 		package «model.extServicePackage»;
 		
 		public interface ICrudPersistence<T> {
@@ -112,7 +122,9 @@ class PersistenceModelGenerator {
 		}
 	'''
 
-	def protected String generateDbCrudPersistence(PersistenceModel model) '''
+	def protected String generateDbCrudPersistence(
+		PersistenceModel model
+	) '''
 		package «model.extServiceImplPackage»;
 		
 		public abstract class DbCrudPersistence<T> implements «model.extServicePackage».ICrudPersistence<T> {
@@ -156,7 +168,9 @@ class PersistenceModelGenerator {
 		}
 	'''
 
-	def protected String generateIPersistenceUnitFactory(PersistenceModel model) '''
+	def protected String generateIPersistenceUnitFactory(
+		PersistenceModel model
+	) '''
 		package «model.extServicePackage»;
 		
 		public interface IPersistenceUnitFactory {
@@ -167,7 +181,9 @@ class PersistenceModelGenerator {
 		}
 	'''
 
-	def protected String generateDbPersistenceUnitFactory(PersistenceModel model) '''
+	def protected String generateDbPersistenceUnitFactory(
+		PersistenceModel model
+	) '''
 		package «model.extServiceImplPackage»;
 		
 		public class DbPersistenceUnitFactory implements «model.extServicePackage».IPersistenceUnitFactory {
@@ -184,7 +200,9 @@ class PersistenceModelGenerator {
 		}
 	'''
 
-	def protected String generateEntity(Entity entity) '''
+	def protected String generateEntity(
+		Entity entity
+	) '''
 		package «entity.extPersistenceModel.extModelPackage»;
 		
 		@javax.persistence.Entity
@@ -251,6 +269,60 @@ class PersistenceModelGenerator {
 			public Class<«entity.extEntityFullName»> getPersistenceClass() {
 				return «entity.extEntityFullName».class;
 			}
+		}
+	'''
+
+	def protected String generateInjectionModule(
+		PersistenceModel persistenceModel
+	) '''
+		package «persistenceModel.extServicePackage»;
+		
+		public class PersistenceInjectionModule extends com.google.inject.AbstractModule {
+		
+			@Override
+			protected void configure() {
+				bind(«persistenceModel.extServicePackage».IPersistenceUnitFactory.class).to(«persistenceModel.extServiceImplPackage».DbPersistenceUnitFactory.class);
+		
+				«FOR e : persistenceModel.entities»
+					bind(new com.google.inject.TypeLiteral<«persistenceModel.extServiceImplPackage».DbCrudPersistence<«e.extEntityFullName»>>() {
+					}).to(new com.google.inject.TypeLiteral<«e.extEntityPersistenceImplFullName»>() {
+					});
+					bind(«e.extEntityPersistenceFullName».class).to(«e.extEntityPersistenceImplFullName».class);
+				«ENDFOR»
+			}
+		}
+	'''
+
+	def protected String generateFactory(PersistenceModel persistenceModel) '''
+		package «persistenceModel.extRootPackage»;
+		
+		public class «persistenceModel.extFactoryName» {
+			private com.google.inject.Module injectionModule;
+			«FOR e : persistenceModel.entities»
+				private «e.extEntityPersistenceFullName» _«e.extEntityPeristenceName»;
+			«ENDFOR»
+		
+			public «persistenceModel.extFactoryName»() {
+				this(new «persistenceModel.extServicePackage».PersistenceInjectionModule());
+			}
+		
+			public «persistenceModel.extFactoryName»(com.google.inject.Module injectionModule) {
+				this.injectionModule = injectionModule;
+			}
+		
+			private com.google.inject.Injector getInjector() {
+				return com.google.inject.Guice.createInjector(injectionModule);
+			}
+			
+			«FOR e : persistenceModel.entities»
+				public «e.extEntityPersistenceFullName» get«e.extEntityPeristenceName»() {
+					if (_«e.extEntityPeristenceName» == null) {
+						_«e.extEntityPeristenceName» = getInjector().getInstance(«e.extEntityPersistenceFullName».class);
+					}
+					
+					return _«e.extEntityPeristenceName»;
+				}
+			«ENDFOR»
 		}
 	'''
 }

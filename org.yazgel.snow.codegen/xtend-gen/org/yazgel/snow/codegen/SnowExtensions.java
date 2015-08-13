@@ -20,10 +20,22 @@ public class SnowExtensions {
     return String.format("%s/src/main/java", _extProjectRootPath);
   }
   
-  public String extModelPackage(final PersistenceModel model) {
+  public String extRootPackage(final PersistenceModel model) {
     String _groupId = model.getGroupId();
     String _artifactId = model.getArtifactId();
-    return String.format("%s.%s.model", _groupId, _artifactId);
+    return String.format("%s.%s", _groupId, _artifactId);
+  }
+  
+  public String extRootPath(final PersistenceModel model) {
+    String _extMainJavaPath = this.extMainJavaPath(model);
+    String _extRootPackage = this.extRootPackage(model);
+    String _extPackageToPath = this.extPackageToPath(_extRootPackage);
+    return String.format("%s/%s", _extMainJavaPath, _extPackageToPath);
+  }
+  
+  public String extModelPackage(final PersistenceModel model) {
+    String _extRootPackage = this.extRootPackage(model);
+    return String.format("%s.model", _extRootPackage);
   }
   
   public String extModelPath(final PersistenceModel model) {
@@ -34,9 +46,8 @@ public class SnowExtensions {
   }
   
   public String extServicePackage(final PersistenceModel model) {
-    String _groupId = model.getGroupId();
-    String _artifactId = model.getArtifactId();
-    return String.format("%s.%s.service", _groupId, _artifactId);
+    String _extRootPackage = this.extRootPackage(model);
+    return String.format("%s.service", _extRootPackage);
   }
   
   public String extServicePath(final PersistenceModel model) {
@@ -103,15 +114,28 @@ public class SnowExtensions {
     return String.format("I%sPersistence", _name);
   }
   
-  public String extEntityPeristenceImplName(final Entity entity) {
-    String _name = entity.getName();
-    return String.format("Db%sPersistence", _name);
-  }
-  
   public String extEntityPersistenceFullName(final Entity entity) {
     PersistenceModel _extPersistenceModel = this.extPersistenceModel(entity);
     String _extServicePackage = this.extServicePackage(_extPersistenceModel);
     String _extEntityPeristenceName = this.extEntityPeristenceName(entity);
     return String.format("%s.%s", _extServicePackage, _extEntityPeristenceName);
+  }
+  
+  public String extEntityPeristenceImplName(final Entity entity) {
+    String _name = entity.getName();
+    return String.format("Db%sPersistence", _name);
+  }
+  
+  public String extEntityPersistenceImplFullName(final Entity entity) {
+    PersistenceModel _extPersistenceModel = this.extPersistenceModel(entity);
+    String _extServiceImplPackage = this.extServiceImplPackage(_extPersistenceModel);
+    String _extEntityPeristenceImplName = this.extEntityPeristenceImplName(entity);
+    return String.format("%s.%s", _extServiceImplPackage, _extEntityPeristenceImplName);
+  }
+  
+  public String extFactoryName(final PersistenceModel model) {
+    String _artifactId = model.getArtifactId();
+    String _firstUpper = StringExtensions.toFirstUpper(_artifactId);
+    return String.format("%sPersistenceFactory", _firstUpper);
   }
 }
