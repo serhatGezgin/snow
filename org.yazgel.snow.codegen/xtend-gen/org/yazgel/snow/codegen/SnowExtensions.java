@@ -102,4 +102,16 @@ public class SnowExtensions {
     String _name = entity.getName();
     return String.format("I%sPersistence", _name);
   }
+  
+  public String extEntityPeristenceImplName(final Entity entity) {
+    String _name = entity.getName();
+    return String.format("Db%sPersistence", _name);
+  }
+  
+  public String extEntityPersistenceFullName(final Entity entity) {
+    PersistenceModel _extPersistenceModel = this.extPersistenceModel(entity);
+    String _extServicePackage = this.extServicePackage(_extPersistenceModel);
+    String _extEntityPeristenceName = this.extEntityPeristenceName(entity);
+    return String.format("%s.%s", _extServicePackage, _extEntityPeristenceName);
+  }
 }

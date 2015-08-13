@@ -21,7 +21,8 @@ class PersistenceModelGenerator {
 		fs.write(model.extServicePath + '/' + 'IPersistenceUnitFactory.java', model.generateIPersistenceUnitFactory)
 
 		/* Generate DbPersistenceUnitFactory.java */
-		fs.write(model.extServiceImplPath + '/' + 'DbPersistenceUnitFactory.java', model.generateDbPersistenceUnitFactory)
+		fs.write(model.extServiceImplPath + '/' + 'DbPersistenceUnitFactory.java',
+			model.generateDbPersistenceUnitFactory)
 
 		model.entities.forEach [ e |
 			/* Generate entity */
@@ -29,6 +30,9 @@ class PersistenceModelGenerator {
 			/* Generate entity persistence interface. */
 			fs.write(e.extPersistenceModel.extServicePath + '/' + e.extEntityPeristenceName + '.java',
 				e.generateEntityService)
+			/* Generate entity persistence implementation. */
+			fs.write(e.extPersistenceModel.extServiceImplPath + '/' + e.extEntityPeristenceImplName + '.java',
+				e.generateEntityServiceImpl)
 		]
 	}
 
@@ -231,6 +235,22 @@ class PersistenceModelGenerator {
 		package «entity.extPersistenceModel.extServicePackage»;
 		
 		public interface «entity.extEntityPeristenceName» extends ICrudPersistence<«entity.extEntityFullName»> {
+		}
+	'''
+
+	def protected String generateEntityServiceImpl(
+		Entity entity
+	) '''
+		package «entity.extPersistenceModel.extServiceImplPackage»;
+		
+		public class «entity.extEntityPeristenceImplName» 
+				extends «entity.extPersistenceModel.extServiceImplPackage».DbCrudPersistence<«entity.extEntityFullName»>
+				implements «entity.extEntityPersistenceFullName» {
+		
+			@Override
+			public Class<«entity.extEntityFullName»> getPersistenceClass() {
+				return «entity.extEntityFullName».class;
+			}
 		}
 	'''
 }

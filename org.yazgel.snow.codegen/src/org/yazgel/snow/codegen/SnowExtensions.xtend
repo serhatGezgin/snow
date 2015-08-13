@@ -68,4 +68,12 @@ class SnowExtensions {
 	def extEntityPeristenceName(Entity entity) {
 		return String.format('I%sPersistence', entity.name)
 	}
+
+	def extEntityPeristenceImplName(Entity entity) {
+		return String.format('Db%sPersistence', entity.name)
+	}
+
+	def extEntityPersistenceFullName(Entity entity) {
+		return String.format('%s.%s', entity.extPersistenceModel.extServicePackage, entity.extEntityPeristenceName)
+	}
 }

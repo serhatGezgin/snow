@@ -178,4 +178,13 @@ public class SnowExtensionsTest {
 
 		assertEquals("IOgrenciPersistence", entityServiceName);
 	}
+
+	@Test
+	public void testExtEntityPersistenceImplName() {
+		Entity entity = createEntity();
+
+		String entityServiceName = snowExtensions.extEntityPeristenceImplName(entity);
+
+		assertEquals("DbOgrenciPersistence", entityServiceName);
+	}
 }
