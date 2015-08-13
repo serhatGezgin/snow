@@ -13,6 +13,10 @@ class SnowExtensions {
 		return String.format("%s/src/main/java", persistenceModel.extProjectRootPath)
 	}
 
+	def extTestResourcesPath(PersistenceModel persistenceModel) {
+		return String.format('%s/src/test/resources', persistenceModel.extProjectRootPath);
+	}
+
 	def extRootPackage(PersistenceModel model) {
 		return String.format('%s.%s', model.groupId, model.artifactId)
 	}

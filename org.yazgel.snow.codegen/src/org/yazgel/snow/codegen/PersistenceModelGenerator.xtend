@@ -38,8 +38,16 @@ class PersistenceModelGenerator {
 		/* Generate injection module. */
 		fs.write(model.extServicePath + '/' + 'PersistenceInjectionModule.java', model.generateInjectionModule)
 
+		/* Generate factory. */
 		fs.write(model.extRootPath + '/' + model.artifactId.toFirstUpper + 'PersistenceFactory.java',
 			model.generateFactory)
+
+		/* Generate persistence.xml */
+		fs.write(model.extTestResourcesPath + '/' + 'META-INF' + '/' + 'persistence.xml',
+			model.generateTestPersistenceXml)
+
+		/* Generate insert.sql */
+		fs.write(model.extTestResourcesPath + '/' + 'insert.sql', '-- TODO add insert statements')
 	}
 
 	def protected String generatePom(
@@ -324,5 +332,36 @@ class PersistenceModelGenerator {
 				}
 			«ENDFOR»
 		}
+	'''
+
+	def protected String generateTestPersistenceXml(PersistenceModel model) '''
+		<?xml version="1.0" encoding="UTF-8"?>
+		<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+			version="2.1">
+		
+			<persistence-unit name="test" transaction-type="RESOURCE_LOCAL">
+				<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+				«FOR e : model.entities»
+					<class>«e.extEntityFullName»</class>
+				«ENDFOR»
+				<properties>
+					<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+					<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:«model.artifactId»;create=true" />
+					<property name="javax.persistence.schema-generation.database.action"
+						value="drop-and-create" />
+					<property name="javax.persistence.schema-generation.scripts.action"
+						value="drop-and-create" />
+					<property name="javax.persistence.schema-generation.scripts.create-target"
+						value="target/create.sql" />
+					<property name="javax.persistence.schema-generation.scripts.drop-target"
+						value="target/drop.sql" />
+					<property name="javax.persistence.sql-load-script-source"
+						value="insert.sql" />
+				</properties>
+			</persistence-unit>
+		
+		</persistence>        
 	'''
 }
