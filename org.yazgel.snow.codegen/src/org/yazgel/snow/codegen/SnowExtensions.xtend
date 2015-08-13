@@ -21,10 +21,23 @@ class SnowExtensions {
 
 	def extEntiyModelPath(Entity entity) {
 		var model = entity.eContainer as PersistenceModel;
-		return String.format('%s/%s/%s.java', model.extMainJavaPath, entity.extEntityPackage.extPackageToPath, entity.name)
+		return String.format('%s/%s/%s.java', model.extMainJavaPath, entity.extEntityPackage.extPackageToPath,
+			entity.name)
 	}
 
 	def extPackageToPath(String str) {
 		return str.replace('.', '/')
+	}
+
+	def extGetterName(org.yazgel.snow.Property property) {
+		if (property.type == 'boolean') {
+			return String.format('is%s', property.name.toFirstUpper)
+		}
+
+		return String.format('get%s', property.name.toFirstUpper)
+	}
+
+	def extSetterName(org.yazgel.snow.Property property) {
+		return String.format('set%s', property.name.toFirstUpper)
 	}
 }

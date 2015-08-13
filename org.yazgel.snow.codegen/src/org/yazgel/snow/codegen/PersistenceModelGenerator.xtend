@@ -81,7 +81,30 @@ class PersistenceModelGenerator {
 	def protected String generateEntity(Entity entity) '''
 		package «entity.extEntityPackage»;
 		
+		@Entity
+		«IF entity.tableName != null»@Table(name="«entity.tableName»")«ENDIF»
 		public class «entity.name» {
+			«FOR p : entity.properties»
+				«p.generatePropertField»
+			«ENDFOR»
+			
+			«FOR p : entity.properties»
+				«p.generateGetterSetter»
+			«ENDFOR»
+		}
+	'''
+
+	def protected String generatePropertField(org.yazgel.snow.Property property) '''
+		private «property.type» «property.name»;
+	'''
+
+	def protected String generateGetterSetter(org.yazgel.snow.Property property) '''
+		public «property.type» «property.extGetterName»(){
+			return this.«property.name»;
+		}
+		
+		public void «property.extSetterName»(«property.type» «property.name»){
+			this.«property.name» = «property.name»;
 		}
 	'''
 }

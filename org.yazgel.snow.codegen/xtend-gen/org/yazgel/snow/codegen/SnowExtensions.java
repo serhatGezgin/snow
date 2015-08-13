@@ -1,8 +1,11 @@
 package org.yazgel.snow.codegen;
 
+import com.google.common.base.Objects;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.yazgel.snow.Entity;
 import org.yazgel.snow.PersistenceModel;
+import org.yazgel.snow.Property;
 
 @SuppressWarnings("all")
 public class SnowExtensions {
@@ -37,5 +40,24 @@ public class SnowExtensions {
   
   public String extPackageToPath(final String str) {
     return str.replace(".", "/");
+  }
+  
+  public String extGetterName(final Property property) {
+    String _type = property.getType();
+    boolean _equals = Objects.equal(_type, "boolean");
+    if (_equals) {
+      String _name = property.getName();
+      String _firstUpper = StringExtensions.toFirstUpper(_name);
+      return String.format("is%s", _firstUpper);
+    }
+    String _name_1 = property.getName();
+    String _firstUpper_1 = StringExtensions.toFirstUpper(_name_1);
+    return String.format("get%s", _firstUpper_1);
+  }
+  
+  public String extSetterName(final Property property) {
+    String _name = property.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    return String.format("set%s", _firstUpper);
   }
 }

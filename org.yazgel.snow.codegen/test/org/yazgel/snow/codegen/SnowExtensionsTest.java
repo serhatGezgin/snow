@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.yazgel.snow.Entity;
 import org.yazgel.snow.PersistenceModel;
+import org.yazgel.snow.Property;
 import org.yazgel.snow.SnowFactory;
 
 public class SnowExtensionsTest {
@@ -75,4 +76,33 @@ public class SnowExtensionsTest {
 		assertEquals("com/akgun", packageToPath);
 	}
 
+	@Test
+	public void testExtGetterName() {
+		Property property = SnowFactory.eINSTANCE.createProperty();
+		property.setName("ad");
+		property.setType("String");
+		String getterName = snowExtensions.extGetterName(property);
+
+		assertEquals("getAd", getterName);
+	}
+
+	@Test
+	public void testExtGetterNameBool() {
+		Property property = SnowFactory.eINSTANCE.createProperty();
+		property.setName("ad");
+		property.setType("boolean");
+		String getterName = snowExtensions.extGetterName(property);
+
+		assertEquals("isAd", getterName);
+	}
+
+	@Test
+	public void testExtSetterName() {
+		Property property = SnowFactory.eINSTANCE.createProperty();
+		property.setName("ad");
+		property.setType("String");
+		String getterName = snowExtensions.extSetterName(property);
+
+		assertEquals("setAd", getterName);
+	}
 }
