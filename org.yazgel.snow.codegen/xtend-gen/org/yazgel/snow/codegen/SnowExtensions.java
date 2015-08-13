@@ -20,9 +20,21 @@ public class SnowExtensions {
     return String.format("%s/src/main/java", _extProjectRootPath);
   }
   
+  public String extTestJavaPath(final PersistenceModel persistenceModel) {
+    String _extProjectRootPath = this.extProjectRootPath(persistenceModel);
+    return String.format("%s/src/test/java", _extProjectRootPath);
+  }
+  
   public String extTestResourcesPath(final PersistenceModel persistenceModel) {
     String _extProjectRootPath = this.extProjectRootPath(persistenceModel);
     return String.format("%s/src/test/resources", _extProjectRootPath);
+  }
+  
+  public String extTestServicePath(final PersistenceModel persistenceModel) {
+    String _extTestJavaPath = this.extTestJavaPath(persistenceModel);
+    String _extServicePackage = this.extServicePackage(persistenceModel);
+    String _extPackageToPath = this.extPackageToPath(_extServicePackage);
+    return String.format("%s/%s", _extTestJavaPath, _extPackageToPath);
   }
   
   public String extRootPackage(final PersistenceModel model) {
@@ -142,5 +154,11 @@ public class SnowExtensions {
     String _artifactId = model.getArtifactId();
     String _firstUpper = StringExtensions.toFirstUpper(_artifactId);
     return String.format("%sPersistenceFactory", _firstUpper);
+  }
+  
+  public String extFactoryFullName(final PersistenceModel persistenceModel) {
+    String _extRootPackage = this.extRootPackage(persistenceModel);
+    String _extFactoryName = this.extFactoryName(persistenceModel);
+    return String.format("%s.%s", _extRootPackage, _extFactoryName);
   }
 }

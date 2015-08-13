@@ -48,6 +48,22 @@ class PersistenceModelGenerator {
 
 		/* Generate insert.sql */
 		fs.write(model.extTestResourcesPath + '/' + 'insert.sql', '-- TODO add insert statements')
+
+		/* Generate mock persistence unit factory. */
+		fs.write(model.extTestServicePath + '/' + 'MockPersistenceUnitFactory.java',
+			model.generateMockPersistenceUnitFactory)
+
+		/* Generate mock persistence injection module. */
+		fs.write(model.extTestServicePath + '/' + 'MockPersistenceInjectionModule.java',
+			model.generateMockPersistenceInjectionModule)
+
+		/* Generate test base. */
+		fs.write(model.extTestServicePath + '/' + 'DbPersistenceTestBase.java', model.generateDbPersistenceTestBase)
+
+		model.entities.forEach [ e |
+			fs.write(model.extTestServicePath + '/' + e.extEntityPeristenceImplName + 'Test.java',
+				e.generateDbPersistenceTest)
+		]
 	}
 
 	def protected String generatePom(
@@ -363,5 +379,66 @@ class PersistenceModelGenerator {
 			</persistence-unit>
 		
 		</persistence>        
+	'''
+
+	def protected String generateMockPersistenceUnitFactory(PersistenceModel persistenceModel) '''
+		package «persistenceModel.extServicePackage»;
+		
+		public class MockPersistenceUnitFactory extends «persistenceModel.extServiceImplPackage».DbPersistenceUnitFactory {
+		
+			@Override
+			public String getPersistenceUnitName() {
+				return "test";
+			}
+		}
+	'''
+
+	def protected String generateMockPersistenceInjectionModule(PersistenceModel persistenceModel) '''
+		package «persistenceModel.extServicePackage»;
+		
+		public class MockPersistenceInjectionModule implements com.google.inject.Module {
+		
+			@Override
+			public void configure(com.google.inject.Binder binder) {
+				binder.bind(«persistenceModel.extServicePackage».IPersistenceUnitFactory.class).to(
+						«persistenceModel.extServicePackage».MockPersistenceUnitFactory.class);
+			}
+		}	
+	'''
+
+	def protected String generateDbPersistenceTestBase(PersistenceModel persistenceModel) '''
+		package «persistenceModel.extServicePackage»;
+		
+		public class DbPersistenceTestBase {
+			protected «persistenceModel.extFactoryFullName» persistenceFactory;
+		
+			@org.junit.Before
+			public void setup() throws Exception {
+				com.google.inject.Module mock = com.google.inject.util.Modules.override(new PersistenceInjectionModule()).with(new MockPersistenceInjectionModule());
+				persistenceFactory = new «persistenceModel.extFactoryFullName»(mock);
+			}
+		}
+	'''
+
+	def protected String generateDbPersistenceTest(Entity entity) '''
+		package «entity.extPersistenceModel.extServicePackage»;
+		
+		
+		public class «entity.extEntityPeristenceImplName»Test extends «entity.extPersistenceModel.extServicePackage».DbPersistenceTestBase {
+			private «entity.extEntityPersistenceFullName» persistence;
+		
+			@org.junit.Before
+			public void setUp() throws Exception {
+				super.setup();
+		
+				persistence = persistenceFactory.get«entity.extEntityPeristenceName»();
+			}
+		
+			@org.junit.Test
+			public void test() {
+				/* TODO: implement. */
+				org.junit.Assert.assertTrue(true);
+			}
+		}
 	'''
 }

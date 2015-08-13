@@ -10,11 +10,20 @@ class SnowExtensions {
 	}
 
 	def extMainJavaPath(PersistenceModel persistenceModel) {
-		return String.format("%s/src/main/java", persistenceModel.extProjectRootPath)
+		return String.format('%s/src/main/java', persistenceModel.extProjectRootPath)
+	}
+
+	def extTestJavaPath(PersistenceModel persistenceModel) {
+		return String.format('%s/src/test/java', persistenceModel.extProjectRootPath)
 	}
 
 	def extTestResourcesPath(PersistenceModel persistenceModel) {
 		return String.format('%s/src/test/resources', persistenceModel.extProjectRootPath);
+	}
+
+	def extTestServicePath(PersistenceModel persistenceModel) {
+		return String.format('%s/%s', persistenceModel.extTestJavaPath,
+			persistenceModel.extServicePackage.extPackageToPath)
 	}
 
 	def extRootPackage(PersistenceModel model) {
@@ -96,5 +105,9 @@ class SnowExtensions {
 
 	def extFactoryName(PersistenceModel model) {
 		return String.format('%sPersistenceFactory', model.artifactId.toFirstUpper)
+	}
+
+	def extFactoryFullName(PersistenceModel persistenceModel) {
+		return String.format('%s.%s', persistenceModel.extRootPackage, persistenceModel.extFactoryName)
 	}
 }
