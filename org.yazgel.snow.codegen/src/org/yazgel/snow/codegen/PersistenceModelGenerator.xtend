@@ -81,12 +81,23 @@ class PersistenceModelGenerator {
 	def protected String generateEntity(Entity entity) '''
 		package «entity.extEntityPackage»;
 		
-		@Entity
-		«IF entity.tableName != null»@Table(name="«entity.tableName»")«ENDIF»
+		@javax.persistence.Entity
+		«IF entity.tableName != null»@javax.persistence.Table(name="«entity.tableName»")«ENDIF»
 		public class «entity.name» {
+			@javax.persistence.Id
+			@javax.persistence.GeneratedValue
+			private Long id;
 			«FOR p : entity.properties»
 				«p.generatePropertField»
 			«ENDFOR»
+			
+			public Long getId(){
+				return this.id;
+			}
+			
+			public void setId(Long id){
+				this.id = id;
+			}
 			
 			«FOR p : entity.properties»
 				«p.generateGetterSetter»

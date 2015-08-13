@@ -38,10 +38,21 @@ class PersistenceModelGeneratorTest {
 		Assert.assertEquals('''
 			package com.akgund.myproj.model;
 			
-			@Entity
-			@Table(name="OGRENCI")
+			@javax.persistence.Entity
+			@javax.persistence.Table(name="OGRENCI")
 			public class Ogrenci {
+				@javax.persistence.Id
+				@javax.persistence.GeneratedValue
+				private Long id;
 				private String ad;
+				
+				public Long getId(){
+					return this.id;
+				}
+				
+				public void setId(Long id){
+					this.id = id;
+				}
 				
 				public String getAd(){
 					return this.ad;
