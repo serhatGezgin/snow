@@ -20,6 +20,9 @@ class PersistenceModelGenerator {
 		/* Generate IPersistenceUnitFactory.java */
 		fs.write(model.extServicePath + '/' + 'IPersistenceUnitFactory.java', model.generateIPersistenceUnitFactory)
 
+		/* Generate DbPersistenceUnitFactory.java */
+		fs.write(model.extServiceImplPath + '/' + 'DbPersistenceUnitFactory.java', model.generateDbPersistenceUnitFactory)
+
 		model.entities.forEach [ e |
 			/* Generate entity */
 			fs.write(e.extEntityPath, e.generateEntity)
@@ -157,6 +160,23 @@ class PersistenceModelGenerator {
 			javax.persistence.EntityManagerFactory getEntityManagerFactory();
 		
 			String getPersistenceUnitName();
+		}
+	'''
+
+	def protected String generateDbPersistenceUnitFactory(PersistenceModel model) '''
+		package «model.extServiceImplPackage»;
+		
+		public class DbPersistenceUnitFactory implements «model.extServicePackage».IPersistenceUnitFactory {
+		
+			@Override
+			public javax.persistence.EntityManagerFactory getEntityManagerFactory() {
+				return javax.persistence.Persistence.createEntityManagerFactory(getPersistenceUnitName());
+			}
+		
+			@Override
+			public String getPersistenceUnitName() {
+				return "prod";
+			}
 		}
 	'''
 
