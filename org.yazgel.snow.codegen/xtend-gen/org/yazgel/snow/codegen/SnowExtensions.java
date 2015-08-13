@@ -20,58 +20,45 @@ public class SnowExtensions {
     return String.format("%s/src/main/java", _extProjectRootPath);
   }
   
-  public String extEntityModelPackage(final Entity entity) {
-    EObject _eContainer = entity.eContainer();
-    PersistenceModel model = ((PersistenceModel) _eContainer);
+  public String extModelPackage(final PersistenceModel model) {
     String _groupId = model.getGroupId();
     String _artifactId = model.getArtifactId();
     return String.format("%s.%s.model", _groupId, _artifactId);
   }
   
-  public String extEntityServicePackage(final Entity entity) {
-    EObject _eContainer = entity.eContainer();
-    PersistenceModel model = ((PersistenceModel) _eContainer);
+  public String extModelPath(final PersistenceModel model) {
+    String _extMainJavaPath = this.extMainJavaPath(model);
+    String _extModelPackage = this.extModelPackage(model);
+    String _extPackageToPath = this.extPackageToPath(_extModelPackage);
+    return String.format("%s/%s", _extMainJavaPath, _extPackageToPath);
+  }
+  
+  public String extServicePackage(final PersistenceModel model) {
     String _groupId = model.getGroupId();
     String _artifactId = model.getArtifactId();
     return String.format("%s.%s.service", _groupId, _artifactId);
   }
   
-  public String extICrudServicePackage(final PersistenceModel model) {
-    String _groupId = model.getGroupId();
-    String _artifactId = model.getArtifactId();
-    return String.format("%s.%s.service", _groupId, _artifactId);
+  public String extServicePath(final PersistenceModel model) {
+    String _extMainJavaPath = this.extMainJavaPath(model);
+    String _extServicePackage = this.extServicePackage(model);
+    String _extPackageToPath = this.extPackageToPath(_extServicePackage);
+    return String.format("%s/%s", _extMainJavaPath, _extPackageToPath);
   }
   
-  public String extEntityModelPath(final Entity entity) {
+  public String extServiceImplPackage(final PersistenceModel model) {
+    String _extServicePackage = this.extServicePackage(model);
+    return String.format("%s.impl", _extServicePackage);
+  }
+  
+  public String extServiceImplPath(final PersistenceModel model) {
+    String _extServicePath = this.extServicePath(model);
+    return String.format("%s/impl", _extServicePath);
+  }
+  
+  public PersistenceModel extPersistenceModel(final Entity entity) {
     EObject _eContainer = entity.eContainer();
-    PersistenceModel model = ((PersistenceModel) _eContainer);
-    String _extMainJavaPath = this.extMainJavaPath(model);
-    String _extEntityModelPackage = this.extEntityModelPackage(entity);
-    String _extPackageToPath = this.extPackageToPath(_extEntityModelPackage);
-    String _name = entity.getName();
-    return String.format("%s/%s/%s.java", _extMainJavaPath, _extPackageToPath, _name);
-  }
-  
-  public String extEntityServiceName(final Entity entity) {
-    String _name = entity.getName();
-    return String.format("I%sPersistence", _name);
-  }
-  
-  public String extEntityServicePath(final Entity entity) {
-    EObject _eContainer = entity.eContainer();
-    PersistenceModel model = ((PersistenceModel) _eContainer);
-    String _extMainJavaPath = this.extMainJavaPath(model);
-    String _extEntityServicePackage = this.extEntityServicePackage(entity);
-    String _extPackageToPath = this.extPackageToPath(_extEntityServicePackage);
-    String _extEntityServiceName = this.extEntityServiceName(entity);
-    return String.format("%s/%s/%s.java", _extMainJavaPath, _extPackageToPath, _extEntityServiceName);
-  }
-  
-  public String extICrudServicePath(final PersistenceModel model) {
-    String _extMainJavaPath = this.extMainJavaPath(model);
-    String _extICrudServicePackage = this.extICrudServicePackage(model);
-    String _extPackageToPath = this.extPackageToPath(_extICrudServicePackage);
-    return String.format("%s/%s/ICrudPersistence.java", _extMainJavaPath, _extPackageToPath);
+    return ((PersistenceModel) _eContainer);
   }
   
   public String extPackageToPath(final String str) {
@@ -95,5 +82,24 @@ public class SnowExtensions {
     String _name = property.getName();
     String _firstUpper = StringExtensions.toFirstUpper(_name);
     return String.format("set%s", _firstUpper);
+  }
+  
+  public String extEntityFullName(final Entity entity) {
+    PersistenceModel _extPersistenceModel = this.extPersistenceModel(entity);
+    String _extModelPackage = this.extModelPackage(_extPersistenceModel);
+    String _name = entity.getName();
+    return String.format("%s.%s", _extModelPackage, _name);
+  }
+  
+  public String extEntityPath(final Entity entity) {
+    PersistenceModel _extPersistenceModel = this.extPersistenceModel(entity);
+    String _extModelPath = this.extModelPath(_extPersistenceModel);
+    String _name = entity.getName();
+    return String.format("%s/%s.java", _extModelPath, _name);
+  }
+  
+  public String extEntityPeristenceName(final Entity entity) {
+    String _name = entity.getName();
+    return String.format("I%sPersistence", _name);
   }
 }

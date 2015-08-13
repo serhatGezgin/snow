@@ -12,12 +12,13 @@ class PersistenceModelGenerator {
 		fs.write(model.extProjectRootPath + '/pom.xml', model.generatePom)
 
 		/* Genereate ICrudService.java */
-		fs.write(model.extICrudServicePath, model.generateICrudPersistence)
+		fs.write(model.extServicePath + '/' + 'ICrudPersistence.java', model.generateICrudPersistence)
 
 		/* Generate entities */
 		model.entities.forEach [ e |
-			fs.write(e.extEntityModelPath, e.generateEntity)
-			fs.write(e.extEntityServicePath, e.generateEntityService)
+			fs.write(e.extEntityPath, e.generateEntity)
+			fs.write(e.extPersistenceModel.extServicePath + '/' + e.extEntityPeristenceName + '.java',
+				e.generateEntityService)
 		]
 	}
 
@@ -83,7 +84,7 @@ class PersistenceModelGenerator {
 	'''
 
 	def protected String generateICrudPersistence(PersistenceModel model) '''
-		package «model.extICrudServicePackage»;
+		package «model.extServicePackage»;
 		
 		public interface ICrudPersistence<T> {
 		
@@ -98,7 +99,7 @@ class PersistenceModelGenerator {
 	'''
 
 	def protected String generateEntity(Entity entity) '''
-		package «entity.extEntityModelPackage»;
+		package «entity.extPersistenceModel.extModelPackage»;
 		
 		@javax.persistence.Entity
 		«IF entity.tableName != null»@javax.persistence.Table(name="«entity.tableName»")«ENDIF»
@@ -124,11 +125,15 @@ class PersistenceModelGenerator {
 		}
 	'''
 
-	def protected String generatePropertField(org.yazgel.snow.Property property) '''
+	def protected String generatePropertField(
+		org.yazgel.snow.Property property
+	) '''
 		private «property.type» «property.name»;
 	'''
 
-	def protected String generateGetterSetter(org.yazgel.snow.Property property) '''
+	def protected String generateGetterSetter(
+		org.yazgel.snow.Property property
+	) '''
 		public «property.type» «property.extGetterName»(){
 			return this.«property.name»;
 		}
@@ -138,10 +143,12 @@ class PersistenceModelGenerator {
 		}
 	'''
 
-	def protected String generateEntityService(Entity entity) '''
-	package «entity.extEntityServicePackage»;
-
-	public interface «entity.extEntityServiceName» extends ICrudPersistence<«entity.extEntityModelPackage».«entity.name»> {
-	}
+	def protected String generateEntityService(
+		Entity entity
+	) '''
+		package «entity.extPersistenceModel.extServicePackage»;
+		
+		public interface «entity.extEntityPeristenceName» extends ICrudPersistence<«entity.extEntityFullName»> {
+		}
 	'''
 }
