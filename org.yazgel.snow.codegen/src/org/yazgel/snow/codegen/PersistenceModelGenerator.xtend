@@ -11,12 +11,19 @@ class PersistenceModelGenerator {
 		/* Generate pom.xml */
 		fs.write(model.extProjectRootPath + '/pom.xml', model.generatePom)
 
-		/* Genereate ICrudService.java */
+		/* Genereate ICrudPersistence.java */
 		fs.write(model.extServicePath + '/' + 'ICrudPersistence.java', model.generateICrudPersistence)
 
-		/* Generate entities */
+		/* Generate DbCrudPersistence.java */
+		fs.write(model.extServiceImplPath + '/' + 'DbCrudPersistence.java', model.generateDbCrudPersistence)
+
+		/* Generate IPersistenceUnitFactory.java */
+		fs.write(model.extServicePath + '/' + 'IPersistenceUnitFactory.java', model.generateIPersistenceUnitFactory)
+
 		model.entities.forEach [ e |
+			/* Generate entity */
 			fs.write(e.extEntityPath, e.generateEntity)
+			/* Generate entity persistence interface. */
 			fs.write(e.extPersistenceModel.extServicePath + '/' + e.extEntityPeristenceName + '.java',
 				e.generateEntityService)
 		]
@@ -95,6 +102,61 @@ class PersistenceModelGenerator {
 			java.util.List<T> list();
 		
 			Class<T> getPersistenceClass();
+		}
+	'''
+
+	def protected String generateDbCrudPersistence(PersistenceModel model) '''
+		package «model.extServiceImplPackage»;
+		
+		public abstract class DbCrudPersistence<T> implements «model.extServicePackage».ICrudPersistence<T> {
+			@com.google.inject.Inject
+			private «model.extServicePackage».IPersistenceUnitFactory persistenceUnitFactory;
+		
+			@Override
+			public void save(T entity) {
+				javax.persistence.EntityManagerFactory entityManagerFactory = persistenceUnitFactory.getEntityManagerFactory();
+		
+				javax.persistence.EntityManager entityManager = entityManagerFactory.createEntityManager();
+				javax.persistence.EntityTransaction transaction = entityManager.getTransaction();
+				transaction.begin();
+				entityManager.persist(entity);
+				transaction.commit();
+		
+				entityManager.close();
+				entityManagerFactory.close();
+			}
+		
+			@Override
+			public T get(Long id) {
+				javax.persistence.EntityManagerFactory entityManagerFactory = persistenceUnitFactory.getEntityManagerFactory();
+				javax.persistence.EntityManager entityManager = entityManagerFactory.createEntityManager();
+		
+				return (T) entityManager.find(getPersistenceClass(), id);
+			}
+		
+			@Override
+			public java.util.List<T> list() {
+				javax.persistence.EntityManagerFactory emf = persistenceUnitFactory.getEntityManagerFactory();
+				javax.persistence.EntityManager em = emf.createEntityManager();
+		
+				javax.persistence.criteria.CriteriaBuilder builder = em.getCriteriaBuilder();
+				javax.persistence.criteria.CriteriaQuery<T> criteriaQuery = builder.createQuery(getPersistenceClass());
+				javax.persistence.criteria.Root<T> c = criteriaQuery.from(getPersistenceClass());
+				criteriaQuery.select(c);
+		
+				return em.createQuery(criteriaQuery).getResultList();
+			}
+		}
+	'''
+
+	def protected String generateIPersistenceUnitFactory(PersistenceModel model) '''
+		package «model.extServicePackage»;
+		
+		public interface IPersistenceUnitFactory {
+		
+			javax.persistence.EntityManagerFactory getEntityManagerFactory();
+		
+			String getPersistenceUnitName();
 		}
 	'''
 
