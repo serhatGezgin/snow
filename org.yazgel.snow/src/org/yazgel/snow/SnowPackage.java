@@ -103,13 +103,58 @@ public interface SnowPackage extends EPackage {
 	int PERSISTENCE_MODEL__OUTPUT_FOLDER = 3;
 
 	/**
+	 * The feature id for the '<em><b>Jdbc Driver</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL__JDBC_DRIVER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Jdbc Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL__JDBC_URL = 5;
+
+	/**
+	 * The feature id for the '<em><b>Jdbc User</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL__JDBC_USER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Jdbc Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL__JDBC_PASSWORD = 7;
+
+	/**
+	 * The feature id for the '<em><b>Db Connector Dependency</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY = 8;
+
+	/**
 	 * The number of structural features of the '<em>Persistence Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSISTENCE_MODEL_FEATURE_COUNT = 4;
+	int PERSISTENCE_MODEL_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Persistence Model</em>' class.
@@ -277,6 +322,61 @@ public interface SnowPackage extends EPackage {
 	EAttribute getPersistenceModel_OutputFolder();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getJdbcDriver <em>Jdbc Driver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Jdbc Driver</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getJdbcDriver()
+	 * @see #getPersistenceModel()
+	 * @generated
+	 */
+	EAttribute getPersistenceModel_JdbcDriver();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getJdbcUrl <em>Jdbc Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Jdbc Url</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getJdbcUrl()
+	 * @see #getPersistenceModel()
+	 * @generated
+	 */
+	EAttribute getPersistenceModel_JdbcUrl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getJdbcUser <em>Jdbc User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Jdbc User</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getJdbcUser()
+	 * @see #getPersistenceModel()
+	 * @generated
+	 */
+	EAttribute getPersistenceModel_JdbcUser();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getJdbcPassword <em>Jdbc Password</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Jdbc Password</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getJdbcPassword()
+	 * @see #getPersistenceModel()
+	 * @generated
+	 */
+	EAttribute getPersistenceModel_JdbcPassword();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.PersistenceModel#getDbConnectorDependency <em>Db Connector Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Db Connector Dependency</em>'.
+	 * @see org.yazgel.snow.PersistenceModel#getDbConnectorDependency()
+	 * @see #getPersistenceModel()
+	 * @generated
+	 */
+	EAttribute getPersistenceModel_DbConnectorDependency();
+
+	/**
 	 * Returns the meta object for class '{@link org.yazgel.snow.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -415,6 +515,46 @@ public interface SnowPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PERSISTENCE_MODEL__OUTPUT_FOLDER = eINSTANCE.getPersistenceModel_OutputFolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Jdbc Driver</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENCE_MODEL__JDBC_DRIVER = eINSTANCE.getPersistenceModel_JdbcDriver();
+
+		/**
+		 * The meta object literal for the '<em><b>Jdbc Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENCE_MODEL__JDBC_URL = eINSTANCE.getPersistenceModel_JdbcUrl();
+
+		/**
+		 * The meta object literal for the '<em><b>Jdbc User</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENCE_MODEL__JDBC_USER = eINSTANCE.getPersistenceModel_JdbcUser();
+
+		/**
+		 * The meta object literal for the '<em><b>Jdbc Password</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENCE_MODEL__JDBC_PASSWORD = eINSTANCE.getPersistenceModel_JdbcPassword();
+
+		/**
+		 * The meta object literal for the '<em><b>Db Connector Dependency</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY = eINSTANCE.getPersistenceModel_DbConnectorDependency();
 
 		/**
 		 * The meta object literal for the '{@link org.yazgel.snow.impl.EntityImpl <em>Entity</em>}' class.

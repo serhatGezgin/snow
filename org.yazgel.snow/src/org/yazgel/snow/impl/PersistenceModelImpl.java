@@ -34,6 +34,11 @@ import org.yazgel.snow.SnowPackage;
  *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getArtifactId <em>Artifact Id</em>}</li>
  *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getEntities <em>Entities</em>}</li>
  *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getOutputFolder <em>Output Folder</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getJdbcDriver <em>Jdbc Driver</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getJdbcUrl <em>Jdbc Url</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getJdbcUser <em>Jdbc User</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getJdbcPassword <em>Jdbc Password</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.PersistenceModelImpl#getDbConnectorDependency <em>Db Connector Dependency</em>}</li>
  * </ul>
  *
  * @generated
@@ -108,6 +113,106 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected String outputFolder = OUTPUT_FOLDER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getJdbcDriver() <em>Jdbc Driver</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJdbcDriver()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String JDBC_DRIVER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getJdbcDriver() <em>Jdbc Driver</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJdbcDriver()
+	 * @generated
+	 * @ordered
+	 */
+	protected String jdbcDriver = JDBC_DRIVER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getJdbcUrl() <em>Jdbc Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJdbcUrl()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String JDBC_URL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getJdbcUrl() <em>Jdbc Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJdbcUrl()
+	 * @generated
+	 * @ordered
+	 */
+	protected String jdbcUrl = JDBC_URL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getJdbcUser() <em>Jdbc User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJdbcUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String JDBC_USER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getJdbcUser() <em>Jdbc User</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJdbcUser()
+	 * @generated
+	 * @ordered
+	 */
+	protected String jdbcUser = JDBC_USER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getJdbcPassword() <em>Jdbc Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJdbcPassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String JDBC_PASSWORD_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getJdbcPassword() <em>Jdbc Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getJdbcPassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected String jdbcPassword = JDBC_PASSWORD_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDbConnectorDependency() <em>Db Connector Dependency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDbConnectorDependency()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DB_CONNECTOR_DEPENDENCY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDbConnectorDependency() <em>Db Connector Dependency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDbConnectorDependency()
+	 * @generated
+	 * @ordered
+	 */
+	protected String dbConnectorDependency = DB_CONNECTOR_DEPENDENCY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,6 +313,111 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getJdbcDriver() {
+		return jdbcDriver;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJdbcDriver(String newJdbcDriver) {
+		String oldJdbcDriver = jdbcDriver;
+		jdbcDriver = newJdbcDriver;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.PERSISTENCE_MODEL__JDBC_DRIVER, oldJdbcDriver, jdbcDriver));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getJdbcUrl() {
+		return jdbcUrl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJdbcUrl(String newJdbcUrl) {
+		String oldJdbcUrl = jdbcUrl;
+		jdbcUrl = newJdbcUrl;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.PERSISTENCE_MODEL__JDBC_URL, oldJdbcUrl, jdbcUrl));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getJdbcUser() {
+		return jdbcUser;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJdbcUser(String newJdbcUser) {
+		String oldJdbcUser = jdbcUser;
+		jdbcUser = newJdbcUser;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.PERSISTENCE_MODEL__JDBC_USER, oldJdbcUser, jdbcUser));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getJdbcPassword() {
+		return jdbcPassword;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setJdbcPassword(String newJdbcPassword) {
+		String oldJdbcPassword = jdbcPassword;
+		jdbcPassword = newJdbcPassword;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.PERSISTENCE_MODEL__JDBC_PASSWORD, oldJdbcPassword, jdbcPassword));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDbConnectorDependency() {
+		return dbConnectorDependency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDbConnectorDependency(String newDbConnectorDependency) {
+		String oldDbConnectorDependency = dbConnectorDependency;
+		dbConnectorDependency = newDbConnectorDependency;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY, oldDbConnectorDependency, dbConnectorDependency));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -233,6 +443,16 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 				return getEntities();
 			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
 				return getOutputFolder();
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_DRIVER:
+				return getJdbcDriver();
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_URL:
+				return getJdbcUrl();
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_USER:
+				return getJdbcUser();
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_PASSWORD:
+				return getJdbcPassword();
+			case SnowPackage.PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY:
+				return getDbConnectorDependency();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -259,6 +479,21 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
 				setOutputFolder((String)newValue);
 				return;
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_DRIVER:
+				setJdbcDriver((String)newValue);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_URL:
+				setJdbcUrl((String)newValue);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_USER:
+				setJdbcUser((String)newValue);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_PASSWORD:
+				setJdbcPassword((String)newValue);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY:
+				setDbConnectorDependency((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -283,6 +518,21 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
 				setOutputFolder(OUTPUT_FOLDER_EDEFAULT);
 				return;
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_DRIVER:
+				setJdbcDriver(JDBC_DRIVER_EDEFAULT);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_URL:
+				setJdbcUrl(JDBC_URL_EDEFAULT);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_USER:
+				setJdbcUser(JDBC_USER_EDEFAULT);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_PASSWORD:
+				setJdbcPassword(JDBC_PASSWORD_EDEFAULT);
+				return;
+			case SnowPackage.PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY:
+				setDbConnectorDependency(DB_CONNECTOR_DEPENDENCY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -303,6 +553,16 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 				return entities != null && !entities.isEmpty();
 			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
 				return OUTPUT_FOLDER_EDEFAULT == null ? outputFolder != null : !OUTPUT_FOLDER_EDEFAULT.equals(outputFolder);
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_DRIVER:
+				return JDBC_DRIVER_EDEFAULT == null ? jdbcDriver != null : !JDBC_DRIVER_EDEFAULT.equals(jdbcDriver);
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_URL:
+				return JDBC_URL_EDEFAULT == null ? jdbcUrl != null : !JDBC_URL_EDEFAULT.equals(jdbcUrl);
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_USER:
+				return JDBC_USER_EDEFAULT == null ? jdbcUser != null : !JDBC_USER_EDEFAULT.equals(jdbcUser);
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_PASSWORD:
+				return JDBC_PASSWORD_EDEFAULT == null ? jdbcPassword != null : !JDBC_PASSWORD_EDEFAULT.equals(jdbcPassword);
+			case SnowPackage.PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY:
+				return DB_CONNECTOR_DEPENDENCY_EDEFAULT == null ? dbConnectorDependency != null : !DB_CONNECTOR_DEPENDENCY_EDEFAULT.equals(dbConnectorDependency);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -323,6 +583,16 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 		result.append(artifactId);
 		result.append(", outputFolder: ");
 		result.append(outputFolder);
+		result.append(", jdbcDriver: ");
+		result.append(jdbcDriver);
+		result.append(", jdbcUrl: ");
+		result.append(jdbcUrl);
+		result.append(", jdbcUser: ");
+		result.append(jdbcUser);
+		result.append(", jdbcPassword: ");
+		result.append(jdbcPassword);
+		result.append(", dbConnectorDependency: ");
+		result.append(dbConnectorDependency);
 		result.append(')');
 		return result.toString();
 	}

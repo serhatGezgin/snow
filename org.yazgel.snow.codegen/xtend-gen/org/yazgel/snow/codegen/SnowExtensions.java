@@ -20,6 +20,11 @@ public class SnowExtensions {
     return String.format("%s/src/main/java", _extProjectRootPath);
   }
   
+  public String extMainResourcesPath(final PersistenceModel persistenceModel) {
+    String _extProjectRootPath = this.extProjectRootPath(persistenceModel);
+    return String.format("%s/src/main/resources", _extProjectRootPath);
+  }
+  
   public String extTestJavaPath(final PersistenceModel persistenceModel) {
     String _extProjectRootPath = this.extProjectRootPath(persistenceModel);
     return String.format("%s/src/test/java", _extProjectRootPath);

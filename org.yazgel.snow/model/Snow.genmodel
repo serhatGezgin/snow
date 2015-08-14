@@ -12,6 +12,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/artifactId"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//PersistenceModel/entities"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/outputFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/jdbcDriver"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/jdbcUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/jdbcUser"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/jdbcPassword"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/dbConnectorDependency"/>
     </genClasses>
     <genClasses ecoreClass="Snow.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Entity/name"/>

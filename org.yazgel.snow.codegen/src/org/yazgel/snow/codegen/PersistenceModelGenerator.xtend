@@ -43,6 +43,10 @@ class PersistenceModelGenerator {
 			model.generateFactory)
 
 		/* Generate persistence.xml */
+		fs.write(model.extMainResourcesPath + '/' + 'META-INF' + '/' + 'persistence.xml',
+			model.genereateMainPersisenceXml)
+
+		/* Generate persistence.xml */
 		fs.write(model.extTestResourcesPath + '/' + 'META-INF' + '/' + 'persistence.xml',
 			model.generateTestPersistenceXml)
 
@@ -60,6 +64,7 @@ class PersistenceModelGenerator {
 		/* Generate test base. */
 		fs.write(model.extTestServicePath + '/' + 'DbPersistenceTestBase.java', model.generateDbPersistenceTestBase)
 
+		/* Generate tests. */
 		model.entities.forEach [ e |
 			fs.write(model.extTestServicePath + '/' + e.extEntityPeristenceImplName + 'Test.java',
 				e.generateDbPersistenceTest)
@@ -111,13 +116,16 @@ class PersistenceModelGenerator {
 					<artifactId>guice</artifactId>
 					<version>${guice.version}</version>
 				</dependency>
+				
+				<!-- JDBC Connector Dependency -->
+				«persistence.dbConnectorDependency»
 		
 				<!-- Test dependencies -->
 				<dependency>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-					<version>${junit.version}</version>
-					<scope>test</scope>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
 				</dependency>
 				<dependency>
 					<groupId>org.apache.derby</groupId>
@@ -126,6 +134,20 @@ class PersistenceModelGenerator {
 					<scope>test</scope>
 				</dependency>
 			</dependencies>
+			
+			<build>
+				<plugins>
+					<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>${project.java.version}</source>
+						<target>${project.java.version}</target>
+					</configuration>
+					</plugin>
+				</plugins>
+			</build>
 		</project>
 	'''
 
@@ -348,6 +370,30 @@ class PersistenceModelGenerator {
 				}
 			«ENDFOR»
 		}
+	'''
+
+	def protected String genereateMainPersisenceXml(PersistenceModel persistenceModel) '''
+		<?xml version="1.0" encoding="UTF-8"?>
+		<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+		             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+		             version="2.1">
+		
+		<persistence-unit name="prod" transaction-type="RESOURCE_LOCAL">
+		   	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		   	«FOR e : persistenceModel.entities»
+		   		<class>«e.extEntityFullName»</class>
+			«ENDFOR»
+			<properties>
+			<property name="javax.persistence.jdbc.driver" value="«persistenceModel.jdbcDriver»"/>
+			<property name="javax.persistence.jdbc.url" value="«persistenceModel.jdbcUrl»"/>
+			<property name="javax.persistence.jdbc.user" value="«persistenceModel.jdbcUser»"/>
+			<property name="javax.persistence.jdbc.password" value="«persistenceModel.jdbcPassword»"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+			</properties>
+		</persistence-unit>
+		</persistence>        
 	'''
 
 	def protected String generateTestPersistenceXml(PersistenceModel model) '''

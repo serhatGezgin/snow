@@ -66,6 +66,11 @@ public class PersistenceModelItemProvider
 			addGroupIdPropertyDescriptor(object);
 			addArtifactIdPropertyDescriptor(object);
 			addOutputFolderPropertyDescriptor(object);
+			addJdbcDriverPropertyDescriptor(object);
+			addJdbcUrlPropertyDescriptor(object);
+			addJdbcUserPropertyDescriptor(object);
+			addJdbcPasswordPropertyDescriptor(object);
+			addDbConnectorDependencyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -128,6 +133,116 @@ public class PersistenceModelItemProvider
 				 getString("_UI_PersistenceModel_outputFolder_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_outputFolder_feature", "_UI_PersistenceModel_type"),
 				 SnowPackage.Literals.PERSISTENCE_MODEL__OUTPUT_FOLDER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Jdbc Driver feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addJdbcDriverPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PersistenceModel_jdbcDriver_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_jdbcDriver_feature", "_UI_PersistenceModel_type"),
+				 SnowPackage.Literals.PERSISTENCE_MODEL__JDBC_DRIVER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Jdbc Url feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addJdbcUrlPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PersistenceModel_jdbcUrl_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_jdbcUrl_feature", "_UI_PersistenceModel_type"),
+				 SnowPackage.Literals.PERSISTENCE_MODEL__JDBC_URL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Jdbc User feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addJdbcUserPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PersistenceModel_jdbcUser_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_jdbcUser_feature", "_UI_PersistenceModel_type"),
+				 SnowPackage.Literals.PERSISTENCE_MODEL__JDBC_USER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Jdbc Password feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addJdbcPasswordPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PersistenceModel_jdbcPassword_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_jdbcPassword_feature", "_UI_PersistenceModel_type"),
+				 SnowPackage.Literals.PERSISTENCE_MODEL__JDBC_PASSWORD,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Db Connector Dependency feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDbConnectorDependencyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PersistenceModel_dbConnectorDependency_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PersistenceModel_dbConnectorDependency_feature", "_UI_PersistenceModel_type"),
+				 SnowPackage.Literals.PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY,
 				 true,
 				 false,
 				 false,
@@ -207,6 +322,11 @@ public class PersistenceModelItemProvider
 			case SnowPackage.PERSISTENCE_MODEL__GROUP_ID:
 			case SnowPackage.PERSISTENCE_MODEL__ARTIFACT_ID:
 			case SnowPackage.PERSISTENCE_MODEL__OUTPUT_FOLDER:
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_DRIVER:
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_URL:
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_USER:
+			case SnowPackage.PERSISTENCE_MODEL__JDBC_PASSWORD:
+			case SnowPackage.PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SnowPackage.PERSISTENCE_MODEL__ENTITIES:

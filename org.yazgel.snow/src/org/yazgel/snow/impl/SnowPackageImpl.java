@@ -154,6 +154,51 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPersistenceModel_JdbcDriver() {
+		return (EAttribute)persistenceModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistenceModel_JdbcUrl() {
+		return (EAttribute)persistenceModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistenceModel_JdbcUser() {
+		return (EAttribute)persistenceModelEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistenceModel_JdbcPassword() {
+		return (EAttribute)persistenceModelEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPersistenceModel_DbConnectorDependency() {
+		return (EAttribute)persistenceModelEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEntity() {
 		return entityEClass;
 	}
@@ -245,6 +290,11 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__ARTIFACT_ID);
 		createEReference(persistenceModelEClass, PERSISTENCE_MODEL__ENTITIES);
 		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__OUTPUT_FOLDER);
+		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__JDBC_DRIVER);
+		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__JDBC_URL);
+		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__JDBC_USER);
+		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__JDBC_PASSWORD);
+		createEAttribute(persistenceModelEClass, PERSISTENCE_MODEL__DB_CONNECTOR_DEPENDENCY);
 
 		entityEClass = createEClass(ENTITY);
 		createEAttribute(entityEClass, ENTITY__NAME);
@@ -291,6 +341,11 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		initEAttribute(getPersistenceModel_ArtifactId(), ecorePackage.getEString(), "artifactId", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPersistenceModel_Entities(), this.getEntity(), null, "entities", null, 0, -1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPersistenceModel_OutputFolder(), ecorePackage.getEString(), "outputFolder", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceModel_JdbcDriver(), ecorePackage.getEString(), "jdbcDriver", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceModel_JdbcUrl(), ecorePackage.getEString(), "jdbcUrl", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceModel_JdbcUser(), ecorePackage.getEString(), "jdbcUser", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceModel_JdbcPassword(), ecorePackage.getEString(), "jdbcPassword", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPersistenceModel_DbConnectorDependency(), ecorePackage.getEString(), "dbConnectorDependency", null, 0, 1, PersistenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
