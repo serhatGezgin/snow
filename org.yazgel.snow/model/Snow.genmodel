@@ -7,6 +7,11 @@
   <foreignModel>Snow.ecore</foreignModel>
   <genPackages prefix="Snow" basePackage="org.yazgel" disposableProviderFactory="true"
       ecorePackage="Snow.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Snow.ecore#//RelationType">
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//RelationType/OneToOne"/>
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//RelationType/OneToMany"/>
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//RelationType/ManyToOne"/>
+    </genEnums>
     <genClasses ecoreClass="Snow.ecore#//PersistenceModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/groupId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/artifactId"/>
@@ -26,6 +31,11 @@
     <genClasses ecoreClass="Snow.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Property/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Property/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//ComplexProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ComplexProperty/relationType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ComplexProperty/optional"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ComplexProperty/mappedBy"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

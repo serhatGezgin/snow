@@ -280,7 +280,7 @@ class PersistenceModelGenerator {
 	) '''
 		private «property.type» «property.name»;
 	'''
-
+	
 	def protected String generateGetterSetter(
 		org.yazgel.snow.Property property
 	) '''

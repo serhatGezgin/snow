@@ -207,6 +207,11 @@ public class EntityItemProvider
 			(createChildParameter
 				(SnowPackage.Literals.ENTITY__PROPERTIES,
 				 SnowFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SnowPackage.Literals.ENTITY__PROPERTIES,
+				 SnowFactory.eINSTANCE.createComplexProperty()));
 	}
 
 	/**

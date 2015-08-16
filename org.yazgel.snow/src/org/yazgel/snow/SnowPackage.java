@@ -4,6 +4,7 @@ package org.yazgel.snow;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -268,6 +269,90 @@ public interface SnowPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.yazgel.snow.impl.ComplexPropertyImpl <em>Complex Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yazgel.snow.impl.ComplexPropertyImpl
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getComplexProperty()
+	 * @generated
+	 */
+	int COMPLEX_PROPERTY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_PROPERTY__NAME = PROPERTY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_PROPERTY__TYPE = PROPERTY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Relation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_PROPERTY__RELATION_TYPE = PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_PROPERTY__OPTIONAL = PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Mapped By</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_PROPERTY__MAPPED_BY = PROPERTY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Complex Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Complex Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.yazgel.snow.RelationType <em>Relation Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yazgel.snow.RelationType
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getRelationType()
+	 * @generated
+	 */
+	int RELATION_TYPE = 4;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.yazgel.snow.PersistenceModel <em>Persistence Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -452,6 +537,59 @@ public interface SnowPackage extends EPackage {
 	EAttribute getProperty_Type();
 
 	/**
+	 * Returns the meta object for class '{@link org.yazgel.snow.ComplexProperty <em>Complex Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Complex Property</em>'.
+	 * @see org.yazgel.snow.ComplexProperty
+	 * @generated
+	 */
+	EClass getComplexProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.ComplexProperty#getRelationType <em>Relation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Relation Type</em>'.
+	 * @see org.yazgel.snow.ComplexProperty#getRelationType()
+	 * @see #getComplexProperty()
+	 * @generated
+	 */
+	EAttribute getComplexProperty_RelationType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.ComplexProperty#isOptional <em>Optional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optional</em>'.
+	 * @see org.yazgel.snow.ComplexProperty#isOptional()
+	 * @see #getComplexProperty()
+	 * @generated
+	 */
+	EAttribute getComplexProperty_Optional();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.ComplexProperty#getMappedBy <em>Mapped By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapped By</em>'.
+	 * @see org.yazgel.snow.ComplexProperty#getMappedBy()
+	 * @see #getComplexProperty()
+	 * @generated
+	 */
+	EAttribute getComplexProperty_MappedBy();
+
+	/**
+	 * Returns the meta object for enum '{@link org.yazgel.snow.RelationType <em>Relation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Relation Type</em>'.
+	 * @see org.yazgel.snow.RelationType
+	 * @generated
+	 */
+	EEnum getRelationType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -615,6 +753,50 @@ public interface SnowPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROPERTY__TYPE = eINSTANCE.getProperty_Type();
+
+		/**
+		 * The meta object literal for the '{@link org.yazgel.snow.impl.ComplexPropertyImpl <em>Complex Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yazgel.snow.impl.ComplexPropertyImpl
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getComplexProperty()
+		 * @generated
+		 */
+		EClass COMPLEX_PROPERTY = eINSTANCE.getComplexProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Relation Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLEX_PROPERTY__RELATION_TYPE = eINSTANCE.getComplexProperty_RelationType();
+
+		/**
+		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLEX_PROPERTY__OPTIONAL = eINSTANCE.getComplexProperty_Optional();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapped By</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLEX_PROPERTY__MAPPED_BY = eINSTANCE.getComplexProperty_MappedBy();
+
+		/**
+		 * The meta object literal for the '{@link org.yazgel.snow.RelationType <em>Relation Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yazgel.snow.RelationType
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getRelationType()
+		 * @generated
+		 */
+		EEnum RELATION_TYPE = eINSTANCE.getRelationType();
 
 	}
 

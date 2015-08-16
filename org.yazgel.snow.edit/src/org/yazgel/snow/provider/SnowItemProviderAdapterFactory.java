@@ -141,6 +141,29 @@ public class SnowItemProviderAdapterFactory extends SnowAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.yazgel.snow.ComplexProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComplexPropertyItemProvider complexPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.yazgel.snow.ComplexProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComplexPropertyAdapter() {
+		if (complexPropertyItemProvider == null) {
+			complexPropertyItemProvider = new ComplexPropertyItemProvider(this);
+		}
+
+		return complexPropertyItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +265,7 @@ public class SnowItemProviderAdapterFactory extends SnowAdapterFactory implement
 		if (persistenceModelItemProvider != null) persistenceModelItemProvider.dispose();
 		if (entityItemProvider != null) entityItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
+		if (complexPropertyItemProvider != null) complexPropertyItemProvider.dispose();
 	}
 
 }

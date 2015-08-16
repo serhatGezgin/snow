@@ -3,6 +3,7 @@
 package org.yazgel.snow.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -59,8 +60,39 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 			case SnowPackage.PERSISTENCE_MODEL: return createPersistenceModel();
 			case SnowPackage.ENTITY: return createEntity();
 			case SnowPackage.PROPERTY: return createProperty();
+			case SnowPackage.COMPLEX_PROPERTY: return createComplexProperty();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case SnowPackage.RELATION_TYPE:
+				return createRelationTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case SnowPackage.RELATION_TYPE:
+				return convertRelationTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -92,6 +124,36 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 	public Property createProperty() {
 		PropertyImpl property = new PropertyImpl();
 		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComplexProperty createComplexProperty() {
+		ComplexPropertyImpl complexProperty = new ComplexPropertyImpl();
+		return complexProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelationType createRelationTypeFromString(EDataType eDataType, String initialValue) {
+		RelationType result = RelationType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRelationTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

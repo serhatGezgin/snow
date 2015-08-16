@@ -4,14 +4,17 @@ package org.yazgel.snow.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.yazgel.snow.ComplexProperty;
 import org.yazgel.snow.Entity;
 import org.yazgel.snow.PersistenceModel;
 import org.yazgel.snow.Property;
+import org.yazgel.snow.RelationType;
 import org.yazgel.snow.SnowFactory;
 import org.yazgel.snow.SnowPackage;
 
@@ -42,6 +45,20 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * @generated
 	 */
 	private EClass propertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass complexPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum relationTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -262,6 +279,51 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getComplexProperty() {
+		return complexPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComplexProperty_RelationType() {
+		return (EAttribute)complexPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComplexProperty_Optional() {
+		return (EAttribute)complexPropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComplexProperty_MappedBy() {
+		return (EAttribute)complexPropertyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getRelationType() {
+		return relationTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SnowFactory getSnowFactory() {
 		return (SnowFactory)getEFactoryInstance();
 	}
@@ -304,6 +366,14 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		propertyEClass = createEClass(PROPERTY);
 		createEAttribute(propertyEClass, PROPERTY__NAME);
 		createEAttribute(propertyEClass, PROPERTY__TYPE);
+
+		complexPropertyEClass = createEClass(COMPLEX_PROPERTY);
+		createEAttribute(complexPropertyEClass, COMPLEX_PROPERTY__RELATION_TYPE);
+		createEAttribute(complexPropertyEClass, COMPLEX_PROPERTY__OPTIONAL);
+		createEAttribute(complexPropertyEClass, COMPLEX_PROPERTY__MAPPED_BY);
+
+		// Create enums
+		relationTypeEEnum = createEEnum(RELATION_TYPE);
 	}
 
 	/**
@@ -334,6 +404,7 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		complexPropertyEClass.getESuperTypes().add(this.getProperty());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(persistenceModelEClass, PersistenceModel.class, "PersistenceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -355,6 +426,17 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_Type(), ecorePackage.getEString(), "type", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(complexPropertyEClass, ComplexProperty.class, "ComplexProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComplexProperty_RelationType(), this.getRelationType(), "relationType", null, 0, 1, ComplexProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComplexProperty_Optional(), ecorePackage.getEBoolean(), "optional", "true", 0, 1, ComplexProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComplexProperty_MappedBy(), ecorePackage.getEString(), "mappedBy", null, 0, 1, ComplexProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(relationTypeEEnum, RelationType.class, "RelationType");
+		addEEnumLiteral(relationTypeEEnum, RelationType.ONE_TO_ONE);
+		addEEnumLiteral(relationTypeEEnum, RelationType.ONE_TO_MANY);
+		addEEnumLiteral(relationTypeEEnum, RelationType.MANY_TO_ONE);
 
 		// Create resource
 		createResource(eNS_URI);
