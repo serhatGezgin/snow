@@ -2,6 +2,8 @@ package org.yazgel.snow.codegen
 
 import org.yazgel.snow.PersistenceModel
 import org.yazgel.snow.Entity
+import org.yazgel.snow.ComplexProperty
+import org.yazgel.snow.RelationType
 
 class PersistenceModelGenerator {
 	extension SnowExtensions ext = new SnowExtensions
@@ -258,7 +260,7 @@ class PersistenceModelGenerator {
 			@javax.persistence.GeneratedValue
 			private Long id;
 			«FOR p : entity.properties»
-				«p.generatePropertField»
+				«p.generatePropertyField»
 			«ENDFOR»
 			
 			public Long getId(){
@@ -275,20 +277,27 @@ class PersistenceModelGenerator {
 		}
 	'''
 
-	def protected String generatePropertField(
+	def dispatch protected String generatePropertyField(
 		org.yazgel.snow.Property property
 	) '''
-		private «property.type» «property.name»;
+		private «property.extTypeName» «property.name»;
 	'''
-	
+
+	def dispatch protected String generatePropertyField(
+		ComplexProperty complexProperty
+	) '''
+		«complexProperty.extAnnotation»
+		private «complexProperty.extTypeName» «complexProperty.name»«IF complexProperty.relationType == RelationType.ONE_TO_MANY» = new java.util.ArrayList<«complexProperty.type»>()«ENDIF»;
+	'''
+
 	def protected String generateGetterSetter(
 		org.yazgel.snow.Property property
 	) '''
-		public «property.type» «property.extGetterName»(){
+		public «property.extTypeName» «property.extGetterName»(){
 			return this.«property.name»;
 		}
 		
-		public void «property.extSetterName»(«property.type» «property.name»){
+		public void «property.extSetterName»(«property.extTypeName» «property.name»){
 			this.«property.name» = «property.name»;
 		}
 	'''
@@ -385,11 +394,11 @@ class PersistenceModelGenerator {
 		   		<class>«e.extEntityFullName»</class>
 			«ENDFOR»
 			<properties>
-				<property name="javax.persistence.jdbc.driver" value="«persistenceModel.jdbcDriver»"/>
-				<property name="javax.persistence.jdbc.url" value="«persistenceModel.jdbcUrl»"/>
-				<property name="javax.persistence.jdbc.user" value="«persistenceModel.jdbcUser»"/>
-				<property name="javax.persistence.jdbc.password" value="«persistenceModel.jdbcPassword»"/>
-				<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="javax.persistence.jdbc.driver" value="«persistenceModel.jdbcDriver»"/>
+			<property name="javax.persistence.jdbc.url" value="«persistenceModel.jdbcUrl»"/>
+			<property name="javax.persistence.jdbc.user" value="«persistenceModel.jdbcUser»"/>
+			<property name="javax.persistence.jdbc.password" value="«persistenceModel.jdbcPassword»"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 			</properties>
 		</persistence-unit>
 		</persistence>        

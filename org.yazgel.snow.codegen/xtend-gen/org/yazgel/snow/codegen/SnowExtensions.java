@@ -1,11 +1,15 @@
 package org.yazgel.snow.codegen;
 
 import com.google.common.base.Objects;
+import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.yazgel.snow.ComplexProperty;
 import org.yazgel.snow.Entity;
 import org.yazgel.snow.PersistenceModel;
 import org.yazgel.snow.Property;
+import org.yazgel.snow.RelationType;
 
 @SuppressWarnings("all")
 public class SnowExtensions {
@@ -111,6 +115,20 @@ public class SnowExtensions {
     return String.format("get%s", _firstUpper_1);
   }
   
+  protected String _extTypeName(final Property property) {
+    return property.getType();
+  }
+  
+  protected String _extTypeName(final ComplexProperty complextProperty) {
+    RelationType _relationType = complextProperty.getRelationType();
+    boolean _equals = Objects.equal(_relationType, RelationType.ONE_TO_MANY);
+    if (_equals) {
+      String _type = complextProperty.getType();
+      return String.format("java.util.List<%s>", _type);
+    }
+    return complextProperty.getType();
+  }
+  
   public String extSetterName(final Property property) {
     String _name = property.getName();
     String _firstUpper = StringExtensions.toFirstUpper(_name);
@@ -165,5 +183,50 @@ public class SnowExtensions {
     String _extRootPackage = this.extRootPackage(persistenceModel);
     String _extFactoryName = this.extFactoryName(persistenceModel);
     return String.format("%s.%s", _extRootPackage, _extFactoryName);
+  }
+  
+  public CharSequence extAnnotation(final ComplexProperty complexProperty) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("@javax.persistence.");
+    RelationType _relationType = complexProperty.getRelationType();
+    String _literal = _relationType.getLiteral();
+    _builder.append(_literal, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("(");
+    _builder.newLine();
+    {
+      RelationType _relationType_1 = complexProperty.getRelationType();
+      boolean _equals = Objects.equal(_relationType_1, RelationType.ONE_TO_ONE);
+      if (_equals) {
+        _builder.append("optional=");
+        boolean _isOptional = complexProperty.isOptional();
+        _builder.append(_isOptional, "");
+        _builder.newLineIfNotEmpty();
+        {
+          String _mappedBy = complexProperty.getMappedBy();
+          boolean _notEquals = (!Objects.equal(_mappedBy, null));
+          if (_notEquals) {
+            _builder.append("»mappedBy=");
+            String _mappedBy_1 = complexProperty.getMappedBy();
+            _builder.append(_mappedBy_1, "");
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append(")");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public String extTypeName(final Property complextProperty) {
+    if (complextProperty instanceof ComplexProperty) {
+      return _extTypeName((ComplexProperty)complextProperty);
+    } else if (complextProperty != null) {
+      return _extTypeName(complextProperty);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(complextProperty).toString());
+    }
   }
 }

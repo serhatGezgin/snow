@@ -1,7 +1,10 @@
 package org.yazgel.snow.codegen
 
+import org.yazgel.snow.ComplexProperty
 import org.yazgel.snow.Entity
 import org.yazgel.snow.PersistenceModel
+import org.yazgel.snow.Property
+import org.yazgel.snow.RelationType
 
 class SnowExtensions {
 
@@ -70,7 +73,7 @@ class SnowExtensions {
 		return str.replace('.', '/')
 	}
 
-	def extGetterName(org.yazgel.snow.Property property) {
+	def extGetterName(Property property) {
 		if (property.type == 'boolean') {
 			return String.format('is%s', property.name.toFirstUpper)
 		}
@@ -78,7 +81,19 @@ class SnowExtensions {
 		return String.format('get%s', property.name.toFirstUpper)
 	}
 
-	def extSetterName(org.yazgel.snow.Property property) {
+	def dispatch extTypeName(Property property) {
+		return property.type
+	}
+
+	def dispatch extTypeName(ComplexProperty complextProperty) {
+		if (complextProperty.relationType == RelationType.ONE_TO_MANY) {
+			return String.format('java.util.List<%s>', complextProperty.type)
+		}
+
+		return complextProperty.type
+	}
+
+	def extSetterName(Property property) {
 		return String.format('set%s', property.name.toFirstUpper)
 	}
 
@@ -114,4 +129,14 @@ class SnowExtensions {
 	def extFactoryFullName(PersistenceModel persistenceModel) {
 		return String.format('%s.%s', persistenceModel.extRootPackage, persistenceModel.extFactoryName)
 	}
+
+	def extAnnotation(ComplexProperty complexProperty) '''
+		@javax.persistence.«complexProperty.relationType.literal»
+		(
+		«IF complexProperty.relationType == RelationType.ONE_TO_ONE»
+			optional=«complexProperty.optional»
+			«IF complexProperty.mappedBy!=null»»mappedBy=«complexProperty.mappedBy»«ENDIF»
+		«ENDIF»
+		)
+	'''
 }
