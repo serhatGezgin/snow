@@ -385,12 +385,11 @@ class PersistenceModelGenerator {
 		   		<class>«e.extEntityFullName»</class>
 			«ENDFOR»
 			<properties>
-			<property name="javax.persistence.jdbc.driver" value="«persistenceModel.jdbcDriver»"/>
-			<property name="javax.persistence.jdbc.url" value="«persistenceModel.jdbcUrl»"/>
-			<property name="javax.persistence.jdbc.user" value="«persistenceModel.jdbcUser»"/>
-			<property name="javax.persistence.jdbc.password" value="«persistenceModel.jdbcPassword»"/>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+				<property name="javax.persistence.jdbc.driver" value="«persistenceModel.jdbcDriver»"/>
+				<property name="javax.persistence.jdbc.url" value="«persistenceModel.jdbcUrl»"/>
+				<property name="javax.persistence.jdbc.user" value="«persistenceModel.jdbcUser»"/>
+				<property name="javax.persistence.jdbc.password" value="«persistenceModel.jdbcPassword»"/>
+				<property name="hibernate.hbm2ddl.auto" value="update"/>
 			</properties>
 		</persistence-unit>
 		</persistence>        
