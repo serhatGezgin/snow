@@ -8,46 +8,25 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.yazgel.snow.ComplexProperty;
-import org.yazgel.snow.RelationType;
+import org.yazgel.snow.OneToOneRelationProperty;
 import org.yazgel.snow.SnowPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Complex Property</b></em>'.
+ * An implementation of the model object '<em><b>One To One Relation Property</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.yazgel.snow.impl.ComplexPropertyImpl#getRelationType <em>Relation Type</em>}</li>
- *   <li>{@link org.yazgel.snow.impl.ComplexPropertyImpl#isOptional <em>Optional</em>}</li>
- *   <li>{@link org.yazgel.snow.impl.ComplexPropertyImpl#getMappedBy <em>Mapped By</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.OneToOneRelationPropertyImpl#isOptional <em>Optional</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.OneToOneRelationPropertyImpl#getMappedBy <em>Mapped By</em>}</li>
+ *   <li>{@link org.yazgel.snow.impl.OneToOneRelationPropertyImpl#isOrphanRemoval <em>Orphan Removal</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty {
-	/**
-	 * The default value of the '{@link #getRelationType() <em>Relation Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelationType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final RelationType RELATION_TYPE_EDEFAULT = RelationType.ONE_TO_ONE;
-
-	/**
-	 * The cached value of the '{@link #getRelationType() <em>Relation Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelationType()
-	 * @generated
-	 * @ordered
-	 */
-	protected RelationType relationType = RELATION_TYPE_EDEFAULT;
-
+public class OneToOneRelationPropertyImpl extends RelationPropertyImpl implements OneToOneRelationProperty {
 	/**
 	 * The default value of the '{@link #isOptional() <em>Optional</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,7 +35,7 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean OPTIONAL_EDEFAULT = true;
+	protected static final boolean OPTIONAL_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #isOptional() <em>Optional</em>}' attribute.
@@ -89,11 +68,31 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 	protected String mappedBy = MAPPED_BY_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isOrphanRemoval() <em>Orphan Removal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOrphanRemoval()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ORPHAN_REMOVAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isOrphanRemoval() <em>Orphan Removal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOrphanRemoval()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean orphanRemoval = ORPHAN_REMOVAL_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComplexPropertyImpl() {
+	protected OneToOneRelationPropertyImpl() {
 		super();
 	}
 
@@ -104,28 +103,7 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SnowPackage.Literals.COMPLEX_PROPERTY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RelationType getRelationType() {
-		return relationType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRelationType(RelationType newRelationType) {
-		RelationType oldRelationType = relationType;
-		relationType = newRelationType == null ? RELATION_TYPE_EDEFAULT : newRelationType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.COMPLEX_PROPERTY__RELATION_TYPE, oldRelationType, relationType));
+		return SnowPackage.Literals.ONE_TO_ONE_RELATION_PROPERTY;
 	}
 
 	/**
@@ -146,7 +124,7 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 		boolean oldOptional = optional;
 		optional = newOptional;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.COMPLEX_PROPERTY__OPTIONAL, oldOptional, optional));
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__OPTIONAL, oldOptional, optional));
 	}
 
 	/**
@@ -167,7 +145,28 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 		String oldMappedBy = mappedBy;
 		mappedBy = newMappedBy;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.COMPLEX_PROPERTY__MAPPED_BY, oldMappedBy, mappedBy));
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__MAPPED_BY, oldMappedBy, mappedBy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isOrphanRemoval() {
+		return orphanRemoval;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrphanRemoval(boolean newOrphanRemoval) {
+		boolean oldOrphanRemoval = orphanRemoval;
+		orphanRemoval = newOrphanRemoval;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__ORPHAN_REMOVAL, oldOrphanRemoval, orphanRemoval));
 	}
 
 	/**
@@ -178,12 +177,12 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SnowPackage.COMPLEX_PROPERTY__RELATION_TYPE:
-				return getRelationType();
-			case SnowPackage.COMPLEX_PROPERTY__OPTIONAL:
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__OPTIONAL:
 				return isOptional();
-			case SnowPackage.COMPLEX_PROPERTY__MAPPED_BY:
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__MAPPED_BY:
 				return getMappedBy();
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__ORPHAN_REMOVAL:
+				return isOrphanRemoval();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -196,14 +195,14 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SnowPackage.COMPLEX_PROPERTY__RELATION_TYPE:
-				setRelationType((RelationType)newValue);
-				return;
-			case SnowPackage.COMPLEX_PROPERTY__OPTIONAL:
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__OPTIONAL:
 				setOptional((Boolean)newValue);
 				return;
-			case SnowPackage.COMPLEX_PROPERTY__MAPPED_BY:
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__MAPPED_BY:
 				setMappedBy((String)newValue);
+				return;
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__ORPHAN_REMOVAL:
+				setOrphanRemoval((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,14 +216,14 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SnowPackage.COMPLEX_PROPERTY__RELATION_TYPE:
-				setRelationType(RELATION_TYPE_EDEFAULT);
-				return;
-			case SnowPackage.COMPLEX_PROPERTY__OPTIONAL:
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__OPTIONAL:
 				setOptional(OPTIONAL_EDEFAULT);
 				return;
-			case SnowPackage.COMPLEX_PROPERTY__MAPPED_BY:
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__MAPPED_BY:
 				setMappedBy(MAPPED_BY_EDEFAULT);
+				return;
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__ORPHAN_REMOVAL:
+				setOrphanRemoval(ORPHAN_REMOVAL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -238,12 +237,12 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SnowPackage.COMPLEX_PROPERTY__RELATION_TYPE:
-				return relationType != RELATION_TYPE_EDEFAULT;
-			case SnowPackage.COMPLEX_PROPERTY__OPTIONAL:
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__OPTIONAL:
 				return optional != OPTIONAL_EDEFAULT;
-			case SnowPackage.COMPLEX_PROPERTY__MAPPED_BY:
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__MAPPED_BY:
 				return MAPPED_BY_EDEFAULT == null ? mappedBy != null : !MAPPED_BY_EDEFAULT.equals(mappedBy);
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY__ORPHAN_REMOVAL:
+				return orphanRemoval != ORPHAN_REMOVAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -258,14 +257,14 @@ public class ComplexPropertyImpl extends PropertyImpl implements ComplexProperty
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (relationType: ");
-		result.append(relationType);
-		result.append(", optional: ");
+		result.append(" (optional: ");
 		result.append(optional);
 		result.append(", mappedBy: ");
 		result.append(mappedBy);
+		result.append(", orphanRemoval: ");
+		result.append(orphanRemoval);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ComplexPropertyImpl
+} //OneToOneRelationPropertyImpl

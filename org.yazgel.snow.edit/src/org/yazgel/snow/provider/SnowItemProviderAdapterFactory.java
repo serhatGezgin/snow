@@ -141,26 +141,95 @@ public class SnowItemProviderAdapterFactory extends SnowAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.yazgel.snow.ComplexProperty} instances.
+	 * This keeps track of the one adapter used for all {@link org.yazgel.snow.OneToManyRelationProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComplexPropertyItemProvider complexPropertyItemProvider;
+	protected OneToManyRelationPropertyItemProvider oneToManyRelationPropertyItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.yazgel.snow.ComplexProperty}.
+	 * This creates an adapter for a {@link org.yazgel.snow.OneToManyRelationProperty}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComplexPropertyAdapter() {
-		if (complexPropertyItemProvider == null) {
-			complexPropertyItemProvider = new ComplexPropertyItemProvider(this);
+	public Adapter createOneToManyRelationPropertyAdapter() {
+		if (oneToManyRelationPropertyItemProvider == null) {
+			oneToManyRelationPropertyItemProvider = new OneToManyRelationPropertyItemProvider(this);
 		}
 
-		return complexPropertyItemProvider;
+		return oneToManyRelationPropertyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.yazgel.snow.ManyToOneRelationProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ManyToOneRelationPropertyItemProvider manyToOneRelationPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.yazgel.snow.ManyToOneRelationProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createManyToOneRelationPropertyAdapter() {
+		if (manyToOneRelationPropertyItemProvider == null) {
+			manyToOneRelationPropertyItemProvider = new ManyToOneRelationPropertyItemProvider(this);
+		}
+
+		return manyToOneRelationPropertyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.yazgel.snow.OneToOneRelationProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OneToOneRelationPropertyItemProvider oneToOneRelationPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.yazgel.snow.OneToOneRelationProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOneToOneRelationPropertyAdapter() {
+		if (oneToOneRelationPropertyItemProvider == null) {
+			oneToOneRelationPropertyItemProvider = new OneToOneRelationPropertyItemProvider(this);
+		}
+
+		return oneToOneRelationPropertyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.yazgel.snow.ManyToManyRelationProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ManyToManyRelationPropertyItemProvider manyToManyRelationPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.yazgel.snow.ManyToManyRelationProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createManyToManyRelationPropertyAdapter() {
+		if (manyToManyRelationPropertyItemProvider == null) {
+			manyToManyRelationPropertyItemProvider = new ManyToManyRelationPropertyItemProvider(this);
+		}
+
+		return manyToManyRelationPropertyItemProvider;
 	}
 
 	/**
@@ -265,7 +334,10 @@ public class SnowItemProviderAdapterFactory extends SnowAdapterFactory implement
 		if (persistenceModelItemProvider != null) persistenceModelItemProvider.dispose();
 		if (entityItemProvider != null) entityItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
-		if (complexPropertyItemProvider != null) complexPropertyItemProvider.dispose();
+		if (oneToManyRelationPropertyItemProvider != null) oneToManyRelationPropertyItemProvider.dispose();
+		if (manyToOneRelationPropertyItemProvider != null) manyToOneRelationPropertyItemProvider.dispose();
+		if (oneToOneRelationPropertyItemProvider != null) oneToOneRelationPropertyItemProvider.dispose();
+		if (manyToManyRelationPropertyItemProvider != null) manyToManyRelationPropertyItemProvider.dispose();
 	}
 
 }

@@ -1,9 +1,12 @@
 package org.yazgel.snow.codegen
 
-import org.yazgel.snow.PersistenceModel
 import org.yazgel.snow.Entity
-import org.yazgel.snow.ComplexProperty
-import org.yazgel.snow.RelationType
+import org.yazgel.snow.ManyToManyRelationProperty
+import org.yazgel.snow.ManyToOneRelationProperty
+import org.yazgel.snow.OneToManyRelationProperty
+import org.yazgel.snow.OneToOneRelationProperty
+import org.yazgel.snow.PersistenceModel
+import org.yazgel.snow.Property
 
 class PersistenceModelGenerator {
 	extension SnowExtensions ext = new SnowExtensions
@@ -278,26 +281,76 @@ class PersistenceModelGenerator {
 	'''
 
 	def dispatch protected String generatePropertyField(
-		org.yazgel.snow.Property property
+		Property property
 	) '''
-		private «property.extTypeName» «property.name»;
+		private «property.type» «property.name»;
 	'''
 
 	def dispatch protected String generatePropertyField(
-		ComplexProperty complexProperty
+		OneToManyRelationProperty property
 	) '''
-		«complexProperty.extAnnotation»
-		private «complexProperty.extTypeName» «complexProperty.name»«IF complexProperty.relationType == RelationType.ONE_TO_MANY» = new java.util.ArrayList<«complexProperty.type»>()«ENDIF»;
+		@javax.persistence.OneToMany
+		(
+			«property.extCascade»
+			,«property.extFetch»
+			,«property.extOrphanRemoval»
+			«IF property.mappedBy != null»
+				,«property.extMappedBy»
+			«ENDIF»
+		)
+		private «property.extPropertyType» «property.name» = new java.util.ArrayList<«property.type»>();
+	'''
+
+	def dispatch protected String generatePropertyField(
+		ManyToOneRelationProperty property
+	) '''
+		@javax.persistence.ManyToOne
+		(
+			«property.extCascade»
+			,«property.extFetch»
+			,«property.extOptional»
+		)
+		private «property.extPropertyType» «property.name»;
+	'''
+
+	def dispatch protected String generatePropertyField(
+		OneToOneRelationProperty property
+	) '''
+		@javax.persistence.OneToOne
+		(
+			«property.extCascade»
+			,«property.extFetch»
+			,«property.extOptional»
+			,«property.extOrphanRemoval»
+			«IF property.mappedBy != null»
+				,«property.extMappedBy»
+			«ENDIF»
+		)
+		private «property.extPropertyType» «property.name»;
+	'''
+
+	def dispatch protected String generatePropertyField(
+		ManyToManyRelationProperty property
+	) '''
+		@javax.persistence.ManyToMany
+		(
+			«property.extCascade»
+			,«property.extFetch»
+			«IF property.mappedBy != null»
+				,«property.extMappedBy»
+			«ENDIF»
+		)
+		private «property.extPropertyType» «property.name» = new java.util.ArrayList<«property.type»>();
 	'''
 
 	def protected String generateGetterSetter(
-		org.yazgel.snow.Property property
+		Property property
 	) '''
-		public «property.extTypeName» «property.extGetterName»(){
+		public «property.extPropertyType» «property.extGetterName»(){
 			return this.«property.name»;
 		}
 		
-		public void «property.extSetterName»(«property.extTypeName» «property.name»){
+		public void «property.extSetterName»(«property.extPropertyType» «property.name»){
 			this.«property.name» = «property.name»;
 		}
 	'''

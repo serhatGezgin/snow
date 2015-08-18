@@ -7,10 +7,17 @@
   <foreignModel>Snow.ecore</foreignModel>
   <genPackages prefix="Snow" basePackage="org.yazgel" disposableProviderFactory="true"
       ecorePackage="Snow.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Snow.ecore#//RelationType">
-      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//RelationType/OneToOne"/>
-      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//RelationType/OneToMany"/>
-      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//RelationType/ManyToOne"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Snow.ecore#//FetchType">
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//FetchType/EAGER"/>
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//FetchType/LAZY"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Snow.ecore#//CascadeType">
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//CascadeType/ALL"/>
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//CascadeType/DETACH"/>
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//CascadeType/MERGE"/>
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//CascadeType/PERSIST"/>
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//CascadeType/REFRESH"/>
+      <genEnumLiterals ecoreEnumLiteral="Snow.ecore#//CascadeType/REMOVE"/>
     </genEnums>
     <genClasses ecoreClass="Snow.ecore#//PersistenceModel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//PersistenceModel/groupId"/>
@@ -32,10 +39,24 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Property/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Property/type"/>
     </genClasses>
-    <genClasses ecoreClass="Snow.ecore#//ComplexProperty">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ComplexProperty/relationType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ComplexProperty/optional"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ComplexProperty/mappedBy"/>
+    <genClasses ecoreClass="Snow.ecore#//RelationProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//RelationProperty/cascade"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//RelationProperty/fetch"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//OneToManyRelationProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//OneToManyRelationProperty/mappedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//OneToManyRelationProperty/orphanRemoval"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//ManyToOneRelationProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ManyToOneRelationProperty/optional"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//OneToOneRelationProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//OneToOneRelationProperty/optional"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//OneToOneRelationProperty/mappedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//OneToOneRelationProperty/orphanRemoval"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//ManyToManyRelationProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ManyToManyRelationProperty/mappedBy"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

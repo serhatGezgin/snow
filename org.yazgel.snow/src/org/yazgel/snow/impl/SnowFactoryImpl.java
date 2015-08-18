@@ -60,7 +60,10 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 			case SnowPackage.PERSISTENCE_MODEL: return createPersistenceModel();
 			case SnowPackage.ENTITY: return createEntity();
 			case SnowPackage.PROPERTY: return createProperty();
-			case SnowPackage.COMPLEX_PROPERTY: return createComplexProperty();
+			case SnowPackage.ONE_TO_MANY_RELATION_PROPERTY: return createOneToManyRelationProperty();
+			case SnowPackage.MANY_TO_ONE_RELATION_PROPERTY: return createManyToOneRelationProperty();
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY: return createOneToOneRelationProperty();
+			case SnowPackage.MANY_TO_MANY_RELATION_PROPERTY: return createManyToManyRelationProperty();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -74,8 +77,10 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case SnowPackage.RELATION_TYPE:
-				return createRelationTypeFromString(eDataType, initialValue);
+			case SnowPackage.FETCH_TYPE:
+				return createFetchTypeFromString(eDataType, initialValue);
+			case SnowPackage.CASCADE_TYPE:
+				return createCascadeTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -89,8 +94,10 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case SnowPackage.RELATION_TYPE:
-				return convertRelationTypeToString(eDataType, instanceValue);
+			case SnowPackage.FETCH_TYPE:
+				return convertFetchTypeToString(eDataType, instanceValue);
+			case SnowPackage.CASCADE_TYPE:
+				return convertCascadeTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -131,9 +138,9 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComplexProperty createComplexProperty() {
-		ComplexPropertyImpl complexProperty = new ComplexPropertyImpl();
-		return complexProperty;
+	public OneToManyRelationProperty createOneToManyRelationProperty() {
+		OneToManyRelationPropertyImpl oneToManyRelationProperty = new OneToManyRelationPropertyImpl();
+		return oneToManyRelationProperty;
 	}
 
 	/**
@@ -141,8 +148,38 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RelationType createRelationTypeFromString(EDataType eDataType, String initialValue) {
-		RelationType result = RelationType.get(initialValue);
+	public ManyToOneRelationProperty createManyToOneRelationProperty() {
+		ManyToOneRelationPropertyImpl manyToOneRelationProperty = new ManyToOneRelationPropertyImpl();
+		return manyToOneRelationProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OneToOneRelationProperty createOneToOneRelationProperty() {
+		OneToOneRelationPropertyImpl oneToOneRelationProperty = new OneToOneRelationPropertyImpl();
+		return oneToOneRelationProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ManyToManyRelationProperty createManyToManyRelationProperty() {
+		ManyToManyRelationPropertyImpl manyToManyRelationProperty = new ManyToManyRelationPropertyImpl();
+		return manyToManyRelationProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FetchType createFetchTypeFromString(EDataType eDataType, String initialValue) {
+		FetchType result = FetchType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -152,7 +189,27 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertRelationTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertFetchTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CascadeType createCascadeTypeFromString(EDataType eDataType, String initialValue) {
+		CascadeType result = CascadeType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCascadeTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -14,23 +14,23 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.yazgel.snow.ComplexProperty;
+import org.yazgel.snow.OneToManyRelationProperty;
 import org.yazgel.snow.SnowPackage;
 
 /**
- * This is the item provider adapter for a {@link org.yazgel.snow.ComplexProperty} object.
+ * This is the item provider adapter for a {@link org.yazgel.snow.OneToManyRelationProperty} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComplexPropertyItemProvider extends PropertyItemProvider {
+public class OneToManyRelationPropertyItemProvider extends RelationPropertyItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComplexPropertyItemProvider(AdapterFactory adapterFactory) {
+	public OneToManyRelationPropertyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,55 +45,10 @@ public class ComplexPropertyItemProvider extends PropertyItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRelationTypePropertyDescriptor(object);
-			addOptionalPropertyDescriptor(object);
 			addMappedByPropertyDescriptor(object);
+			addOrphanRemovalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Relation Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRelationTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ComplexProperty_relationType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexProperty_relationType_feature", "_UI_ComplexProperty_type"),
-				 SnowPackage.Literals.COMPLEX_PROPERTY__RELATION_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Optional feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionalPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ComplexProperty_optional_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexProperty_optional_feature", "_UI_ComplexProperty_type"),
-				 SnowPackage.Literals.COMPLEX_PROPERTY__OPTIONAL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -107,9 +62,9 @@ public class ComplexPropertyItemProvider extends PropertyItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComplexProperty_mappedBy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexProperty_mappedBy_feature", "_UI_ComplexProperty_type"),
-				 SnowPackage.Literals.COMPLEX_PROPERTY__MAPPED_BY,
+				 getString("_UI_OneToManyRelationProperty_mappedBy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OneToManyRelationProperty_mappedBy_feature", "_UI_OneToManyRelationProperty_type"),
+				 SnowPackage.Literals.ONE_TO_MANY_RELATION_PROPERTY__MAPPED_BY,
 				 true,
 				 false,
 				 false,
@@ -119,14 +74,36 @@ public class ComplexPropertyItemProvider extends PropertyItemProvider {
 	}
 
 	/**
-	 * This returns ComplexProperty.gif.
+	 * This adds a property descriptor for the Orphan Removal feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOrphanRemovalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OneToManyRelationProperty_orphanRemoval_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OneToManyRelationProperty_orphanRemoval_feature", "_UI_OneToManyRelationProperty_type"),
+				 SnowPackage.Literals.ONE_TO_MANY_RELATION_PROPERTY__ORPHAN_REMOVAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns OneToManyRelationProperty.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComplexProperty"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OneToManyRelationProperty"));
 	}
 
 	/**
@@ -137,10 +114,10 @@ public class ComplexPropertyItemProvider extends PropertyItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ComplexProperty)object).getName();
+		String label = ((OneToManyRelationProperty)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComplexProperty_type") :
-			getString("_UI_ComplexProperty_type") + " " + label;
+			getString("_UI_OneToManyRelationProperty_type") :
+			getString("_UI_OneToManyRelationProperty_type") + " " + label;
 	}
 	
 
@@ -155,10 +132,9 @@ public class ComplexPropertyItemProvider extends PropertyItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ComplexProperty.class)) {
-			case SnowPackage.COMPLEX_PROPERTY__RELATION_TYPE:
-			case SnowPackage.COMPLEX_PROPERTY__OPTIONAL:
-			case SnowPackage.COMPLEX_PROPERTY__MAPPED_BY:
+		switch (notification.getFeatureID(OneToManyRelationProperty.class)) {
+			case SnowPackage.ONE_TO_MANY_RELATION_PROPERTY__MAPPED_BY:
+			case SnowPackage.ONE_TO_MANY_RELATION_PROPERTY__ORPHAN_REMOVAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

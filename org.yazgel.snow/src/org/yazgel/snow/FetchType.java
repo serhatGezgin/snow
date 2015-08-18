@@ -10,121 +10,95 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Relation Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Fetch Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.yazgel.snow.SnowPackage#getRelationType()
+ * @see org.yazgel.snow.SnowPackage#getFetchType()
  * @model
  * @generated
  */
-public enum RelationType implements Enumerator {
+public enum FetchType implements Enumerator {
 	/**
-	 * The '<em><b>One To One</b></em>' literal object.
+	 * The '<em><b>EAGER</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONE_TO_ONE_VALUE
+	 * @see #EAGER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ONE_TO_ONE(0, "OneToOne", "OneToOne"),
+	EAGER(0, "EAGER", "EAGER"),
 
 	/**
-	 * The '<em><b>One To Many</b></em>' literal object.
+	 * The '<em><b>LAZY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONE_TO_MANY_VALUE
+	 * @see #LAZY_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ONE_TO_MANY(1, "OneToMany", "OneToMany"),
+	LAZY(1, "LAZY", "LAZY");
 
 	/**
-	 * The '<em><b>Many To One</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #MANY_TO_ONE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	MANY_TO_ONE(2, "ManyToOne", "ManyToOne");
-
-	/**
-	 * The '<em><b>One To One</b></em>' literal value.
+	 * The '<em><b>EAGER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>One To One</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>EAGER</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ONE_TO_ONE
-	 * @model name="OneToOne"
+	 * @see #EAGER
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ONE_TO_ONE_VALUE = 0;
+	public static final int EAGER_VALUE = 0;
 
 	/**
-	 * The '<em><b>One To Many</b></em>' literal value.
+	 * The '<em><b>LAZY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>One To Many</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>LAZY</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ONE_TO_MANY
-	 * @model name="OneToMany"
+	 * @see #LAZY
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ONE_TO_MANY_VALUE = 1;
+	public static final int LAZY_VALUE = 1;
 
 	/**
-	 * The '<em><b>Many To One</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Many To One</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #MANY_TO_ONE
-	 * @model name="ManyToOne"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int MANY_TO_ONE_VALUE = 2;
-
-	/**
-	 * An array of all the '<em><b>Relation Type</b></em>' enumerators.
+	 * An array of all the '<em><b>Fetch Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final RelationType[] VALUES_ARRAY =
-		new RelationType[] {
-			ONE_TO_ONE,
-			ONE_TO_MANY,
-			MANY_TO_ONE,
+	private static final FetchType[] VALUES_ARRAY =
+		new FetchType[] {
+			EAGER,
+			LAZY,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Relation Type</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Fetch Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<RelationType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<FetchType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Relation Type</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Fetch Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static RelationType get(String literal) {
+	public static FetchType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			RelationType result = VALUES_ARRAY[i];
+			FetchType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -133,16 +107,16 @@ public enum RelationType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Relation Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Fetch Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static RelationType getByName(String name) {
+	public static FetchType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			RelationType result = VALUES_ARRAY[i];
+			FetchType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -151,18 +125,17 @@ public enum RelationType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Relation Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Fetch Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static RelationType get(int value) {
+	public static FetchType get(int value) {
 		switch (value) {
-			case ONE_TO_ONE_VALUE: return ONE_TO_ONE;
-			case ONE_TO_MANY_VALUE: return ONE_TO_MANY;
-			case MANY_TO_ONE_VALUE: return MANY_TO_ONE;
+			case EAGER_VALUE: return EAGER;
+			case LAZY_VALUE: return LAZY;
 		}
 		return null;
 	}
@@ -194,7 +167,7 @@ public enum RelationType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private RelationType(int value, String name, String literal) {
+	private FetchType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -238,4 +211,4 @@ public enum RelationType implements Enumerator {
 		return literal;
 	}
 	
-} //RelationType
+} //FetchType

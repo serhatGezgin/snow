@@ -1,10 +1,13 @@
 package org.yazgel.snow.codegen
 
-import org.yazgel.snow.ComplexProperty
 import org.yazgel.snow.Entity
+import org.yazgel.snow.OneToManyRelationProperty
 import org.yazgel.snow.PersistenceModel
 import org.yazgel.snow.Property
-import org.yazgel.snow.RelationType
+import org.yazgel.snow.RelationProperty
+import org.yazgel.snow.ManyToOneRelationProperty
+import org.yazgel.snow.OneToOneRelationProperty
+import org.yazgel.snow.ManyToManyRelationProperty
 
 class SnowExtensions {
 
@@ -81,20 +84,20 @@ class SnowExtensions {
 		return String.format('get%s', property.name.toFirstUpper)
 	}
 
-	def dispatch extTypeName(Property property) {
+	def extSetterName(Property property) {
+		return String.format('set%s', property.name.toFirstUpper)
+	}
+
+	def dispatch extPropertyType(Property property) {
 		return property.type
 	}
 
-	def dispatch extTypeName(ComplexProperty complextProperty) {
-		if (complextProperty.relationType == RelationType.ONE_TO_MANY) {
-			return String.format('java.util.List<%s>', complextProperty.type)
-		}
-
-		return complextProperty.type
+	def dispatch extPropertyType(OneToManyRelationProperty property) {
+		return String.format('java.util.List<%s>', property.type)
 	}
-
-	def extSetterName(Property property) {
-		return String.format('set%s', property.name.toFirstUpper)
+	
+	def dispatch extPropertyType(ManyToManyRelationProperty property) {
+		return String.format('java.util.List<%s>', property.type)
 	}
 
 	def extEntityFullName(Entity entity) {
@@ -130,13 +133,59 @@ class SnowExtensions {
 		return String.format('%s.%s', persistenceModel.extRootPackage, persistenceModel.extFactoryName)
 	}
 
-	def extAnnotation(ComplexProperty complexProperty) '''
-		@javax.persistence.«complexProperty.relationType.literal»
-		(
-		«IF complexProperty.relationType == RelationType.ONE_TO_ONE»
-			optional=«complexProperty.optional»
-			«IF complexProperty.mappedBy!=null»»mappedBy=«complexProperty.mappedBy»«ENDIF»
-		«ENDIF»
-		)
-	'''
+	def extCascade(RelationProperty property) {
+		var cascadeList = property.cascade
+		if (cascadeList.empty) {
+			return 'cascade = {}'
+		}
+
+		val sb = new StringBuilder
+		sb.append('cascade = {')
+		cascadeList.forEach [ c |
+			sb.append('javax.persistence.CascadeType.' + c.literal)
+			sb.append(',')
+		]
+		sb.append('}')
+	}
+
+	def extFetch(RelationProperty property) {
+		return 'fetch = javax.persistence.FetchType.' + property.fetch.literal
+	}
+
+	def extMappedBy(OneToManyRelationProperty property) {
+		if (property.mappedBy == null) {
+			return ''
+		}
+		return String.format('mappedBy = "%s"', property.mappedBy)
+	}
+	
+	def extMappedBy(OneToOneRelationProperty property) {
+		if (property.mappedBy == null) {
+			return ''
+		}
+		return String.format('mappedBy = "%s"', property.mappedBy)
+	}
+	
+	def extMappedBy(ManyToManyRelationProperty property) {
+		if (property.mappedBy == null) {
+			return ''
+		}
+		return String.format('mappedBy = "%s"', property.mappedBy)
+	}
+
+	def extOrphanRemoval(OneToManyRelationProperty property) {
+		return 'orphanRemoval = ' + property.orphanRemoval
+	}
+	
+	def extOrphanRemoval(OneToOneRelationProperty property) {
+		return 'orphanRemoval = ' + property.orphanRemoval
+	}
+	
+	def extOptional(ManyToOneRelationProperty property){
+		return 'optional = ' + property.optional
+	}
+	
+	def extOptional(OneToOneRelationProperty property){
+		return 'optional = ' + property.optional
+	}
 }

@@ -267,16 +267,15 @@ public interface SnowPackage extends EPackage {
 	 */
 	int PROPERTY_OPERATION_COUNT = 0;
 
-
 	/**
-	 * The meta object id for the '{@link org.yazgel.snow.impl.ComplexPropertyImpl <em>Complex Property</em>}' class.
+	 * The meta object id for the '{@link org.yazgel.snow.impl.RelationPropertyImpl <em>Relation Property</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.yazgel.snow.impl.ComplexPropertyImpl
-	 * @see org.yazgel.snow.impl.SnowPackageImpl#getComplexProperty()
+	 * @see org.yazgel.snow.impl.RelationPropertyImpl
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getRelationProperty()
 	 * @generated
 	 */
-	int COMPLEX_PROPERTY = 3;
+	int RELATION_PROPERTY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -285,7 +284,7 @@ public interface SnowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_PROPERTY__NAME = PROPERTY__NAME;
+	int RELATION_PROPERTY__NAME = PROPERTY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -294,25 +293,89 @@ public interface SnowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_PROPERTY__TYPE = PROPERTY__TYPE;
+	int RELATION_PROPERTY__TYPE = PROPERTY__TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Relation Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Cascade</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_PROPERTY__RELATION_TYPE = PROPERTY_FEATURE_COUNT + 0;
+	int RELATION_PROPERTY__CASCADE = PROPERTY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * The feature id for the '<em><b>Fetch</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_PROPERTY__OPTIONAL = PROPERTY_FEATURE_COUNT + 1;
+	int RELATION_PROPERTY__FETCH = PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Relation Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Relation Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.yazgel.snow.impl.OneToManyRelationPropertyImpl <em>One To Many Relation Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yazgel.snow.impl.OneToManyRelationPropertyImpl
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getOneToManyRelationProperty()
+	 * @generated
+	 */
+	int ONE_TO_MANY_RELATION_PROPERTY = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_MANY_RELATION_PROPERTY__NAME = RELATION_PROPERTY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_MANY_RELATION_PROPERTY__TYPE = RELATION_PROPERTY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Cascade</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_MANY_RELATION_PROPERTY__CASCADE = RELATION_PROPERTY__CASCADE;
+
+	/**
+	 * The feature id for the '<em><b>Fetch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_MANY_RELATION_PROPERTY__FETCH = RELATION_PROPERTY__FETCH;
 
 	/**
 	 * The feature id for the '<em><b>Mapped By</b></em>' attribute.
@@ -321,35 +384,291 @@ public interface SnowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_PROPERTY__MAPPED_BY = PROPERTY_FEATURE_COUNT + 2;
+	int ONE_TO_MANY_RELATION_PROPERTY__MAPPED_BY = RELATION_PROPERTY_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Complex Property</em>' class.
+	 * The feature id for the '<em><b>Orphan Removal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 3;
+	int ONE_TO_MANY_RELATION_PROPERTY__ORPHAN_REMOVAL = RELATION_PROPERTY_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Complex Property</em>' class.
+	 * The number of structural features of the '<em>One To Many Relation Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_PROPERTY_OPERATION_COUNT = PROPERTY_OPERATION_COUNT + 0;
+	int ONE_TO_MANY_RELATION_PROPERTY_FEATURE_COUNT = RELATION_PROPERTY_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.yazgel.snow.RelationType <em>Relation Type</em>}' enum.
+	 * The number of operations of the '<em>One To Many Relation Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.yazgel.snow.RelationType
-	 * @see org.yazgel.snow.impl.SnowPackageImpl#getRelationType()
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_MANY_RELATION_PROPERTY_OPERATION_COUNT = RELATION_PROPERTY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.yazgel.snow.impl.ManyToOneRelationPropertyImpl <em>Many To One Relation Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yazgel.snow.impl.ManyToOneRelationPropertyImpl
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getManyToOneRelationProperty()
 	 * @generated
 	 */
-	int RELATION_TYPE = 4;
+	int MANY_TO_ONE_RELATION_PROPERTY = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_ONE_RELATION_PROPERTY__NAME = RELATION_PROPERTY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_ONE_RELATION_PROPERTY__TYPE = RELATION_PROPERTY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Cascade</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_ONE_RELATION_PROPERTY__CASCADE = RELATION_PROPERTY__CASCADE;
+
+	/**
+	 * The feature id for the '<em><b>Fetch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_ONE_RELATION_PROPERTY__FETCH = RELATION_PROPERTY__FETCH;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_ONE_RELATION_PROPERTY__OPTIONAL = RELATION_PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Many To One Relation Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_ONE_RELATION_PROPERTY_FEATURE_COUNT = RELATION_PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Many To One Relation Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_ONE_RELATION_PROPERTY_OPERATION_COUNT = RELATION_PROPERTY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.yazgel.snow.impl.OneToOneRelationPropertyImpl <em>One To One Relation Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yazgel.snow.impl.OneToOneRelationPropertyImpl
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getOneToOneRelationProperty()
+	 * @generated
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY__NAME = RELATION_PROPERTY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY__TYPE = RELATION_PROPERTY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Cascade</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY__CASCADE = RELATION_PROPERTY__CASCADE;
+
+	/**
+	 * The feature id for the '<em><b>Fetch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY__FETCH = RELATION_PROPERTY__FETCH;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY__OPTIONAL = RELATION_PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mapped By</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY__MAPPED_BY = RELATION_PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Orphan Removal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY__ORPHAN_REMOVAL = RELATION_PROPERTY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>One To One Relation Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY_FEATURE_COUNT = RELATION_PROPERTY_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>One To One Relation Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_TO_ONE_RELATION_PROPERTY_OPERATION_COUNT = RELATION_PROPERTY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.yazgel.snow.impl.ManyToManyRelationPropertyImpl <em>Many To Many Relation Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yazgel.snow.impl.ManyToManyRelationPropertyImpl
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getManyToManyRelationProperty()
+	 * @generated
+	 */
+	int MANY_TO_MANY_RELATION_PROPERTY = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_MANY_RELATION_PROPERTY__NAME = RELATION_PROPERTY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_MANY_RELATION_PROPERTY__TYPE = RELATION_PROPERTY__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Cascade</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_MANY_RELATION_PROPERTY__CASCADE = RELATION_PROPERTY__CASCADE;
+
+	/**
+	 * The feature id for the '<em><b>Fetch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_MANY_RELATION_PROPERTY__FETCH = RELATION_PROPERTY__FETCH;
+
+	/**
+	 * The feature id for the '<em><b>Mapped By</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_MANY_RELATION_PROPERTY__MAPPED_BY = RELATION_PROPERTY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Many To Many Relation Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_MANY_RELATION_PROPERTY_FEATURE_COUNT = RELATION_PROPERTY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Many To Many Relation Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MANY_TO_MANY_RELATION_PROPERTY_OPERATION_COUNT = RELATION_PROPERTY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.yazgel.snow.FetchType <em>Fetch Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yazgel.snow.FetchType
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getFetchType()
+	 * @generated
+	 */
+	int FETCH_TYPE = 8;
+
+	/**
+	 * The meta object id for the '{@link org.yazgel.snow.CascadeType <em>Cascade Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.yazgel.snow.CascadeType
+	 * @see org.yazgel.snow.impl.SnowPackageImpl#getCascadeType()
+	 * @generated
+	 */
+	int CASCADE_TYPE = 9;
 
 
 	/**
@@ -537,57 +856,173 @@ public interface SnowPackage extends EPackage {
 	EAttribute getProperty_Type();
 
 	/**
-	 * Returns the meta object for class '{@link org.yazgel.snow.ComplexProperty <em>Complex Property</em>}'.
+	 * Returns the meta object for class '{@link org.yazgel.snow.RelationProperty <em>Relation Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Complex Property</em>'.
-	 * @see org.yazgel.snow.ComplexProperty
+	 * @return the meta object for class '<em>Relation Property</em>'.
+	 * @see org.yazgel.snow.RelationProperty
 	 * @generated
 	 */
-	EClass getComplexProperty();
+	EClass getRelationProperty();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.yazgel.snow.ComplexProperty#getRelationType <em>Relation Type</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.yazgel.snow.RelationProperty#getCascade <em>Cascade</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Relation Type</em>'.
-	 * @see org.yazgel.snow.ComplexProperty#getRelationType()
-	 * @see #getComplexProperty()
+	 * @return the meta object for the attribute list '<em>Cascade</em>'.
+	 * @see org.yazgel.snow.RelationProperty#getCascade()
+	 * @see #getRelationProperty()
 	 * @generated
 	 */
-	EAttribute getComplexProperty_RelationType();
+	EAttribute getRelationProperty_Cascade();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.yazgel.snow.ComplexProperty#isOptional <em>Optional</em>}'.
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.RelationProperty#getFetch <em>Fetch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Optional</em>'.
-	 * @see org.yazgel.snow.ComplexProperty#isOptional()
-	 * @see #getComplexProperty()
+	 * @return the meta object for the attribute '<em>Fetch</em>'.
+	 * @see org.yazgel.snow.RelationProperty#getFetch()
+	 * @see #getRelationProperty()
 	 * @generated
 	 */
-	EAttribute getComplexProperty_Optional();
+	EAttribute getRelationProperty_Fetch();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.yazgel.snow.ComplexProperty#getMappedBy <em>Mapped By</em>}'.
+	 * Returns the meta object for class '{@link org.yazgel.snow.OneToManyRelationProperty <em>One To Many Relation Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>One To Many Relation Property</em>'.
+	 * @see org.yazgel.snow.OneToManyRelationProperty
+	 * @generated
+	 */
+	EClass getOneToManyRelationProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.OneToManyRelationProperty#getMappedBy <em>Mapped By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mapped By</em>'.
-	 * @see org.yazgel.snow.ComplexProperty#getMappedBy()
-	 * @see #getComplexProperty()
+	 * @see org.yazgel.snow.OneToManyRelationProperty#getMappedBy()
+	 * @see #getOneToManyRelationProperty()
 	 * @generated
 	 */
-	EAttribute getComplexProperty_MappedBy();
+	EAttribute getOneToManyRelationProperty_MappedBy();
 
 	/**
-	 * Returns the meta object for enum '{@link org.yazgel.snow.RelationType <em>Relation Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.OneToManyRelationProperty#isOrphanRemoval <em>Orphan Removal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Relation Type</em>'.
-	 * @see org.yazgel.snow.RelationType
+	 * @return the meta object for the attribute '<em>Orphan Removal</em>'.
+	 * @see org.yazgel.snow.OneToManyRelationProperty#isOrphanRemoval()
+	 * @see #getOneToManyRelationProperty()
 	 * @generated
 	 */
-	EEnum getRelationType();
+	EAttribute getOneToManyRelationProperty_OrphanRemoval();
+
+	/**
+	 * Returns the meta object for class '{@link org.yazgel.snow.ManyToOneRelationProperty <em>Many To One Relation Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Many To One Relation Property</em>'.
+	 * @see org.yazgel.snow.ManyToOneRelationProperty
+	 * @generated
+	 */
+	EClass getManyToOneRelationProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.ManyToOneRelationProperty#isOptional <em>Optional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optional</em>'.
+	 * @see org.yazgel.snow.ManyToOneRelationProperty#isOptional()
+	 * @see #getManyToOneRelationProperty()
+	 * @generated
+	 */
+	EAttribute getManyToOneRelationProperty_Optional();
+
+	/**
+	 * Returns the meta object for class '{@link org.yazgel.snow.OneToOneRelationProperty <em>One To One Relation Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>One To One Relation Property</em>'.
+	 * @see org.yazgel.snow.OneToOneRelationProperty
+	 * @generated
+	 */
+	EClass getOneToOneRelationProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.OneToOneRelationProperty#isOptional <em>Optional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optional</em>'.
+	 * @see org.yazgel.snow.OneToOneRelationProperty#isOptional()
+	 * @see #getOneToOneRelationProperty()
+	 * @generated
+	 */
+	EAttribute getOneToOneRelationProperty_Optional();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.OneToOneRelationProperty#getMappedBy <em>Mapped By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapped By</em>'.
+	 * @see org.yazgel.snow.OneToOneRelationProperty#getMappedBy()
+	 * @see #getOneToOneRelationProperty()
+	 * @generated
+	 */
+	EAttribute getOneToOneRelationProperty_MappedBy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.OneToOneRelationProperty#isOrphanRemoval <em>Orphan Removal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Orphan Removal</em>'.
+	 * @see org.yazgel.snow.OneToOneRelationProperty#isOrphanRemoval()
+	 * @see #getOneToOneRelationProperty()
+	 * @generated
+	 */
+	EAttribute getOneToOneRelationProperty_OrphanRemoval();
+
+	/**
+	 * Returns the meta object for class '{@link org.yazgel.snow.ManyToManyRelationProperty <em>Many To Many Relation Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Many To Many Relation Property</em>'.
+	 * @see org.yazgel.snow.ManyToManyRelationProperty
+	 * @generated
+	 */
+	EClass getManyToManyRelationProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.yazgel.snow.ManyToManyRelationProperty#getMappedBy <em>Mapped By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapped By</em>'.
+	 * @see org.yazgel.snow.ManyToManyRelationProperty#getMappedBy()
+	 * @see #getManyToManyRelationProperty()
+	 * @generated
+	 */
+	EAttribute getManyToManyRelationProperty_MappedBy();
+
+	/**
+	 * Returns the meta object for enum '{@link org.yazgel.snow.FetchType <em>Fetch Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Fetch Type</em>'.
+	 * @see org.yazgel.snow.FetchType
+	 * @generated
+	 */
+	EEnum getFetchType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.yazgel.snow.CascadeType <em>Cascade Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Cascade Type</em>'.
+	 * @see org.yazgel.snow.CascadeType
+	 * @generated
+	 */
+	EEnum getCascadeType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -755,30 +1190,40 @@ public interface SnowPackage extends EPackage {
 		EAttribute PROPERTY__TYPE = eINSTANCE.getProperty_Type();
 
 		/**
-		 * The meta object literal for the '{@link org.yazgel.snow.impl.ComplexPropertyImpl <em>Complex Property</em>}' class.
+		 * The meta object literal for the '{@link org.yazgel.snow.impl.RelationPropertyImpl <em>Relation Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.yazgel.snow.impl.ComplexPropertyImpl
-		 * @see org.yazgel.snow.impl.SnowPackageImpl#getComplexProperty()
+		 * @see org.yazgel.snow.impl.RelationPropertyImpl
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getRelationProperty()
 		 * @generated
 		 */
-		EClass COMPLEX_PROPERTY = eINSTANCE.getComplexProperty();
+		EClass RELATION_PROPERTY = eINSTANCE.getRelationProperty();
 
 		/**
-		 * The meta object literal for the '<em><b>Relation Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Cascade</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMPLEX_PROPERTY__RELATION_TYPE = eINSTANCE.getComplexProperty_RelationType();
+		EAttribute RELATION_PROPERTY__CASCADE = eINSTANCE.getRelationProperty_Cascade();
 
 		/**
-		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Fetch</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMPLEX_PROPERTY__OPTIONAL = eINSTANCE.getComplexProperty_Optional();
+		EAttribute RELATION_PROPERTY__FETCH = eINSTANCE.getRelationProperty_Fetch();
+
+		/**
+		 * The meta object literal for the '{@link org.yazgel.snow.impl.OneToManyRelationPropertyImpl <em>One To Many Relation Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yazgel.snow.impl.OneToManyRelationPropertyImpl
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getOneToManyRelationProperty()
+		 * @generated
+		 */
+		EClass ONE_TO_MANY_RELATION_PROPERTY = eINSTANCE.getOneToManyRelationProperty();
 
 		/**
 		 * The meta object literal for the '<em><b>Mapped By</b></em>' attribute feature.
@@ -786,17 +1231,105 @@ public interface SnowPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMPLEX_PROPERTY__MAPPED_BY = eINSTANCE.getComplexProperty_MappedBy();
+		EAttribute ONE_TO_MANY_RELATION_PROPERTY__MAPPED_BY = eINSTANCE.getOneToManyRelationProperty_MappedBy();
 
 		/**
-		 * The meta object literal for the '{@link org.yazgel.snow.RelationType <em>Relation Type</em>}' enum.
+		 * The meta object literal for the '<em><b>Orphan Removal</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.yazgel.snow.RelationType
-		 * @see org.yazgel.snow.impl.SnowPackageImpl#getRelationType()
 		 * @generated
 		 */
-		EEnum RELATION_TYPE = eINSTANCE.getRelationType();
+		EAttribute ONE_TO_MANY_RELATION_PROPERTY__ORPHAN_REMOVAL = eINSTANCE.getOneToManyRelationProperty_OrphanRemoval();
+
+		/**
+		 * The meta object literal for the '{@link org.yazgel.snow.impl.ManyToOneRelationPropertyImpl <em>Many To One Relation Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yazgel.snow.impl.ManyToOneRelationPropertyImpl
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getManyToOneRelationProperty()
+		 * @generated
+		 */
+		EClass MANY_TO_ONE_RELATION_PROPERTY = eINSTANCE.getManyToOneRelationProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MANY_TO_ONE_RELATION_PROPERTY__OPTIONAL = eINSTANCE.getManyToOneRelationProperty_Optional();
+
+		/**
+		 * The meta object literal for the '{@link org.yazgel.snow.impl.OneToOneRelationPropertyImpl <em>One To One Relation Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yazgel.snow.impl.OneToOneRelationPropertyImpl
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getOneToOneRelationProperty()
+		 * @generated
+		 */
+		EClass ONE_TO_ONE_RELATION_PROPERTY = eINSTANCE.getOneToOneRelationProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONE_TO_ONE_RELATION_PROPERTY__OPTIONAL = eINSTANCE.getOneToOneRelationProperty_Optional();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapped By</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONE_TO_ONE_RELATION_PROPERTY__MAPPED_BY = eINSTANCE.getOneToOneRelationProperty_MappedBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Orphan Removal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONE_TO_ONE_RELATION_PROPERTY__ORPHAN_REMOVAL = eINSTANCE.getOneToOneRelationProperty_OrphanRemoval();
+
+		/**
+		 * The meta object literal for the '{@link org.yazgel.snow.impl.ManyToManyRelationPropertyImpl <em>Many To Many Relation Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yazgel.snow.impl.ManyToManyRelationPropertyImpl
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getManyToManyRelationProperty()
+		 * @generated
+		 */
+		EClass MANY_TO_MANY_RELATION_PROPERTY = eINSTANCE.getManyToManyRelationProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapped By</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MANY_TO_MANY_RELATION_PROPERTY__MAPPED_BY = eINSTANCE.getManyToManyRelationProperty_MappedBy();
+
+		/**
+		 * The meta object literal for the '{@link org.yazgel.snow.FetchType <em>Fetch Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yazgel.snow.FetchType
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getFetchType()
+		 * @generated
+		 */
+		EEnum FETCH_TYPE = eINSTANCE.getFetchType();
+
+		/**
+		 * The meta object literal for the '{@link org.yazgel.snow.CascadeType <em>Cascade Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.yazgel.snow.CascadeType
+		 * @see org.yazgel.snow.impl.SnowPackageImpl#getCascadeType()
+		 * @generated
+		 */
+		EEnum CASCADE_TYPE = eINSTANCE.getCascadeType();
 
 	}
 

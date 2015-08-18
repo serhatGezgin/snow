@@ -10,11 +10,16 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.yazgel.snow.ComplexProperty;
+import org.yazgel.snow.CascadeType;
 import org.yazgel.snow.Entity;
+import org.yazgel.snow.FetchType;
+import org.yazgel.snow.ManyToManyRelationProperty;
+import org.yazgel.snow.ManyToOneRelationProperty;
+import org.yazgel.snow.OneToManyRelationProperty;
+import org.yazgel.snow.OneToOneRelationProperty;
 import org.yazgel.snow.PersistenceModel;
 import org.yazgel.snow.Property;
-import org.yazgel.snow.RelationType;
+import org.yazgel.snow.RelationProperty;
 import org.yazgel.snow.SnowFactory;
 import org.yazgel.snow.SnowPackage;
 
@@ -51,14 +56,49 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass complexPropertyEClass = null;
+	private EClass relationPropertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum relationTypeEEnum = null;
+	private EClass oneToManyRelationPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass manyToOneRelationPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass oneToOneRelationPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass manyToManyRelationPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum fetchTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum cascadeTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -279,8 +319,8 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComplexProperty() {
-		return complexPropertyEClass;
+	public EClass getRelationProperty() {
+		return relationPropertyEClass;
 	}
 
 	/**
@@ -288,8 +328,8 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComplexProperty_RelationType() {
-		return (EAttribute)complexPropertyEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRelationProperty_Cascade() {
+		return (EAttribute)relationPropertyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -297,8 +337,8 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComplexProperty_Optional() {
-		return (EAttribute)complexPropertyEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRelationProperty_Fetch() {
+		return (EAttribute)relationPropertyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -306,8 +346,8 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComplexProperty_MappedBy() {
-		return (EAttribute)complexPropertyEClass.getEStructuralFeatures().get(2);
+	public EClass getOneToManyRelationProperty() {
+		return oneToManyRelationPropertyEClass;
 	}
 
 	/**
@@ -315,8 +355,107 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getRelationType() {
-		return relationTypeEEnum;
+	public EAttribute getOneToManyRelationProperty_MappedBy() {
+		return (EAttribute)oneToManyRelationPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOneToManyRelationProperty_OrphanRemoval() {
+		return (EAttribute)oneToManyRelationPropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getManyToOneRelationProperty() {
+		return manyToOneRelationPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getManyToOneRelationProperty_Optional() {
+		return (EAttribute)manyToOneRelationPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOneToOneRelationProperty() {
+		return oneToOneRelationPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOneToOneRelationProperty_Optional() {
+		return (EAttribute)oneToOneRelationPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOneToOneRelationProperty_MappedBy() {
+		return (EAttribute)oneToOneRelationPropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOneToOneRelationProperty_OrphanRemoval() {
+		return (EAttribute)oneToOneRelationPropertyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getManyToManyRelationProperty() {
+		return manyToManyRelationPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getManyToManyRelationProperty_MappedBy() {
+		return (EAttribute)manyToManyRelationPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFetchType() {
+		return fetchTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCascadeType() {
+		return cascadeTypeEEnum;
 	}
 
 	/**
@@ -367,13 +506,28 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		createEAttribute(propertyEClass, PROPERTY__NAME);
 		createEAttribute(propertyEClass, PROPERTY__TYPE);
 
-		complexPropertyEClass = createEClass(COMPLEX_PROPERTY);
-		createEAttribute(complexPropertyEClass, COMPLEX_PROPERTY__RELATION_TYPE);
-		createEAttribute(complexPropertyEClass, COMPLEX_PROPERTY__OPTIONAL);
-		createEAttribute(complexPropertyEClass, COMPLEX_PROPERTY__MAPPED_BY);
+		relationPropertyEClass = createEClass(RELATION_PROPERTY);
+		createEAttribute(relationPropertyEClass, RELATION_PROPERTY__CASCADE);
+		createEAttribute(relationPropertyEClass, RELATION_PROPERTY__FETCH);
+
+		oneToManyRelationPropertyEClass = createEClass(ONE_TO_MANY_RELATION_PROPERTY);
+		createEAttribute(oneToManyRelationPropertyEClass, ONE_TO_MANY_RELATION_PROPERTY__MAPPED_BY);
+		createEAttribute(oneToManyRelationPropertyEClass, ONE_TO_MANY_RELATION_PROPERTY__ORPHAN_REMOVAL);
+
+		manyToOneRelationPropertyEClass = createEClass(MANY_TO_ONE_RELATION_PROPERTY);
+		createEAttribute(manyToOneRelationPropertyEClass, MANY_TO_ONE_RELATION_PROPERTY__OPTIONAL);
+
+		oneToOneRelationPropertyEClass = createEClass(ONE_TO_ONE_RELATION_PROPERTY);
+		createEAttribute(oneToOneRelationPropertyEClass, ONE_TO_ONE_RELATION_PROPERTY__OPTIONAL);
+		createEAttribute(oneToOneRelationPropertyEClass, ONE_TO_ONE_RELATION_PROPERTY__MAPPED_BY);
+		createEAttribute(oneToOneRelationPropertyEClass, ONE_TO_ONE_RELATION_PROPERTY__ORPHAN_REMOVAL);
+
+		manyToManyRelationPropertyEClass = createEClass(MANY_TO_MANY_RELATION_PROPERTY);
+		createEAttribute(manyToManyRelationPropertyEClass, MANY_TO_MANY_RELATION_PROPERTY__MAPPED_BY);
 
 		// Create enums
-		relationTypeEEnum = createEEnum(RELATION_TYPE);
+		fetchTypeEEnum = createEEnum(FETCH_TYPE);
+		cascadeTypeEEnum = createEEnum(CASCADE_TYPE);
 	}
 
 	/**
@@ -404,7 +558,11 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		complexPropertyEClass.getESuperTypes().add(this.getProperty());
+		relationPropertyEClass.getESuperTypes().add(this.getProperty());
+		oneToManyRelationPropertyEClass.getESuperTypes().add(this.getRelationProperty());
+		manyToOneRelationPropertyEClass.getESuperTypes().add(this.getRelationProperty());
+		oneToOneRelationPropertyEClass.getESuperTypes().add(this.getRelationProperty());
+		manyToManyRelationPropertyEClass.getESuperTypes().add(this.getRelationProperty());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(persistenceModelEClass, PersistenceModel.class, "PersistenceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -427,16 +585,37 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage {
 		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_Type(), ecorePackage.getEString(), "type", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(complexPropertyEClass, ComplexProperty.class, "ComplexProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getComplexProperty_RelationType(), this.getRelationType(), "relationType", null, 0, 1, ComplexProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComplexProperty_Optional(), ecorePackage.getEBoolean(), "optional", "true", 0, 1, ComplexProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComplexProperty_MappedBy(), ecorePackage.getEString(), "mappedBy", null, 0, 1, ComplexProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(relationPropertyEClass, RelationProperty.class, "RelationProperty", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRelationProperty_Cascade(), this.getCascadeType(), "cascade", null, 0, -1, RelationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelationProperty_Fetch(), this.getFetchType(), "fetch", null, 0, 1, RelationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(oneToManyRelationPropertyEClass, OneToManyRelationProperty.class, "OneToManyRelationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOneToManyRelationProperty_MappedBy(), ecorePackage.getEString(), "mappedBy", null, 0, 1, OneToManyRelationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOneToManyRelationProperty_OrphanRemoval(), ecorePackage.getEBoolean(), "orphanRemoval", null, 0, 1, OneToManyRelationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(manyToOneRelationPropertyEClass, ManyToOneRelationProperty.class, "ManyToOneRelationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getManyToOneRelationProperty_Optional(), ecorePackage.getEBoolean(), "optional", "true", 0, 1, ManyToOneRelationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(oneToOneRelationPropertyEClass, OneToOneRelationProperty.class, "OneToOneRelationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOneToOneRelationProperty_Optional(), ecorePackage.getEBoolean(), "optional", null, 0, 1, OneToOneRelationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOneToOneRelationProperty_MappedBy(), ecorePackage.getEString(), "mappedBy", null, 0, 1, OneToOneRelationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOneToOneRelationProperty_OrphanRemoval(), ecorePackage.getEBoolean(), "orphanRemoval", null, 0, 1, OneToOneRelationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(manyToManyRelationPropertyEClass, ManyToManyRelationProperty.class, "ManyToManyRelationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getManyToManyRelationProperty_MappedBy(), ecorePackage.getEString(), "mappedBy", null, 0, 1, ManyToManyRelationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(relationTypeEEnum, RelationType.class, "RelationType");
-		addEEnumLiteral(relationTypeEEnum, RelationType.ONE_TO_ONE);
-		addEEnumLiteral(relationTypeEEnum, RelationType.ONE_TO_MANY);
-		addEEnumLiteral(relationTypeEEnum, RelationType.MANY_TO_ONE);
+		initEEnum(fetchTypeEEnum, FetchType.class, "FetchType");
+		addEEnumLiteral(fetchTypeEEnum, FetchType.EAGER);
+		addEEnumLiteral(fetchTypeEEnum, FetchType.LAZY);
+
+		initEEnum(cascadeTypeEEnum, CascadeType.class, "CascadeType");
+		addEEnumLiteral(cascadeTypeEEnum, CascadeType.ALL);
+		addEEnumLiteral(cascadeTypeEEnum, CascadeType.DETACH);
+		addEEnumLiteral(cascadeTypeEEnum, CascadeType.MERGE);
+		addEEnumLiteral(cascadeTypeEEnum, CascadeType.PERSIST);
+		addEEnumLiteral(cascadeTypeEEnum, CascadeType.REFRESH);
+		addEEnumLiteral(cascadeTypeEEnum, CascadeType.REMOVE);
 
 		// Create resource
 		createResource(eNS_URI);

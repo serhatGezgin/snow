@@ -49,13 +49,40 @@ public interface SnowFactory extends EFactory {
 	Property createProperty();
 
 	/**
-	 * Returns a new object of class '<em>Complex Property</em>'.
+	 * Returns a new object of class '<em>One To Many Relation Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Complex Property</em>'.
+	 * @return a new object of class '<em>One To Many Relation Property</em>'.
 	 * @generated
 	 */
-	ComplexProperty createComplexProperty();
+	OneToManyRelationProperty createOneToManyRelationProperty();
+
+	/**
+	 * Returns a new object of class '<em>Many To One Relation Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Many To One Relation Property</em>'.
+	 * @generated
+	 */
+	ManyToOneRelationProperty createManyToOneRelationProperty();
+
+	/**
+	 * Returns a new object of class '<em>One To One Relation Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>One To One Relation Property</em>'.
+	 * @generated
+	 */
+	OneToOneRelationProperty createOneToOneRelationProperty();
+
+	/**
+	 * Returns a new object of class '<em>Many To Many Relation Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Many To Many Relation Property</em>'.
+	 * @generated
+	 */
+	ManyToManyRelationProperty createManyToManyRelationProperty();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -80,8 +80,24 @@ public class SnowAdapterFactory extends AdapterFactoryImpl {
 				return createPropertyAdapter();
 			}
 			@Override
-			public Adapter caseComplexProperty(ComplexProperty object) {
-				return createComplexPropertyAdapter();
+			public Adapter caseRelationProperty(RelationProperty object) {
+				return createRelationPropertyAdapter();
+			}
+			@Override
+			public Adapter caseOneToManyRelationProperty(OneToManyRelationProperty object) {
+				return createOneToManyRelationPropertyAdapter();
+			}
+			@Override
+			public Adapter caseManyToOneRelationProperty(ManyToOneRelationProperty object) {
+				return createManyToOneRelationPropertyAdapter();
+			}
+			@Override
+			public Adapter caseOneToOneRelationProperty(OneToOneRelationProperty object) {
+				return createOneToOneRelationPropertyAdapter();
+			}
+			@Override
+			public Adapter caseManyToManyRelationProperty(ManyToManyRelationProperty object) {
+				return createManyToManyRelationPropertyAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -146,16 +162,72 @@ public class SnowAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.yazgel.snow.ComplexProperty <em>Complex Property</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.yazgel.snow.RelationProperty <em>Relation Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.yazgel.snow.ComplexProperty
+	 * @see org.yazgel.snow.RelationProperty
 	 * @generated
 	 */
-	public Adapter createComplexPropertyAdapter() {
+	public Adapter createRelationPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.yazgel.snow.OneToManyRelationProperty <em>One To Many Relation Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.yazgel.snow.OneToManyRelationProperty
+	 * @generated
+	 */
+	public Adapter createOneToManyRelationPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.yazgel.snow.ManyToOneRelationProperty <em>Many To One Relation Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.yazgel.snow.ManyToOneRelationProperty
+	 * @generated
+	 */
+	public Adapter createManyToOneRelationPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.yazgel.snow.OneToOneRelationProperty <em>One To One Relation Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.yazgel.snow.OneToOneRelationProperty
+	 * @generated
+	 */
+	public Adapter createOneToOneRelationPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.yazgel.snow.ManyToManyRelationProperty <em>Many To Many Relation Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.yazgel.snow.ManyToManyRelationProperty
+	 * @generated
+	 */
+	public Adapter createManyToManyRelationPropertyAdapter() {
 		return null;
 	}
 

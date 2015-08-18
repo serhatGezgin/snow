@@ -84,10 +84,42 @@ public class SnowSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SnowPackage.COMPLEX_PROPERTY: {
-				ComplexProperty complexProperty = (ComplexProperty)theEObject;
-				T result = caseComplexProperty(complexProperty);
-				if (result == null) result = caseProperty(complexProperty);
+			case SnowPackage.RELATION_PROPERTY: {
+				RelationProperty relationProperty = (RelationProperty)theEObject;
+				T result = caseRelationProperty(relationProperty);
+				if (result == null) result = caseProperty(relationProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SnowPackage.ONE_TO_MANY_RELATION_PROPERTY: {
+				OneToManyRelationProperty oneToManyRelationProperty = (OneToManyRelationProperty)theEObject;
+				T result = caseOneToManyRelationProperty(oneToManyRelationProperty);
+				if (result == null) result = caseRelationProperty(oneToManyRelationProperty);
+				if (result == null) result = caseProperty(oneToManyRelationProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SnowPackage.MANY_TO_ONE_RELATION_PROPERTY: {
+				ManyToOneRelationProperty manyToOneRelationProperty = (ManyToOneRelationProperty)theEObject;
+				T result = caseManyToOneRelationProperty(manyToOneRelationProperty);
+				if (result == null) result = caseRelationProperty(manyToOneRelationProperty);
+				if (result == null) result = caseProperty(manyToOneRelationProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SnowPackage.ONE_TO_ONE_RELATION_PROPERTY: {
+				OneToOneRelationProperty oneToOneRelationProperty = (OneToOneRelationProperty)theEObject;
+				T result = caseOneToOneRelationProperty(oneToOneRelationProperty);
+				if (result == null) result = caseRelationProperty(oneToOneRelationProperty);
+				if (result == null) result = caseProperty(oneToOneRelationProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SnowPackage.MANY_TO_MANY_RELATION_PROPERTY: {
+				ManyToManyRelationProperty manyToManyRelationProperty = (ManyToManyRelationProperty)theEObject;
+				T result = caseManyToManyRelationProperty(manyToManyRelationProperty);
+				if (result == null) result = caseRelationProperty(manyToManyRelationProperty);
+				if (result == null) result = caseProperty(manyToManyRelationProperty);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,17 +173,77 @@ public class SnowSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Complex Property</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Relation Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Complex Property</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Relation Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseComplexProperty(ComplexProperty object) {
+	public T caseRelationProperty(RelationProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>One To Many Relation Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>One To Many Relation Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOneToManyRelationProperty(OneToManyRelationProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Many To One Relation Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Many To One Relation Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseManyToOneRelationProperty(ManyToOneRelationProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>One To One Relation Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>One To One Relation Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOneToOneRelationProperty(OneToOneRelationProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Many To Many Relation Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Many To Many Relation Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseManyToManyRelationProperty(ManyToManyRelationProperty object) {
 		return null;
 	}
 

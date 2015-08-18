@@ -211,7 +211,22 @@ public class EntityItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SnowPackage.Literals.ENTITY__PROPERTIES,
-				 SnowFactory.eINSTANCE.createComplexProperty()));
+				 SnowFactory.eINSTANCE.createOneToManyRelationProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SnowPackage.Literals.ENTITY__PROPERTIES,
+				 SnowFactory.eINSTANCE.createManyToOneRelationProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SnowPackage.Literals.ENTITY__PROPERTIES,
+				 SnowFactory.eINSTANCE.createOneToOneRelationProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SnowPackage.Literals.ENTITY__PROPERTIES,
+				 SnowFactory.eINSTANCE.createManyToManyRelationProperty()));
 	}
 
 	/**
