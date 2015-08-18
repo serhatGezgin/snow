@@ -127,6 +127,7 @@ public interface PersistenceModel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Jdbc Driver</b></em>' attribute.
+	 * The default value is <code>"org.postgresql.Driver"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Jdbc Driver</em>' attribute isn't clear,
@@ -136,7 +137,7 @@ public interface PersistenceModel extends EObject {
 	 * @return the value of the '<em>Jdbc Driver</em>' attribute.
 	 * @see #setJdbcDriver(String)
 	 * @see org.yazgel.snow.SnowPackage#getPersistenceModel_JdbcDriver()
-	 * @model
+	 * @model default="org.postgresql.Driver"
 	 * @generated
 	 */
 	String getJdbcDriver();
@@ -153,6 +154,7 @@ public interface PersistenceModel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Jdbc Url</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Jdbc Url</em>' attribute isn't clear,
@@ -162,7 +164,7 @@ public interface PersistenceModel extends EObject {
 	 * @return the value of the '<em>Jdbc Url</em>' attribute.
 	 * @see #setJdbcUrl(String)
 	 * @see org.yazgel.snow.SnowPackage#getPersistenceModel_JdbcUrl()
-	 * @model
+	 * @model default=""
 	 * @generated
 	 */
 	String getJdbcUrl();
@@ -231,6 +233,7 @@ public interface PersistenceModel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Db Connector Dependency</b></em>' attribute.
+	 * The default value is <code>"<dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId><version>9.4-1201-jdbc41</version></dependency>"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Db Connector Dependency</em>' attribute isn't clear,
@@ -240,7 +243,7 @@ public interface PersistenceModel extends EObject {
 	 * @return the value of the '<em>Db Connector Dependency</em>' attribute.
 	 * @see #setDbConnectorDependency(String)
 	 * @see org.yazgel.snow.SnowPackage#getPersistenceModel_DbConnectorDependency()
-	 * @model
+	 * @model default="<dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId><version>9.4-1201-jdbc41</version></dependency>"
 	 * @generated
 	 */
 	String getDbConnectorDependency();

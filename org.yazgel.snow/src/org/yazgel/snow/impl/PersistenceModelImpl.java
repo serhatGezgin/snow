@@ -122,7 +122,7 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String JDBC_DRIVER_EDEFAULT = null;
+	protected static final String JDBC_DRIVER_EDEFAULT = "org.postgresql.Driver";
 
 	/**
 	 * The cached value of the '{@link #getJdbcDriver() <em>Jdbc Driver</em>}' attribute.
@@ -142,7 +142,7 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String JDBC_URL_EDEFAULT = null;
+	protected static final String JDBC_URL_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getJdbcUrl() <em>Jdbc Url</em>}' attribute.
@@ -202,7 +202,7 @@ public class PersistenceModelImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DB_CONNECTOR_DEPENDENCY_EDEFAULT = null;
+	protected static final String DB_CONNECTOR_DEPENDENCY_EDEFAULT = "<dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId><version>9.4-1201-jdbc41</version></dependency>";
 
 	/**
 	 * The cached value of the '{@link #getDbConnectorDependency() <em>Db Connector Dependency</em>}' attribute.

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: org.yazgel.snow.codegen.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.yazgel.snow.codegen.ui.Activator
+Bundle-Vendor: org.yazgel
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.yazgel.snow.codegen;bundle-version="1.0.0",
+ org.yazgel.util;bundle-version="1.0.0",
+ org.yazgel.snow;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

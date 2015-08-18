@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.core.expressions.definitions">
+	   <definition id="org.yazgel.snow.codegen.file">
+	      <adapt type="org.eclipse.core.resources.IResource">
+	         <or>
+	             <test property="org.eclipse.core.resources.extension"
+	                   value="snow">
+	             </test>
+	         </or>
+	      </adapt>
+	   </definition>
+	</extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               label="snow">
+            <command
+                  commandId="org.yazgel.snow.codegen.ui.generate"
+                  label="Generate Persistence Code"
+                  style="push">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <reference
+                              definitionId="org.yazgel.snow.codegen.file">
+                        </reference>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.yazgel.snow.codegen.ui.generate.category"
+            name="snow">
+      </category>
+      <command
+            categoryId="org.yazgel.snow.codegen.ui.generate.category"
+            id="org.yazgel.snow.codegen.ui.generate"
+            name="Generate Persistence Code">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.yazgel.snow.codegen.ui.GeneratePersistenceCodeHandler"
+            commandId="org.yazgel.snow.codegen.ui.generate">
+      </handler>
+   </extension>
+</plugin>
