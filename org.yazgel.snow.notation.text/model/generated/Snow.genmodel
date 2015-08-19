@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.yazgel.snow.notation.text/src-gen" editDirectory="/org.yazgel.snow.notation.text.edit/src"
+    editorDirectory="/org.yazgel.snow.notation.text.editor/src" modelPluginID="org.yazgel.snow.notation.text"
+    forceOverwrite="true" modelName="Snow" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.yazgel.snow.notation.text.edit"
+    editorPluginID="org.yazgel.snow.notation.text.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
+  <genPackages prefix="Snow" basePackage="org.yazgel.snow.notation.text" disposableProviderFactory="true"
+      fileExtensions="snw" ecorePackage="Snow.ecore#/">
+    <genClasses ecoreClass="Snow.ecore#//DomainModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//DomainModel/importSection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//DomainModel/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//AbstractElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//AbstractElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//PackageDeclaration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//PackageDeclaration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//Entity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//Entity/superType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//Entity/features"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//Feature"/>
+    <genClasses ecoreClass="Snow.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Property/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//Property/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

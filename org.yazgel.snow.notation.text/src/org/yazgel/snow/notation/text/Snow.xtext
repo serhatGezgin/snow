@@ -1,0 +1,26 @@
+grammar org.yazgel.snow.notation.text.Snow with org.eclipse.xtext.xbase.Xbase
+
+generate snow "http://www.yazgel.org/snow/notation/text/Snow" 
+
+DomainModel:
+	importSection=XImportSection?
+	elements+=AbstractElement*;
+	
+AbstractElement:
+	PackageDeclaration | Entity;
+
+PackageDeclaration:
+	'package' name=QualifiedName '{'
+		elements+=AbstractElement*
+	'}';
+
+Entity:
+	'entity' name=ValidID ('extends' superType=JvmParameterizedTypeReference)? '{'
+		features+=Feature*
+	'}';
+
+Feature:
+	Property;
+
+Property:
+	name=ValidID ':' type=JvmTypeReference;

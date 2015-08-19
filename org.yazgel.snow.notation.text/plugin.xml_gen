@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.yazgel.org/snow/notation/text/Snow" 
+       class = "org.yazgel.snow.notation.text.snow.SnowPackage"
+       genModel = "model/generated/Snow.genmodel" /> 
+	
+  </extension>
+
+
+
+
+</plugin>

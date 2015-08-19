@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.yazgel.snow.notation.text
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.yazgel.snow.notation.text; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
+ org.eclipse.xtext.xbase
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.yazgel.snow.notation.text,
+ org.yazgel.snow.notation.text.services,
+ org.yazgel.snow.notation.text.snow,
+ org.yazgel.snow.notation.text.snow.impl,
+ org.yazgel.snow.notation.text.snow.util,
+ org.yazgel.snow.notation.text.serializer,
+ org.yazgel.snow.notation.text.parser.antlr,
+ org.yazgel.snow.notation.text.parser.antlr.internal,
+ org.yazgel.snow.notation.text.validation,
+ org.yazgel.snow.notation.text.scoping,
+ org.yazgel.snow.notation.text.generator,
+ org.yazgel.snow.notation.text.formatting,
+ org.yazgel.snow.notation.text.jvmmodel
+
