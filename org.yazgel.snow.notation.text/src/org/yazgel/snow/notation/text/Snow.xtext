@@ -1,26 +1,52 @@
 grammar org.yazgel.snow.notation.text.Snow with org.eclipse.xtext.xbase.Xbase
 
-generate snow "http://www.yazgel.org/snow/notation/text/Snow" 
+generate snow "http://www.yazgel.org/snow/notation/text/Snow"
 
 DomainModel:
+	'Domain' name=QualifiedName
 	importSection=XImportSection?
 	elements+=AbstractElement*;
-	
+
 AbstractElement:
 	PackageDeclaration | Entity;
 
 PackageDeclaration:
 	'package' name=QualifiedName '{'
-		elements+=AbstractElement*
+	elements+=AbstractElement*
 	'}';
 
 Entity:
 	'entity' name=ValidID ('extends' superType=JvmParameterizedTypeReference)? '{'
-		features+=Feature*
+	features+=Feature*
 	'}';
 
 Feature:
 	Property;
 
 Property:
+	(propertyAnnotation+= PropertyAnnotation (propertyAnnotation+= PropertyAnnotation)*)?
 	name=ValidID ':' type=JvmTypeReference;
+	
+PropertyAnnotation:
+	ONE_TO_MANY | MANY_TO_ONE | ONE_TO_ONE | MANY_TO_MANY 
+;
+
+MANY_TO_MANY returns MANY_TO_MANY:
+	{MANY_TO_MANY}
+	'@ManyToMany' ('{' ('mappedBy' mappedBy=ID)? '}')?
+;
+
+ONE_TO_ONE returns ONE_TO_ONE:
+	{ONE_TO_ONE}
+	'@OneToOne' ('{' ('mappedBy' mappedBy=ID)? & ('optional' optional=XBooleanLiteral)? & ('orphanRemoval' orphanRemoval=XBooleanLiteral)? '}')?
+;
+
+MANY_TO_ONE returns MANY_TO_ONE:
+	{MANY_TO_ONE}
+	'@ManyToOne' ('{' ('optional' optional=XBooleanLiteral)? '}')?
+;
+
+ONE_TO_MANY returns ONE_TO_MANY:
+	{ONE_TO_MANY}
+	'@OneToMany' ('{' ('mappedBy' mappedBy=ID)? & ('orphanRemoval' orphanRemoval=XBooleanLiteral)? '}')?
+;

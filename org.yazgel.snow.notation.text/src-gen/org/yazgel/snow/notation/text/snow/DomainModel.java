@@ -16,6 +16,7 @@ import org.eclipse.xtext.xtype.XImportSection;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.yazgel.snow.notation.text.snow.DomainModel#getName <em>Name</em>}</li>
  *   <li>{@link org.yazgel.snow.notation.text.snow.DomainModel#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link org.yazgel.snow.notation.text.snow.DomainModel#getElements <em>Elements</em>}</li>
  * </ul>
@@ -27,6 +28,32 @@ import org.eclipse.xtext.xtype.XImportSection;
  */
 public interface DomainModel extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see org.yazgel.snow.notation.text.snow.SnowPackage#getDomainModel_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link org.yazgel.snow.notation.text.snow.DomainModel#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
   /**
    * Returns the value of the '<em><b>Import Section</b></em>' containment reference.
    * <!-- begin-user-doc -->

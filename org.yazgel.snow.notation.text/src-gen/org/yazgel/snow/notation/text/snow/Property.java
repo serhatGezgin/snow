@@ -2,6 +2,8 @@
  */
 package org.yazgel.snow.notation.text.snow;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
 /**
@@ -12,6 +14,7 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.yazgel.snow.notation.text.snow.Property#getPropertyAnnotation <em>Property Annotation</em>}</li>
  *   <li>{@link org.yazgel.snow.notation.text.snow.Property#getName <em>Name</em>}</li>
  *   <li>{@link org.yazgel.snow.notation.text.snow.Property#getType <em>Type</em>}</li>
  * </ul>
@@ -23,6 +26,22 @@ import org.eclipse.xtext.common.types.JvmTypeReference;
  */
 public interface Property extends Feature
 {
+  /**
+   * Returns the value of the '<em><b>Property Annotation</b></em>' containment reference list.
+   * The list contents are of type {@link org.yazgel.snow.notation.text.snow.PropertyAnnotation}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Property Annotation</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Property Annotation</em>' containment reference list.
+   * @see org.yazgel.snow.notation.text.snow.SnowPackage#getProperty_PropertyAnnotation()
+   * @model containment="true"
+   * @generated
+   */
+  EList<PropertyAnnotation> getPropertyAnnotation();
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

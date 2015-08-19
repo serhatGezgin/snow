@@ -3,6 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="snow" nsURI="http://www.yazgel.org/snow/notation/text/Snow"
     nsPrefix="snow">
   <eClassifiers xsi:type="ecore:EClass" name="DomainModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="importSection" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xtype.ecore#//XImportSection"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
@@ -23,8 +24,30 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Feature"/>
   <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//Feature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyAnnotation" upperBound="-1"
+        eType="#//PropertyAnnotation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.ecore#//JvmTypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyAnnotation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MANY_TO_MANY" eSuperTypes="#//PropertyAnnotation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ONE_TO_ONE" eSuperTypes="#//PropertyAnnotation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optional" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orphanRemoval" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MANY_TO_ONE" eSuperTypes="#//PropertyAnnotation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="optional" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ONE_TO_MANY" eSuperTypes="#//PropertyAnnotation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappedBy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orphanRemoval" eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/Xbase.ecore#//XExpression"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

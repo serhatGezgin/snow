@@ -2,17 +2,25 @@
  */
 package org.yazgel.snow.notation.text.snow.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
 import org.yazgel.snow.notation.text.snow.Property;
+import org.yazgel.snow.notation.text.snow.PropertyAnnotation;
 import org.yazgel.snow.notation.text.snow.SnowPackage;
 
 /**
@@ -22,6 +30,7 @@ import org.yazgel.snow.notation.text.snow.SnowPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.yazgel.snow.notation.text.snow.impl.PropertyImpl#getPropertyAnnotation <em>Property Annotation</em>}</li>
  *   <li>{@link org.yazgel.snow.notation.text.snow.impl.PropertyImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.yazgel.snow.notation.text.snow.impl.PropertyImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -31,6 +40,16 @@ import org.yazgel.snow.notation.text.snow.SnowPackage;
  */
 public class PropertyImpl extends FeatureImpl implements Property
 {
+  /**
+   * The cached value of the '{@link #getPropertyAnnotation() <em>Property Annotation</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPropertyAnnotation()
+   * @generated
+   * @ordered
+   */
+  protected EList<PropertyAnnotation> propertyAnnotation;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -80,6 +99,20 @@ public class PropertyImpl extends FeatureImpl implements Property
   protected EClass eStaticClass()
   {
     return SnowPackage.Literals.PROPERTY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<PropertyAnnotation> getPropertyAnnotation()
+  {
+    if (propertyAnnotation == null)
+    {
+      propertyAnnotation = new EObjectContainmentEList<PropertyAnnotation>(PropertyAnnotation.class, this, SnowPackage.PROPERTY__PROPERTY_ANNOTATION);
+    }
+    return propertyAnnotation;
   }
 
   /**
@@ -163,6 +196,8 @@ public class PropertyImpl extends FeatureImpl implements Property
   {
     switch (featureID)
     {
+      case SnowPackage.PROPERTY__PROPERTY_ANNOTATION:
+        return ((InternalEList<?>)getPropertyAnnotation()).basicRemove(otherEnd, msgs);
       case SnowPackage.PROPERTY__TYPE:
         return basicSetType(null, msgs);
     }
@@ -179,6 +214,8 @@ public class PropertyImpl extends FeatureImpl implements Property
   {
     switch (featureID)
     {
+      case SnowPackage.PROPERTY__PROPERTY_ANNOTATION:
+        return getPropertyAnnotation();
       case SnowPackage.PROPERTY__NAME:
         return getName();
       case SnowPackage.PROPERTY__TYPE:
@@ -192,11 +229,16 @@ public class PropertyImpl extends FeatureImpl implements Property
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case SnowPackage.PROPERTY__PROPERTY_ANNOTATION:
+        getPropertyAnnotation().clear();
+        getPropertyAnnotation().addAll((Collection<? extends PropertyAnnotation>)newValue);
+        return;
       case SnowPackage.PROPERTY__NAME:
         setName((String)newValue);
         return;
@@ -217,6 +259,9 @@ public class PropertyImpl extends FeatureImpl implements Property
   {
     switch (featureID)
     {
+      case SnowPackage.PROPERTY__PROPERTY_ANNOTATION:
+        getPropertyAnnotation().clear();
+        return;
       case SnowPackage.PROPERTY__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -237,6 +282,8 @@ public class PropertyImpl extends FeatureImpl implements Property
   {
     switch (featureID)
     {
+      case SnowPackage.PROPERTY__PROPERTY_ANNOTATION:
+        return propertyAnnotation != null && !propertyAnnotation.isEmpty();
       case SnowPackage.PROPERTY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case SnowPackage.PROPERTY__TYPE:

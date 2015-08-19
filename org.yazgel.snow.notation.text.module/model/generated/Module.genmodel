@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.yazgel.snow.notation.text.module/src-gen"
+    editDirectory="/org.yazgel.snow.notation.text.module.edit/src" editorDirectory="/org.yazgel.snow.notation.text.module.editor/src"
+    modelPluginID="org.yazgel.snow.notation.text.module" forceOverwrite="true" modelName="Module"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.yazgel.snow.notation.text.module.edit"
+    editorPluginID="org.yazgel.snow.notation.text.module.editor" runtimeVersion="2.10"
+    usedGenPackages="platform:/resource/org.yazgel.snow.notation.text/model/generated/Snow.genmodel#//snow">
+  <genPackages prefix="Module" basePackage="org.yazgel.snow.notation.text" disposableProviderFactory="true"
+      fileExtensions="mdl" ecorePackage="Module.ecore#/">
+    <genClasses ecoreClass="Module.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Module.ecore#//Model/features"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Module.ecore#//Model/module"/>
+    </genClasses>
+    <genClasses ecoreClass="Module.ecore#//Module">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//Module/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//Module/groupId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//Module/artifactId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//Module/version"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Module.ecore#//Module/jdbc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Module.ecore#//Module/connector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Module.ecore#//Module/domainModel"/>
+    </genClasses>
+    <genClasses ecoreClass="Module.ecore#//Feature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//Feature/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Module.ecore#//DBConnectorDependency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//DBConnectorDependency/groupId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//DBConnectorDependency/artifactId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//DBConnectorDependency/version"/>
+    </genClasses>
+    <genClasses ecoreClass="Module.ecore#//Jdbc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//Jdbc/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//Jdbc/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//Jdbc/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Module.ecore#//Jdbc/driver"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

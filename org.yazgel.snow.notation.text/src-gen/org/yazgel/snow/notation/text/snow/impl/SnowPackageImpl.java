@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.xtext.common.types.TypesPackage;
 
+import org.eclipse.xtext.xbase.XbasePackage;
+
 import org.eclipse.xtext.xtype.XtypePackage;
 
 import org.yazgel.snow.notation.text.snow.AbstractElement;
@@ -19,6 +21,7 @@ import org.yazgel.snow.notation.text.snow.Entity;
 import org.yazgel.snow.notation.text.snow.Feature;
 import org.yazgel.snow.notation.text.snow.PackageDeclaration;
 import org.yazgel.snow.notation.text.snow.Property;
+import org.yazgel.snow.notation.text.snow.PropertyAnnotation;
 import org.yazgel.snow.notation.text.snow.SnowFactory;
 import org.yazgel.snow.notation.text.snow.SnowPackage;
 
@@ -73,6 +76,41 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
   private EClass propertyEClass = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass propertyAnnotationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass manY_TO_MANYEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass onE_TO_ONEEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass manY_TO_ONEEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass onE_TO_MANYEClass = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -121,6 +159,7 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
     isInited = true;
 
     // Initialize simple dependencies
+    XbasePackage.eINSTANCE.eClass();
     XtypePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
@@ -153,9 +192,19 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDomainModel_Name()
+  {
+    return (EAttribute)domainModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDomainModel_ImportSection()
   {
-    return (EReference)domainModelEClass.getEStructuralFeatures().get(0);
+    return (EReference)domainModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -165,7 +214,7 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
    */
   public EReference getDomainModel_Elements()
   {
-    return (EReference)domainModelEClass.getEStructuralFeatures().get(1);
+    return (EReference)domainModelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -263,9 +312,19 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getProperty_PropertyAnnotation()
+  {
+    return (EReference)propertyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getProperty_Name()
   {
-    return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -275,7 +334,127 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
    */
   public EReference getProperty_Type()
   {
-    return (EReference)propertyEClass.getEStructuralFeatures().get(1);
+    return (EReference)propertyEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPropertyAnnotation()
+  {
+    return propertyAnnotationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMANY_TO_MANY()
+  {
+    return manY_TO_MANYEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMANY_TO_MANY_MappedBy()
+  {
+    return (EAttribute)manY_TO_MANYEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getONE_TO_ONE()
+  {
+    return onE_TO_ONEEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getONE_TO_ONE_MappedBy()
+  {
+    return (EAttribute)onE_TO_ONEEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getONE_TO_ONE_Optional()
+  {
+    return (EReference)onE_TO_ONEEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getONE_TO_ONE_OrphanRemoval()
+  {
+    return (EReference)onE_TO_ONEEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMANY_TO_ONE()
+  {
+    return manY_TO_ONEEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMANY_TO_ONE_Optional()
+  {
+    return (EReference)manY_TO_ONEEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getONE_TO_MANY()
+  {
+    return onE_TO_MANYEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getONE_TO_MANY_MappedBy()
+  {
+    return (EAttribute)onE_TO_MANYEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getONE_TO_MANY_OrphanRemoval()
+  {
+    return (EReference)onE_TO_MANYEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -309,6 +488,7 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
 
     // Create classes and their features
     domainModelEClass = createEClass(DOMAIN_MODEL);
+    createEAttribute(domainModelEClass, DOMAIN_MODEL__NAME);
     createEReference(domainModelEClass, DOMAIN_MODEL__IMPORT_SECTION);
     createEReference(domainModelEClass, DOMAIN_MODEL__ELEMENTS);
 
@@ -325,8 +505,26 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
     featureEClass = createEClass(FEATURE);
 
     propertyEClass = createEClass(PROPERTY);
+    createEReference(propertyEClass, PROPERTY__PROPERTY_ANNOTATION);
     createEAttribute(propertyEClass, PROPERTY__NAME);
     createEReference(propertyEClass, PROPERTY__TYPE);
+
+    propertyAnnotationEClass = createEClass(PROPERTY_ANNOTATION);
+
+    manY_TO_MANYEClass = createEClass(MANY_TO_MANY);
+    createEAttribute(manY_TO_MANYEClass, MANY_TO_MANY__MAPPED_BY);
+
+    onE_TO_ONEEClass = createEClass(ONE_TO_ONE);
+    createEAttribute(onE_TO_ONEEClass, ONE_TO_ONE__MAPPED_BY);
+    createEReference(onE_TO_ONEEClass, ONE_TO_ONE__OPTIONAL);
+    createEReference(onE_TO_ONEEClass, ONE_TO_ONE__ORPHAN_REMOVAL);
+
+    manY_TO_ONEEClass = createEClass(MANY_TO_ONE);
+    createEReference(manY_TO_ONEEClass, MANY_TO_ONE__OPTIONAL);
+
+    onE_TO_MANYEClass = createEClass(ONE_TO_MANY);
+    createEAttribute(onE_TO_MANYEClass, ONE_TO_MANY__MAPPED_BY);
+    createEReference(onE_TO_MANYEClass, ONE_TO_MANY__ORPHAN_REMOVAL);
   }
 
   /**
@@ -356,6 +554,7 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
     // Obtain other dependent packages
     XtypePackage theXtypePackage = (XtypePackage)EPackage.Registry.INSTANCE.getEPackage(XtypePackage.eNS_URI);
     TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
+    XbasePackage theXbasePackage = (XbasePackage)EPackage.Registry.INSTANCE.getEPackage(XbasePackage.eNS_URI);
 
     // Create type parameters
 
@@ -365,9 +564,14 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
     packageDeclarationEClass.getESuperTypes().add(this.getAbstractElement());
     entityEClass.getESuperTypes().add(this.getAbstractElement());
     propertyEClass.getESuperTypes().add(this.getFeature());
+    manY_TO_MANYEClass.getESuperTypes().add(this.getPropertyAnnotation());
+    onE_TO_ONEEClass.getESuperTypes().add(this.getPropertyAnnotation());
+    manY_TO_ONEEClass.getESuperTypes().add(this.getPropertyAnnotation());
+    onE_TO_MANYEClass.getESuperTypes().add(this.getPropertyAnnotation());
 
     // Initialize classes and features; add operations and parameters
     initEClass(domainModelEClass, DomainModel.class, "DomainModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDomainModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomainModel_ImportSection(), theXtypePackage.getXImportSection(), null, "importSection", null, 0, 1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDomainModel_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -384,8 +588,26 @@ public class SnowPackageImpl extends EPackageImpl implements SnowPackage
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getProperty_PropertyAnnotation(), this.getPropertyAnnotation(), null, "propertyAnnotation", null, 0, -1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProperty_Type(), theTypesPackage.getJvmTypeReference(), null, "type", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(propertyAnnotationEClass, PropertyAnnotation.class, "PropertyAnnotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(manY_TO_MANYEClass, org.yazgel.snow.notation.text.snow.MANY_TO_MANY.class, "MANY_TO_MANY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMANY_TO_MANY_MappedBy(), ecorePackage.getEString(), "mappedBy", null, 0, 1, org.yazgel.snow.notation.text.snow.MANY_TO_MANY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(onE_TO_ONEEClass, org.yazgel.snow.notation.text.snow.ONE_TO_ONE.class, "ONE_TO_ONE", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getONE_TO_ONE_MappedBy(), ecorePackage.getEString(), "mappedBy", null, 0, 1, org.yazgel.snow.notation.text.snow.ONE_TO_ONE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getONE_TO_ONE_Optional(), theXbasePackage.getXExpression(), null, "optional", null, 0, 1, org.yazgel.snow.notation.text.snow.ONE_TO_ONE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getONE_TO_ONE_OrphanRemoval(), theXbasePackage.getXExpression(), null, "orphanRemoval", null, 0, 1, org.yazgel.snow.notation.text.snow.ONE_TO_ONE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(manY_TO_ONEEClass, org.yazgel.snow.notation.text.snow.MANY_TO_ONE.class, "MANY_TO_ONE", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMANY_TO_ONE_Optional(), theXbasePackage.getXExpression(), null, "optional", null, 0, 1, org.yazgel.snow.notation.text.snow.MANY_TO_ONE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(onE_TO_MANYEClass, org.yazgel.snow.notation.text.snow.ONE_TO_MANY.class, "ONE_TO_MANY", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getONE_TO_MANY_MappedBy(), ecorePackage.getEString(), "mappedBy", null, 0, 1, org.yazgel.snow.notation.text.snow.ONE_TO_MANY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getONE_TO_MANY_OrphanRemoval(), theXbasePackage.getXExpression(), null, "orphanRemoval", null, 0, 1, org.yazgel.snow.notation.text.snow.ONE_TO_MANY.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

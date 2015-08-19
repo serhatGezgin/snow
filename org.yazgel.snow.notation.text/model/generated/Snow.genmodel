@@ -4,10 +4,11 @@
     editorDirectory="/org.yazgel.snow.notation.text.editor/src" modelPluginID="org.yazgel.snow.notation.text"
     forceOverwrite="true" modelName="Snow" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="6.0" copyrightFields="false" editPluginID="org.yazgel.snow.notation.text.edit"
-    editorPluginID="org.yazgel.snow.notation.text.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
+    editorPluginID="org.yazgel.snow.notation.text.editor" runtimeVersion="2.10" usedGenPackages="platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel#//types platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xbase platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel#//xtype">
   <genPackages prefix="Snow" basePackage="org.yazgel.snow.notation.text" disposableProviderFactory="true"
       fileExtensions="snw" ecorePackage="Snow.ecore#/">
     <genClasses ecoreClass="Snow.ecore#//DomainModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//DomainModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//DomainModel/importSection"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//DomainModel/elements"/>
     </genClasses>
@@ -23,8 +24,25 @@
     </genClasses>
     <genClasses ecoreClass="Snow.ecore#//Feature"/>
     <genClasses ecoreClass="Snow.ecore#//Property">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//Property/propertyAnnotation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//Property/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//Property/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//PropertyAnnotation"/>
+    <genClasses ecoreClass="Snow.ecore#//MANY_TO_MANY">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//MANY_TO_MANY/mappedBy"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//ONE_TO_ONE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ONE_TO_ONE/mappedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//ONE_TO_ONE/optional"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//ONE_TO_ONE/orphanRemoval"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//MANY_TO_ONE">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//MANY_TO_ONE/optional"/>
+    </genClasses>
+    <genClasses ecoreClass="Snow.ecore#//ONE_TO_MANY">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Snow.ecore#//ONE_TO_MANY/mappedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Snow.ecore#//ONE_TO_MANY/orphanRemoval"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

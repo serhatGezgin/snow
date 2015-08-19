@@ -16,14 +16,11 @@ import org.eclipse.xtext.common.types.JvmUpperBound;
 import org.eclipse.xtext.common.types.JvmWildcardTypeReference;
 import org.eclipse.xtext.common.types.TypesPackage;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
 import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
 import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
-import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipse.xtext.xbase.XAssignment;
 import org.eclipse.xtext.xbase.XBasicForLoopExpression;
 import org.eclipse.xtext.xbase.XBinaryOperation;
@@ -64,6 +61,10 @@ import org.eclipse.xtext.xtype.XtypePackage;
 import org.yazgel.snow.notation.text.services.SnowGrammarAccess;
 import org.yazgel.snow.notation.text.snow.DomainModel;
 import org.yazgel.snow.notation.text.snow.Entity;
+import org.yazgel.snow.notation.text.snow.MANY_TO_MANY;
+import org.yazgel.snow.notation.text.snow.MANY_TO_ONE;
+import org.yazgel.snow.notation.text.snow.ONE_TO_MANY;
+import org.yazgel.snow.notation.text.snow.ONE_TO_ONE;
 import org.yazgel.snow.notation.text.snow.PackageDeclaration;
 import org.yazgel.snow.notation.text.snow.Property;
 import org.yazgel.snow.notation.text.snow.SnowPackage;
@@ -82,6 +83,18 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 				return; 
 			case SnowPackage.ENTITY:
 				sequence_Entity(context, (Entity) semanticObject); 
+				return; 
+			case SnowPackage.MANY_TO_MANY:
+				sequence_MANY_TO_MANY(context, (MANY_TO_MANY) semanticObject); 
+				return; 
+			case SnowPackage.MANY_TO_ONE:
+				sequence_MANY_TO_ONE(context, (MANY_TO_ONE) semanticObject); 
+				return; 
+			case SnowPackage.ONE_TO_MANY:
+				sequence_ONE_TO_MANY(context, (ONE_TO_MANY) semanticObject); 
+				return; 
+			case SnowPackage.ONE_TO_ONE:
+				sequence_ONE_TO_ONE(context, (ONE_TO_ONE) semanticObject); 
 				return; 
 			case SnowPackage.PACKAGE_DECLARATION:
 				sequence_PackageDeclaration(context, (PackageDeclaration) semanticObject); 
@@ -321,7 +334,7 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (importSection=XImportSection? elements+=AbstractElement*)
+	 *     (name=QualifiedName importSection=XImportSection? elements+=AbstractElement*)
 	 */
 	protected void sequence_DomainModel(EObject context, DomainModel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -339,6 +352,42 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (mappedBy=ID?)
+	 */
+	protected void sequence_MANY_TO_MANY(EObject context, MANY_TO_MANY semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (optional=XBooleanLiteral?)
+	 */
+	protected void sequence_MANY_TO_ONE(EObject context, MANY_TO_ONE semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((mappedBy=ID? orphanRemoval=XBooleanLiteral?)?)
+	 */
+	protected void sequence_ONE_TO_MANY(EObject context, ONE_TO_MANY semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((mappedBy=ID? optional=XBooleanLiteral? orphanRemoval=XBooleanLiteral?)?)
+	 */
+	protected void sequence_ONE_TO_ONE(EObject context, ONE_TO_ONE semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=QualifiedName elements+=AbstractElement*)
 	 */
 	protected void sequence_PackageDeclaration(EObject context, PackageDeclaration semanticObject) {
@@ -348,19 +397,9 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=ValidID type=JvmTypeReference)
+	 *     ((propertyAnnotation+=PropertyAnnotation propertyAnnotation+=PropertyAnnotation*)? name=ValidID type=JvmTypeReference)
 	 */
 	protected void sequence_Property(EObject context, Property semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, SnowPackage.Literals.PROPERTY__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SnowPackage.Literals.PROPERTY__NAME));
-			if(transientValues.isValueTransient(semanticObject, SnowPackage.Literals.PROPERTY__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SnowPackage.Literals.PROPERTY__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPropertyAccess().getNameValidIDParserRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getPropertyAccess().getTypeJvmTypeReferenceParserRuleCall_2_0(), semanticObject.getType());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

@@ -67,13 +67,22 @@ public interface SnowPackage extends EPackage
   int DOMAIN_MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOMAIN_MODEL__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Import Section</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_MODEL__IMPORT_SECTION = 0;
+  int DOMAIN_MODEL__IMPORT_SECTION = 1;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -82,7 +91,7 @@ public interface SnowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_MODEL__ELEMENTS = 1;
+  int DOMAIN_MODEL__ELEMENTS = 2;
 
   /**
    * The number of structural features of the '<em>Domain Model</em>' class.
@@ -91,7 +100,7 @@ public interface SnowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DOMAIN_MODEL_FEATURE_COUNT = 2;
+  int DOMAIN_MODEL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.yazgel.snow.notation.text.snow.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
@@ -234,13 +243,22 @@ public interface SnowPackage extends EPackage
   int PROPERTY = 5;
 
   /**
+   * The feature id for the '<em><b>Property Annotation</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPERTY__PROPERTY_ANNOTATION = FEATURE_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROPERTY__NAME = FEATURE_FEATURE_COUNT + 0;
+  int PROPERTY__NAME = FEATURE_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -249,7 +267,7 @@ public interface SnowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY__TYPE = FEATURE_FEATURE_COUNT + 1;
+  int PROPERTY__TYPE = FEATURE_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Property</em>' class.
@@ -258,7 +276,165 @@ public interface SnowPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 2;
+  int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.yazgel.snow.notation.text.snow.impl.PropertyAnnotationImpl <em>Property Annotation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.yazgel.snow.notation.text.snow.impl.PropertyAnnotationImpl
+   * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getPropertyAnnotation()
+   * @generated
+   */
+  int PROPERTY_ANNOTATION = 6;
+
+  /**
+   * The number of structural features of the '<em>Property Annotation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPERTY_ANNOTATION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.yazgel.snow.notation.text.snow.impl.MANY_TO_MANYImpl <em>MANY TO MANY</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.yazgel.snow.notation.text.snow.impl.MANY_TO_MANYImpl
+   * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getMANY_TO_MANY()
+   * @generated
+   */
+  int MANY_TO_MANY = 7;
+
+  /**
+   * The feature id for the '<em><b>Mapped By</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MANY_TO_MANY__MAPPED_BY = PROPERTY_ANNOTATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>MANY TO MANY</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MANY_TO_MANY_FEATURE_COUNT = PROPERTY_ANNOTATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.yazgel.snow.notation.text.snow.impl.ONE_TO_ONEImpl <em>ONE TO ONE</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.yazgel.snow.notation.text.snow.impl.ONE_TO_ONEImpl
+   * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getONE_TO_ONE()
+   * @generated
+   */
+  int ONE_TO_ONE = 8;
+
+  /**
+   * The feature id for the '<em><b>Mapped By</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONE_TO_ONE__MAPPED_BY = PROPERTY_ANNOTATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Optional</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONE_TO_ONE__OPTIONAL = PROPERTY_ANNOTATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Orphan Removal</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONE_TO_ONE__ORPHAN_REMOVAL = PROPERTY_ANNOTATION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>ONE TO ONE</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONE_TO_ONE_FEATURE_COUNT = PROPERTY_ANNOTATION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.yazgel.snow.notation.text.snow.impl.MANY_TO_ONEImpl <em>MANY TO ONE</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.yazgel.snow.notation.text.snow.impl.MANY_TO_ONEImpl
+   * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getMANY_TO_ONE()
+   * @generated
+   */
+  int MANY_TO_ONE = 9;
+
+  /**
+   * The feature id for the '<em><b>Optional</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MANY_TO_ONE__OPTIONAL = PROPERTY_ANNOTATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>MANY TO ONE</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MANY_TO_ONE_FEATURE_COUNT = PROPERTY_ANNOTATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.yazgel.snow.notation.text.snow.impl.ONE_TO_MANYImpl <em>ONE TO MANY</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.yazgel.snow.notation.text.snow.impl.ONE_TO_MANYImpl
+   * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getONE_TO_MANY()
+   * @generated
+   */
+  int ONE_TO_MANY = 10;
+
+  /**
+   * The feature id for the '<em><b>Mapped By</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONE_TO_MANY__MAPPED_BY = PROPERTY_ANNOTATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Orphan Removal</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONE_TO_MANY__ORPHAN_REMOVAL = PROPERTY_ANNOTATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>ONE TO MANY</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ONE_TO_MANY_FEATURE_COUNT = PROPERTY_ANNOTATION_FEATURE_COUNT + 2;
 
 
   /**
@@ -270,6 +446,17 @@ public interface SnowPackage extends EPackage
    * @generated
    */
   EClass getDomainModel();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.yazgel.snow.notation.text.snow.DomainModel#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.yazgel.snow.notation.text.snow.DomainModel#getName()
+   * @see #getDomainModel()
+   * @generated
+   */
+  EAttribute getDomainModel_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link org.yazgel.snow.notation.text.snow.DomainModel#getImportSection <em>Import Section</em>}'.
@@ -388,6 +575,17 @@ public interface SnowPackage extends EPackage
   EClass getProperty();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.yazgel.snow.notation.text.snow.Property#getPropertyAnnotation <em>Property Annotation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Property Annotation</em>'.
+   * @see org.yazgel.snow.notation.text.snow.Property#getPropertyAnnotation()
+   * @see #getProperty()
+   * @generated
+   */
+  EReference getProperty_PropertyAnnotation();
+
+  /**
    * Returns the meta object for the attribute '{@link org.yazgel.snow.notation.text.snow.Property#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -408,6 +606,133 @@ public interface SnowPackage extends EPackage
    * @generated
    */
   EReference getProperty_Type();
+
+  /**
+   * Returns the meta object for class '{@link org.yazgel.snow.notation.text.snow.PropertyAnnotation <em>Property Annotation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Property Annotation</em>'.
+   * @see org.yazgel.snow.notation.text.snow.PropertyAnnotation
+   * @generated
+   */
+  EClass getPropertyAnnotation();
+
+  /**
+   * Returns the meta object for class '{@link org.yazgel.snow.notation.text.snow.MANY_TO_MANY <em>MANY TO MANY</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>MANY TO MANY</em>'.
+   * @see org.yazgel.snow.notation.text.snow.MANY_TO_MANY
+   * @generated
+   */
+  EClass getMANY_TO_MANY();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.yazgel.snow.notation.text.snow.MANY_TO_MANY#getMappedBy <em>Mapped By</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mapped By</em>'.
+   * @see org.yazgel.snow.notation.text.snow.MANY_TO_MANY#getMappedBy()
+   * @see #getMANY_TO_MANY()
+   * @generated
+   */
+  EAttribute getMANY_TO_MANY_MappedBy();
+
+  /**
+   * Returns the meta object for class '{@link org.yazgel.snow.notation.text.snow.ONE_TO_ONE <em>ONE TO ONE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>ONE TO ONE</em>'.
+   * @see org.yazgel.snow.notation.text.snow.ONE_TO_ONE
+   * @generated
+   */
+  EClass getONE_TO_ONE();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.yazgel.snow.notation.text.snow.ONE_TO_ONE#getMappedBy <em>Mapped By</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mapped By</em>'.
+   * @see org.yazgel.snow.notation.text.snow.ONE_TO_ONE#getMappedBy()
+   * @see #getONE_TO_ONE()
+   * @generated
+   */
+  EAttribute getONE_TO_ONE_MappedBy();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.yazgel.snow.notation.text.snow.ONE_TO_ONE#getOptional <em>Optional</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Optional</em>'.
+   * @see org.yazgel.snow.notation.text.snow.ONE_TO_ONE#getOptional()
+   * @see #getONE_TO_ONE()
+   * @generated
+   */
+  EReference getONE_TO_ONE_Optional();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.yazgel.snow.notation.text.snow.ONE_TO_ONE#getOrphanRemoval <em>Orphan Removal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Orphan Removal</em>'.
+   * @see org.yazgel.snow.notation.text.snow.ONE_TO_ONE#getOrphanRemoval()
+   * @see #getONE_TO_ONE()
+   * @generated
+   */
+  EReference getONE_TO_ONE_OrphanRemoval();
+
+  /**
+   * Returns the meta object for class '{@link org.yazgel.snow.notation.text.snow.MANY_TO_ONE <em>MANY TO ONE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>MANY TO ONE</em>'.
+   * @see org.yazgel.snow.notation.text.snow.MANY_TO_ONE
+   * @generated
+   */
+  EClass getMANY_TO_ONE();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.yazgel.snow.notation.text.snow.MANY_TO_ONE#getOptional <em>Optional</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Optional</em>'.
+   * @see org.yazgel.snow.notation.text.snow.MANY_TO_ONE#getOptional()
+   * @see #getMANY_TO_ONE()
+   * @generated
+   */
+  EReference getMANY_TO_ONE_Optional();
+
+  /**
+   * Returns the meta object for class '{@link org.yazgel.snow.notation.text.snow.ONE_TO_MANY <em>ONE TO MANY</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>ONE TO MANY</em>'.
+   * @see org.yazgel.snow.notation.text.snow.ONE_TO_MANY
+   * @generated
+   */
+  EClass getONE_TO_MANY();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.yazgel.snow.notation.text.snow.ONE_TO_MANY#getMappedBy <em>Mapped By</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mapped By</em>'.
+   * @see org.yazgel.snow.notation.text.snow.ONE_TO_MANY#getMappedBy()
+   * @see #getONE_TO_MANY()
+   * @generated
+   */
+  EAttribute getONE_TO_MANY_MappedBy();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.yazgel.snow.notation.text.snow.ONE_TO_MANY#getOrphanRemoval <em>Orphan Removal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Orphan Removal</em>'.
+   * @see org.yazgel.snow.notation.text.snow.ONE_TO_MANY#getOrphanRemoval()
+   * @see #getONE_TO_MANY()
+   * @generated
+   */
+  EReference getONE_TO_MANY_OrphanRemoval();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -441,6 +766,14 @@ public interface SnowPackage extends EPackage
      * @generated
      */
     EClass DOMAIN_MODEL = eINSTANCE.getDomainModel();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOMAIN_MODEL__NAME = eINSTANCE.getDomainModel_Name();
 
     /**
      * The meta object literal for the '<em><b>Import Section</b></em>' containment reference feature.
@@ -541,6 +874,14 @@ public interface SnowPackage extends EPackage
     EClass PROPERTY = eINSTANCE.getProperty();
 
     /**
+     * The meta object literal for the '<em><b>Property Annotation</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROPERTY__PROPERTY_ANNOTATION = eINSTANCE.getProperty_PropertyAnnotation();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -555,6 +896,112 @@ public interface SnowPackage extends EPackage
      * @generated
      */
     EReference PROPERTY__TYPE = eINSTANCE.getProperty_Type();
+
+    /**
+     * The meta object literal for the '{@link org.yazgel.snow.notation.text.snow.impl.PropertyAnnotationImpl <em>Property Annotation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.yazgel.snow.notation.text.snow.impl.PropertyAnnotationImpl
+     * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getPropertyAnnotation()
+     * @generated
+     */
+    EClass PROPERTY_ANNOTATION = eINSTANCE.getPropertyAnnotation();
+
+    /**
+     * The meta object literal for the '{@link org.yazgel.snow.notation.text.snow.impl.MANY_TO_MANYImpl <em>MANY TO MANY</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.yazgel.snow.notation.text.snow.impl.MANY_TO_MANYImpl
+     * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getMANY_TO_MANY()
+     * @generated
+     */
+    EClass MANY_TO_MANY = eINSTANCE.getMANY_TO_MANY();
+
+    /**
+     * The meta object literal for the '<em><b>Mapped By</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MANY_TO_MANY__MAPPED_BY = eINSTANCE.getMANY_TO_MANY_MappedBy();
+
+    /**
+     * The meta object literal for the '{@link org.yazgel.snow.notation.text.snow.impl.ONE_TO_ONEImpl <em>ONE TO ONE</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.yazgel.snow.notation.text.snow.impl.ONE_TO_ONEImpl
+     * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getONE_TO_ONE()
+     * @generated
+     */
+    EClass ONE_TO_ONE = eINSTANCE.getONE_TO_ONE();
+
+    /**
+     * The meta object literal for the '<em><b>Mapped By</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ONE_TO_ONE__MAPPED_BY = eINSTANCE.getONE_TO_ONE_MappedBy();
+
+    /**
+     * The meta object literal for the '<em><b>Optional</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ONE_TO_ONE__OPTIONAL = eINSTANCE.getONE_TO_ONE_Optional();
+
+    /**
+     * The meta object literal for the '<em><b>Orphan Removal</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ONE_TO_ONE__ORPHAN_REMOVAL = eINSTANCE.getONE_TO_ONE_OrphanRemoval();
+
+    /**
+     * The meta object literal for the '{@link org.yazgel.snow.notation.text.snow.impl.MANY_TO_ONEImpl <em>MANY TO ONE</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.yazgel.snow.notation.text.snow.impl.MANY_TO_ONEImpl
+     * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getMANY_TO_ONE()
+     * @generated
+     */
+    EClass MANY_TO_ONE = eINSTANCE.getMANY_TO_ONE();
+
+    /**
+     * The meta object literal for the '<em><b>Optional</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MANY_TO_ONE__OPTIONAL = eINSTANCE.getMANY_TO_ONE_Optional();
+
+    /**
+     * The meta object literal for the '{@link org.yazgel.snow.notation.text.snow.impl.ONE_TO_MANYImpl <em>ONE TO MANY</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.yazgel.snow.notation.text.snow.impl.ONE_TO_MANYImpl
+     * @see org.yazgel.snow.notation.text.snow.impl.SnowPackageImpl#getONE_TO_MANY()
+     * @generated
+     */
+    EClass ONE_TO_MANY = eINSTANCE.getONE_TO_MANY();
+
+    /**
+     * The meta object literal for the '<em><b>Mapped By</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ONE_TO_MANY__MAPPED_BY = eINSTANCE.getONE_TO_MANY_MappedBy();
+
+    /**
+     * The meta object literal for the '<em><b>Orphan Removal</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ONE_TO_MANY__ORPHAN_REMOVAL = eINSTANCE.getONE_TO_MANY_OrphanRemoval();
 
   }
 

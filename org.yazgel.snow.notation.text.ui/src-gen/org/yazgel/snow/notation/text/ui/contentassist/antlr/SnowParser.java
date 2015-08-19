@@ -38,6 +38,7 @@ public class SnowParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getAbstractElementAccess().getAlternatives(), "rule__AbstractElement__Alternatives");
+					put(grammarAccess.getPropertyAnnotationAccess().getAlternatives(), "rule__PropertyAnnotation__Alternatives");
 					put(grammarAccess.getXAssignmentAccess().getAlternatives(), "rule__XAssignment__Alternatives");
 					put(grammarAccess.getOpMultiAssignAccess().getAlternatives(), "rule__OpMultiAssign__Alternatives");
 					put(grammarAccess.getOpEqualityAccess().getAlternatives(), "rule__OpEquality__Alternatives");
@@ -82,6 +83,24 @@ public class SnowParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup_2(), "rule__Entity__Group_2__0");
 					put(grammarAccess.getPropertyAccess().getGroup(), "rule__Property__Group__0");
+					put(grammarAccess.getPropertyAccess().getGroup_0(), "rule__Property__Group_0__0");
+					put(grammarAccess.getMANY_TO_MANYAccess().getGroup(), "rule__MANY_TO_MANY__Group__0");
+					put(grammarAccess.getMANY_TO_MANYAccess().getGroup_2(), "rule__MANY_TO_MANY__Group_2__0");
+					put(grammarAccess.getMANY_TO_MANYAccess().getGroup_2_1(), "rule__MANY_TO_MANY__Group_2_1__0");
+					put(grammarAccess.getONE_TO_ONEAccess().getGroup(), "rule__ONE_TO_ONE__Group__0");
+					put(grammarAccess.getONE_TO_ONEAccess().getGroup_2_0(), "rule__ONE_TO_ONE__Group_2_0__0");
+					put(grammarAccess.getONE_TO_ONEAccess().getGroup_2_0_1(), "rule__ONE_TO_ONE__Group_2_0_1__0");
+					put(grammarAccess.getONE_TO_ONEAccess().getGroup_2_1(), "rule__ONE_TO_ONE__Group_2_1__0");
+					put(grammarAccess.getONE_TO_ONEAccess().getGroup_2_2(), "rule__ONE_TO_ONE__Group_2_2__0");
+					put(grammarAccess.getONE_TO_ONEAccess().getGroup_2_2_0(), "rule__ONE_TO_ONE__Group_2_2_0__0");
+					put(grammarAccess.getMANY_TO_ONEAccess().getGroup(), "rule__MANY_TO_ONE__Group__0");
+					put(grammarAccess.getMANY_TO_ONEAccess().getGroup_2(), "rule__MANY_TO_ONE__Group_2__0");
+					put(grammarAccess.getMANY_TO_ONEAccess().getGroup_2_1(), "rule__MANY_TO_ONE__Group_2_1__0");
+					put(grammarAccess.getONE_TO_MANYAccess().getGroup(), "rule__ONE_TO_MANY__Group__0");
+					put(grammarAccess.getONE_TO_MANYAccess().getGroup_2_0(), "rule__ONE_TO_MANY__Group_2_0__0");
+					put(grammarAccess.getONE_TO_MANYAccess().getGroup_2_0_1(), "rule__ONE_TO_MANY__Group_2_0_1__0");
+					put(grammarAccess.getONE_TO_MANYAccess().getGroup_2_1(), "rule__ONE_TO_MANY__Group_2_1__0");
+					put(grammarAccess.getONE_TO_MANYAccess().getGroup_2_1_0(), "rule__ONE_TO_MANY__Group_2_1_0__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1(), "rule__XAssignment__Group_1__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1_1(), "rule__XAssignment__Group_1_1__0");
@@ -261,15 +280,25 @@ public class SnowParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXImportDeclarationAccess().getGroup(), "rule__XImportDeclaration__Group__0");
 					put(grammarAccess.getXImportDeclarationAccess().getGroup_1_0(), "rule__XImportDeclaration__Group_1_0__0");
 					put(grammarAccess.getQualifiedNameInStaticImportAccess().getGroup(), "rule__QualifiedNameInStaticImport__Group__0");
-					put(grammarAccess.getDomainModelAccess().getImportSectionAssignment_0(), "rule__DomainModel__ImportSectionAssignment_0");
-					put(grammarAccess.getDomainModelAccess().getElementsAssignment_1(), "rule__DomainModel__ElementsAssignment_1");
+					put(grammarAccess.getDomainModelAccess().getNameAssignment_1(), "rule__DomainModel__NameAssignment_1");
+					put(grammarAccess.getDomainModelAccess().getImportSectionAssignment_2(), "rule__DomainModel__ImportSectionAssignment_2");
+					put(grammarAccess.getDomainModelAccess().getElementsAssignment_3(), "rule__DomainModel__ElementsAssignment_3");
 					put(grammarAccess.getPackageDeclarationAccess().getNameAssignment_1(), "rule__PackageDeclaration__NameAssignment_1");
 					put(grammarAccess.getPackageDeclarationAccess().getElementsAssignment_3(), "rule__PackageDeclaration__ElementsAssignment_3");
 					put(grammarAccess.getEntityAccess().getNameAssignment_1(), "rule__Entity__NameAssignment_1");
 					put(grammarAccess.getEntityAccess().getSuperTypeAssignment_2_1(), "rule__Entity__SuperTypeAssignment_2_1");
 					put(grammarAccess.getEntityAccess().getFeaturesAssignment_4(), "rule__Entity__FeaturesAssignment_4");
-					put(grammarAccess.getPropertyAccess().getNameAssignment_0(), "rule__Property__NameAssignment_0");
-					put(grammarAccess.getPropertyAccess().getTypeAssignment_2(), "rule__Property__TypeAssignment_2");
+					put(grammarAccess.getPropertyAccess().getPropertyAnnotationAssignment_0_0(), "rule__Property__PropertyAnnotationAssignment_0_0");
+					put(grammarAccess.getPropertyAccess().getPropertyAnnotationAssignment_0_1(), "rule__Property__PropertyAnnotationAssignment_0_1");
+					put(grammarAccess.getPropertyAccess().getNameAssignment_1(), "rule__Property__NameAssignment_1");
+					put(grammarAccess.getPropertyAccess().getTypeAssignment_3(), "rule__Property__TypeAssignment_3");
+					put(grammarAccess.getMANY_TO_MANYAccess().getMappedByAssignment_2_1_1(), "rule__MANY_TO_MANY__MappedByAssignment_2_1_1");
+					put(grammarAccess.getONE_TO_ONEAccess().getMappedByAssignment_2_0_1_1(), "rule__ONE_TO_ONE__MappedByAssignment_2_0_1_1");
+					put(grammarAccess.getONE_TO_ONEAccess().getOptionalAssignment_2_1_1(), "rule__ONE_TO_ONE__OptionalAssignment_2_1_1");
+					put(grammarAccess.getONE_TO_ONEAccess().getOrphanRemovalAssignment_2_2_0_1(), "rule__ONE_TO_ONE__OrphanRemovalAssignment_2_2_0_1");
+					put(grammarAccess.getMANY_TO_ONEAccess().getOptionalAssignment_2_1_1(), "rule__MANY_TO_ONE__OptionalAssignment_2_1_1");
+					put(grammarAccess.getONE_TO_MANYAccess().getMappedByAssignment_2_0_1_1(), "rule__ONE_TO_MANY__MappedByAssignment_2_0_1_1");
+					put(grammarAccess.getONE_TO_MANYAccess().getOrphanRemovalAssignment_2_1_0_1(), "rule__ONE_TO_MANY__OrphanRemovalAssignment_2_1_0_1");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");
@@ -414,6 +443,8 @@ public class SnowParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXImportDeclarationAccess().getMemberNameAssignment_1_0_3_1(), "rule__XImportDeclaration__MemberNameAssignment_1_0_3_1");
 					put(grammarAccess.getXImportDeclarationAccess().getImportedTypeAssignment_1_1(), "rule__XImportDeclaration__ImportedTypeAssignment_1_1");
 					put(grammarAccess.getXImportDeclarationAccess().getImportedNamespaceAssignment_1_2(), "rule__XImportDeclaration__ImportedNamespaceAssignment_1_2");
+					put(grammarAccess.getONE_TO_ONEAccess().getUnorderedGroup_2(), "rule__ONE_TO_ONE__UnorderedGroup_2");
+					put(grammarAccess.getONE_TO_MANYAccess().getUnorderedGroup_2(), "rule__ONE_TO_MANY__UnorderedGroup_2");
 				}
 			};
 		}

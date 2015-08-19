@@ -1,0 +1,40 @@
+grammar org.yazgel.snow.notation.text.Module with org.eclipse.xtext.xbase.Xbase
+
+generate module "http://www.yazgel.org/snow/notation/text/Module"
+
+import "platform:/resource/org.yazgel.snow.notation.text/model/generated/Snow.ecore" as snow
+
+Model:
+	(features+=Feature (features+=Feature)*)?
+	module=Module
+;
+	
+Module:
+	'module' name=QualifiedName '{'
+		'group id' groupId=STRING
+		'artifact id' artifactId=STRING
+		'version' version=STRING 
+		
+		 ('jdbc' jdbc=[Jdbc|QualifiedName] &
+		 'connector' connector=[DBConnectorDependency|QualifiedName])
+		 
+		 'domain model' domainModel= [snow::DomainModel|QualifiedName]
+	'}';
+
+Feature: 
+	Jdbc | DBConnectorDependency;
+
+DBConnectorDependency:
+	'connector' name=QualifiedName '{'
+		'group id' groupId=STRING
+		'artifact id' artifactId=STRING
+		'version' version=STRING
+	'}';
+
+Jdbc:
+	'jdbc' name=QualifiedName '{'
+		'user' user=STRING
+		'password' password=STRING
+		'url' url=STRING
+		'driver' driver=STRING
+	'}';

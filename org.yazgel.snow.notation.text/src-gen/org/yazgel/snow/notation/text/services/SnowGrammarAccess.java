@@ -22,29 +22,41 @@ public class SnowGrammarAccess extends AbstractGrammarElementFinder {
 	public class DomainModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DomainModel");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cImportSectionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cImportSectionXImportSectionParserRuleCall_0_0 = (RuleCall)cImportSectionAssignment_0.eContents().get(0);
-		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cElementsAbstractElementParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final Keyword cDomainKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cImportSectionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportSectionXImportSectionParserRuleCall_2_0 = (RuleCall)cImportSectionAssignment_2.eContents().get(0);
+		private final Assignment cElementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cElementsAbstractElementParserRuleCall_3_0 = (RuleCall)cElementsAssignment_3.eContents().get(0);
 		
 		//DomainModel:
-		//	importSection=XImportSection? elements+=AbstractElement*;
+		//	"Domain" name=QualifiedName importSection=XImportSection? elements+=AbstractElement*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//importSection=XImportSection? elements+=AbstractElement*
+		//"Domain" name=QualifiedName importSection=XImportSection? elements+=AbstractElement*
 		public Group getGroup() { return cGroup; }
 
+		//"Domain"
+		public Keyword getDomainKeyword_0() { return cDomainKeyword_0; }
+
+		//name=QualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+
 		//importSection=XImportSection?
-		public Assignment getImportSectionAssignment_0() { return cImportSectionAssignment_0; }
+		public Assignment getImportSectionAssignment_2() { return cImportSectionAssignment_2; }
 
 		//XImportSection
-		public RuleCall getImportSectionXImportSectionParserRuleCall_0_0() { return cImportSectionXImportSectionParserRuleCall_0_0; }
+		public RuleCall getImportSectionXImportSectionParserRuleCall_2_0() { return cImportSectionXImportSectionParserRuleCall_2_0; }
 
 		//elements+=AbstractElement*
-		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		public Assignment getElementsAssignment_3() { return cElementsAssignment_3; }
 
 		//AbstractElement
-		public RuleCall getElementsAbstractElementParserRuleCall_1_0() { return cElementsAbstractElementParserRuleCall_1_0; }
+		public RuleCall getElementsAbstractElementParserRuleCall_3_0() { return cElementsAbstractElementParserRuleCall_3_0; }
 	}
 
 	public class AbstractElementElements extends AbstractParserRuleElementFinder {
@@ -178,33 +190,341 @@ public class SnowGrammarAccess extends AbstractGrammarElementFinder {
 	public class PropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Property");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameValidIDParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cPropertyAnnotationAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cPropertyAnnotationPropertyAnnotationParserRuleCall_0_0_0 = (RuleCall)cPropertyAnnotationAssignment_0_0.eContents().get(0);
+		private final Assignment cPropertyAnnotationAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cPropertyAnnotationPropertyAnnotationParserRuleCall_0_1_0 = (RuleCall)cPropertyAnnotationAssignment_0_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameValidIDParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTypeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTypeJvmTypeReferenceParserRuleCall_3_0 = (RuleCall)cTypeAssignment_3.eContents().get(0);
 		
 		//Property:
-		//	name=ValidID ":" type=JvmTypeReference;
+		//	(propertyAnnotation+=PropertyAnnotation propertyAnnotation+=PropertyAnnotation*)? name=ValidID ":"
+		//	type=JvmTypeReference;
 		@Override public ParserRule getRule() { return rule; }
 
-		//name=ValidID ":" type=JvmTypeReference
+		//(propertyAnnotation+=PropertyAnnotation propertyAnnotation+=PropertyAnnotation*)? name=ValidID ":" type=JvmTypeReference
 		public Group getGroup() { return cGroup; }
 
+		//(propertyAnnotation+=PropertyAnnotation propertyAnnotation+=PropertyAnnotation*)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//propertyAnnotation+=PropertyAnnotation
+		public Assignment getPropertyAnnotationAssignment_0_0() { return cPropertyAnnotationAssignment_0_0; }
+
+		//PropertyAnnotation
+		public RuleCall getPropertyAnnotationPropertyAnnotationParserRuleCall_0_0_0() { return cPropertyAnnotationPropertyAnnotationParserRuleCall_0_0_0; }
+
+		//propertyAnnotation+=PropertyAnnotation*
+		public Assignment getPropertyAnnotationAssignment_0_1() { return cPropertyAnnotationAssignment_0_1; }
+
+		//PropertyAnnotation
+		public RuleCall getPropertyAnnotationPropertyAnnotationParserRuleCall_0_1_0() { return cPropertyAnnotationPropertyAnnotationParserRuleCall_0_1_0; }
+
 		//name=ValidID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ValidID
-		public RuleCall getNameValidIDParserRuleCall_0_0() { return cNameValidIDParserRuleCall_0_0; }
+		public RuleCall getNameValidIDParserRuleCall_1_0() { return cNameValidIDParserRuleCall_1_0; }
 
 		//":"
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
 		//type=JvmTypeReference
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		public Assignment getTypeAssignment_3() { return cTypeAssignment_3; }
 
 		//JvmTypeReference
-		public RuleCall getTypeJvmTypeReferenceParserRuleCall_2_0() { return cTypeJvmTypeReferenceParserRuleCall_2_0; }
+		public RuleCall getTypeJvmTypeReferenceParserRuleCall_3_0() { return cTypeJvmTypeReferenceParserRuleCall_3_0; }
+	}
+
+	public class PropertyAnnotationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertyAnnotation");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cONE_TO_MANYParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMANY_TO_ONEParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cONE_TO_ONEParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cMANY_TO_MANYParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		
+		//PropertyAnnotation:
+		//	ONE_TO_MANY | MANY_TO_ONE | ONE_TO_ONE | MANY_TO_MANY;
+		@Override public ParserRule getRule() { return rule; }
+
+		//ONE_TO_MANY | MANY_TO_ONE | ONE_TO_ONE | MANY_TO_MANY
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//ONE_TO_MANY
+		public RuleCall getONE_TO_MANYParserRuleCall_0() { return cONE_TO_MANYParserRuleCall_0; }
+
+		//MANY_TO_ONE
+		public RuleCall getMANY_TO_ONEParserRuleCall_1() { return cMANY_TO_ONEParserRuleCall_1; }
+
+		//ONE_TO_ONE
+		public RuleCall getONE_TO_ONEParserRuleCall_2() { return cONE_TO_ONEParserRuleCall_2; }
+
+		//MANY_TO_MANY
+		public RuleCall getMANY_TO_MANYParserRuleCall_3() { return cMANY_TO_MANYParserRuleCall_3; }
+	}
+
+	public class MANY_TO_MANYElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MANY_TO_MANY");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMANY_TO_MANYAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cManyToManyKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cMappedByKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cMappedByAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cMappedByIDTerminalRuleCall_2_1_1_0 = (RuleCall)cMappedByAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		
+		//MANY_TO_MANY:
+		//	{MANY_TO_MANY} "@ManyToMany" ("{" ("mappedBy" mappedBy=ID)? "}")?;
+		@Override public ParserRule getRule() { return rule; }
+
+		//{MANY_TO_MANY} "@ManyToMany" ("{" ("mappedBy" mappedBy=ID)? "}")?
+		public Group getGroup() { return cGroup; }
+
+		//{MANY_TO_MANY}
+		public Action getMANY_TO_MANYAction_0() { return cMANY_TO_MANYAction_0; }
+
+		//"@ManyToMany"
+		public Keyword getManyToManyKeyword_1() { return cManyToManyKeyword_1; }
+
+		//("{" ("mappedBy" mappedBy=ID)? "}")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+
+		//("mappedBy" mappedBy=ID)?
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//"mappedBy"
+		public Keyword getMappedByKeyword_2_1_0() { return cMappedByKeyword_2_1_0; }
+
+		//mappedBy=ID
+		public Assignment getMappedByAssignment_2_1_1() { return cMappedByAssignment_2_1_1; }
+
+		//ID
+		public RuleCall getMappedByIDTerminalRuleCall_2_1_1_0() { return cMappedByIDTerminalRuleCall_2_1_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_2() { return cRightCurlyBracketKeyword_2_2; }
+	}
+
+	public class ONE_TO_ONEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ONE_TO_ONE");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cONE_TO_ONEAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cOneToOneKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final UnorderedGroup cUnorderedGroup_2 = (UnorderedGroup)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cUnorderedGroup_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Group cGroup_2_0_1 = (Group)cGroup_2_0.eContents().get(1);
+		private final Keyword cMappedByKeyword_2_0_1_0 = (Keyword)cGroup_2_0_1.eContents().get(0);
+		private final Assignment cMappedByAssignment_2_0_1_1 = (Assignment)cGroup_2_0_1.eContents().get(1);
+		private final RuleCall cMappedByIDTerminalRuleCall_2_0_1_1_0 = (RuleCall)cMappedByAssignment_2_0_1_1.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cUnorderedGroup_2.eContents().get(1);
+		private final Keyword cOptionalKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cOptionalAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cOptionalXBooleanLiteralParserRuleCall_2_1_1_0 = (RuleCall)cOptionalAssignment_2_1_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
+		private final Group cGroup_2_2_0 = (Group)cGroup_2_2.eContents().get(0);
+		private final Keyword cOrphanRemovalKeyword_2_2_0_0 = (Keyword)cGroup_2_2_0.eContents().get(0);
+		private final Assignment cOrphanRemovalAssignment_2_2_0_1 = (Assignment)cGroup_2_2_0.eContents().get(1);
+		private final RuleCall cOrphanRemovalXBooleanLiteralParserRuleCall_2_2_0_1_0 = (RuleCall)cOrphanRemovalAssignment_2_2_0_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
+		
+		//ONE_TO_ONE:
+		//	{ONE_TO_ONE} "@OneToOne" ("{" ("mappedBy" mappedBy=ID)? & ("optional" optional=XBooleanLiteral)? & ("orphanRemoval"
+		//	orphanRemoval=XBooleanLiteral)? "}")?;
+		@Override public ParserRule getRule() { return rule; }
+
+		//{ONE_TO_ONE} "@OneToOne" ("{" ("mappedBy" mappedBy=ID)? & ("optional" optional=XBooleanLiteral)? & ("orphanRemoval"
+		//orphanRemoval=XBooleanLiteral)? "}")?
+		public Group getGroup() { return cGroup; }
+
+		//{ONE_TO_ONE}
+		public Action getONE_TO_ONEAction_0() { return cONE_TO_ONEAction_0; }
+
+		//"@OneToOne"
+		public Keyword getOneToOneKeyword_1() { return cOneToOneKeyword_1; }
+
+		//("{" ("mappedBy" mappedBy=ID)? & ("optional" optional=XBooleanLiteral)? & ("orphanRemoval"
+		//orphanRemoval=XBooleanLiteral)? "}")?
+		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
+
+		//"{" ("mappedBy" mappedBy=ID)?
+		public Group getGroup_2_0() { return cGroup_2_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_0_0() { return cLeftCurlyBracketKeyword_2_0_0; }
+
+		//("mappedBy" mappedBy=ID)?
+		public Group getGroup_2_0_1() { return cGroup_2_0_1; }
+
+		//"mappedBy"
+		public Keyword getMappedByKeyword_2_0_1_0() { return cMappedByKeyword_2_0_1_0; }
+
+		//mappedBy=ID
+		public Assignment getMappedByAssignment_2_0_1_1() { return cMappedByAssignment_2_0_1_1; }
+
+		//ID
+		public RuleCall getMappedByIDTerminalRuleCall_2_0_1_1_0() { return cMappedByIDTerminalRuleCall_2_0_1_1_0; }
+
+		//("optional" optional=XBooleanLiteral)?
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//"optional"
+		public Keyword getOptionalKeyword_2_1_0() { return cOptionalKeyword_2_1_0; }
+
+		//optional=XBooleanLiteral
+		public Assignment getOptionalAssignment_2_1_1() { return cOptionalAssignment_2_1_1; }
+
+		//XBooleanLiteral
+		public RuleCall getOptionalXBooleanLiteralParserRuleCall_2_1_1_0() { return cOptionalXBooleanLiteralParserRuleCall_2_1_1_0; }
+
+		//("orphanRemoval" orphanRemoval=XBooleanLiteral)? "}"
+		public Group getGroup_2_2() { return cGroup_2_2; }
+
+		//("orphanRemoval" orphanRemoval=XBooleanLiteral)?
+		public Group getGroup_2_2_0() { return cGroup_2_2_0; }
+
+		//"orphanRemoval"
+		public Keyword getOrphanRemovalKeyword_2_2_0_0() { return cOrphanRemovalKeyword_2_2_0_0; }
+
+		//orphanRemoval=XBooleanLiteral
+		public Assignment getOrphanRemovalAssignment_2_2_0_1() { return cOrphanRemovalAssignment_2_2_0_1; }
+
+		//XBooleanLiteral
+		public RuleCall getOrphanRemovalXBooleanLiteralParserRuleCall_2_2_0_1_0() { return cOrphanRemovalXBooleanLiteralParserRuleCall_2_2_0_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_2_1() { return cRightCurlyBracketKeyword_2_2_1; }
+	}
+
+	public class MANY_TO_ONEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MANY_TO_ONE");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cMANY_TO_ONEAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cManyToOneKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cOptionalKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cOptionalAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cOptionalXBooleanLiteralParserRuleCall_2_1_1_0 = (RuleCall)cOptionalAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		
+		//MANY_TO_ONE:
+		//	{MANY_TO_ONE} "@ManyToOne" ("{" ("optional" optional=XBooleanLiteral)? "}")?;
+		@Override public ParserRule getRule() { return rule; }
+
+		//{MANY_TO_ONE} "@ManyToOne" ("{" ("optional" optional=XBooleanLiteral)? "}")?
+		public Group getGroup() { return cGroup; }
+
+		//{MANY_TO_ONE}
+		public Action getMANY_TO_ONEAction_0() { return cMANY_TO_ONEAction_0; }
+
+		//"@ManyToOne"
+		public Keyword getManyToOneKeyword_1() { return cManyToOneKeyword_1; }
+
+		//("{" ("optional" optional=XBooleanLiteral)? "}")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+
+		//("optional" optional=XBooleanLiteral)?
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//"optional"
+		public Keyword getOptionalKeyword_2_1_0() { return cOptionalKeyword_2_1_0; }
+
+		//optional=XBooleanLiteral
+		public Assignment getOptionalAssignment_2_1_1() { return cOptionalAssignment_2_1_1; }
+
+		//XBooleanLiteral
+		public RuleCall getOptionalXBooleanLiteralParserRuleCall_2_1_1_0() { return cOptionalXBooleanLiteralParserRuleCall_2_1_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_2() { return cRightCurlyBracketKeyword_2_2; }
+	}
+
+	public class ONE_TO_MANYElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ONE_TO_MANY");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cONE_TO_MANYAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cOneToManyKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final UnorderedGroup cUnorderedGroup_2 = (UnorderedGroup)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cUnorderedGroup_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Group cGroup_2_0_1 = (Group)cGroup_2_0.eContents().get(1);
+		private final Keyword cMappedByKeyword_2_0_1_0 = (Keyword)cGroup_2_0_1.eContents().get(0);
+		private final Assignment cMappedByAssignment_2_0_1_1 = (Assignment)cGroup_2_0_1.eContents().get(1);
+		private final RuleCall cMappedByIDTerminalRuleCall_2_0_1_1_0 = (RuleCall)cMappedByAssignment_2_0_1_1.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cUnorderedGroup_2.eContents().get(1);
+		private final Group cGroup_2_1_0 = (Group)cGroup_2_1.eContents().get(0);
+		private final Keyword cOrphanRemovalKeyword_2_1_0_0 = (Keyword)cGroup_2_1_0.eContents().get(0);
+		private final Assignment cOrphanRemovalAssignment_2_1_0_1 = (Assignment)cGroup_2_1_0.eContents().get(1);
+		private final RuleCall cOrphanRemovalXBooleanLiteralParserRuleCall_2_1_0_1_0 = (RuleCall)cOrphanRemovalAssignment_2_1_0_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_1_1 = (Keyword)cGroup_2_1.eContents().get(1);
+		
+		//ONE_TO_MANY:
+		//	{ONE_TO_MANY} "@OneToMany" ("{" ("mappedBy" mappedBy=ID)? & ("orphanRemoval" orphanRemoval=XBooleanLiteral)? "}")?;
+		@Override public ParserRule getRule() { return rule; }
+
+		//{ONE_TO_MANY} "@OneToMany" ("{" ("mappedBy" mappedBy=ID)? & ("orphanRemoval" orphanRemoval=XBooleanLiteral)? "}")?
+		public Group getGroup() { return cGroup; }
+
+		//{ONE_TO_MANY}
+		public Action getONE_TO_MANYAction_0() { return cONE_TO_MANYAction_0; }
+
+		//"@OneToMany"
+		public Keyword getOneToManyKeyword_1() { return cOneToManyKeyword_1; }
+
+		//("{" ("mappedBy" mappedBy=ID)? & ("orphanRemoval" orphanRemoval=XBooleanLiteral)? "}")?
+		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
+
+		//"{" ("mappedBy" mappedBy=ID)?
+		public Group getGroup_2_0() { return cGroup_2_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_0_0() { return cLeftCurlyBracketKeyword_2_0_0; }
+
+		//("mappedBy" mappedBy=ID)?
+		public Group getGroup_2_0_1() { return cGroup_2_0_1; }
+
+		//"mappedBy"
+		public Keyword getMappedByKeyword_2_0_1_0() { return cMappedByKeyword_2_0_1_0; }
+
+		//mappedBy=ID
+		public Assignment getMappedByAssignment_2_0_1_1() { return cMappedByAssignment_2_0_1_1; }
+
+		//ID
+		public RuleCall getMappedByIDTerminalRuleCall_2_0_1_1_0() { return cMappedByIDTerminalRuleCall_2_0_1_1_0; }
+
+		//("orphanRemoval" orphanRemoval=XBooleanLiteral)? "}"
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//("orphanRemoval" orphanRemoval=XBooleanLiteral)?
+		public Group getGroup_2_1_0() { return cGroup_2_1_0; }
+
+		//"orphanRemoval"
+		public Keyword getOrphanRemovalKeyword_2_1_0_0() { return cOrphanRemovalKeyword_2_1_0_0; }
+
+		//orphanRemoval=XBooleanLiteral
+		public Assignment getOrphanRemovalAssignment_2_1_0_1() { return cOrphanRemovalAssignment_2_1_0_1; }
+
+		//XBooleanLiteral
+		public RuleCall getOrphanRemovalXBooleanLiteralParserRuleCall_2_1_0_1_0() { return cOrphanRemovalXBooleanLiteralParserRuleCall_2_1_0_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_1_1() { return cRightCurlyBracketKeyword_2_1_1; }
 	}
 	
 	
@@ -214,6 +534,11 @@ public class SnowGrammarAccess extends AbstractGrammarElementFinder {
 	private final EntityElements pEntity;
 	private final FeatureElements pFeature;
 	private final PropertyElements pProperty;
+	private final PropertyAnnotationElements pPropertyAnnotation;
+	private final MANY_TO_MANYElements pMANY_TO_MANY;
+	private final ONE_TO_ONEElements pONE_TO_ONE;
+	private final MANY_TO_ONEElements pMANY_TO_ONE;
+	private final ONE_TO_MANYElements pONE_TO_MANY;
 	
 	private final Grammar grammar;
 
@@ -230,6 +555,11 @@ public class SnowGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEntity = new EntityElements();
 		this.pFeature = new FeatureElements();
 		this.pProperty = new PropertyElements();
+		this.pPropertyAnnotation = new PropertyAnnotationElements();
+		this.pMANY_TO_MANY = new MANY_TO_MANYElements();
+		this.pONE_TO_ONE = new ONE_TO_ONEElements();
+		this.pMANY_TO_ONE = new MANY_TO_ONEElements();
+		this.pONE_TO_MANY = new ONE_TO_MANYElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -260,7 +590,7 @@ public class SnowGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//DomainModel:
-	//	importSection=XImportSection? elements+=AbstractElement*;
+	//	"Domain" name=QualifiedName importSection=XImportSection? elements+=AbstractElement*;
 	public DomainModelElements getDomainModelAccess() {
 		return pDomainModel;
 	}
@@ -310,13 +640,65 @@ public class SnowGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Property:
-	//	name=ValidID ":" type=JvmTypeReference;
+	//	(propertyAnnotation+=PropertyAnnotation propertyAnnotation+=PropertyAnnotation*)? name=ValidID ":"
+	//	type=JvmTypeReference;
 	public PropertyElements getPropertyAccess() {
 		return pProperty;
 	}
 	
 	public ParserRule getPropertyRule() {
 		return getPropertyAccess().getRule();
+	}
+
+	//PropertyAnnotation:
+	//	ONE_TO_MANY | MANY_TO_ONE | ONE_TO_ONE | MANY_TO_MANY;
+	public PropertyAnnotationElements getPropertyAnnotationAccess() {
+		return pPropertyAnnotation;
+	}
+	
+	public ParserRule getPropertyAnnotationRule() {
+		return getPropertyAnnotationAccess().getRule();
+	}
+
+	//MANY_TO_MANY:
+	//	{MANY_TO_MANY} "@ManyToMany" ("{" ("mappedBy" mappedBy=ID)? "}")?;
+	public MANY_TO_MANYElements getMANY_TO_MANYAccess() {
+		return pMANY_TO_MANY;
+	}
+	
+	public ParserRule getMANY_TO_MANYRule() {
+		return getMANY_TO_MANYAccess().getRule();
+	}
+
+	//ONE_TO_ONE:
+	//	{ONE_TO_ONE} "@OneToOne" ("{" ("mappedBy" mappedBy=ID)? & ("optional" optional=XBooleanLiteral)? & ("orphanRemoval"
+	//	orphanRemoval=XBooleanLiteral)? "}")?;
+	public ONE_TO_ONEElements getONE_TO_ONEAccess() {
+		return pONE_TO_ONE;
+	}
+	
+	public ParserRule getONE_TO_ONERule() {
+		return getONE_TO_ONEAccess().getRule();
+	}
+
+	//MANY_TO_ONE:
+	//	{MANY_TO_ONE} "@ManyToOne" ("{" ("optional" optional=XBooleanLiteral)? "}")?;
+	public MANY_TO_ONEElements getMANY_TO_ONEAccess() {
+		return pMANY_TO_ONE;
+	}
+	
+	public ParserRule getMANY_TO_ONERule() {
+		return getMANY_TO_ONEAccess().getRule();
+	}
+
+	//ONE_TO_MANY:
+	//	{ONE_TO_MANY} "@OneToMany" ("{" ("mappedBy" mappedBy=ID)? & ("orphanRemoval" orphanRemoval=XBooleanLiteral)? "}")?;
+	public ONE_TO_MANYElements getONE_TO_MANYAccess() {
+		return pONE_TO_MANY;
+	}
+	
+	public ParserRule getONE_TO_MANYRule() {
+		return getONE_TO_MANYAccess().getRule();
 	}
 
 	//XExpression:
