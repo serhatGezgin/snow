@@ -70,11 +70,6 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory
       case SnowPackage.ENTITY: return createEntity();
       case SnowPackage.FEATURE: return createFeature();
       case SnowPackage.PROPERTY: return createProperty();
-      case SnowPackage.PROPERTY_ANNOTATION: return createPropertyAnnotation();
-      case SnowPackage.MANY_TO_MANY: return createMANY_TO_MANY();
-      case SnowPackage.ONE_TO_ONE: return createONE_TO_ONE();
-      case SnowPackage.MANY_TO_ONE: return createMANY_TO_ONE();
-      case SnowPackage.ONE_TO_MANY: return createONE_TO_MANY();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -144,61 +139,6 @@ public class SnowFactoryImpl extends EFactoryImpl implements SnowFactory
   {
     PropertyImpl property = new PropertyImpl();
     return property;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PropertyAnnotation createPropertyAnnotation()
-  {
-    PropertyAnnotationImpl propertyAnnotation = new PropertyAnnotationImpl();
-    return propertyAnnotation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MANY_TO_MANY createMANY_TO_MANY()
-  {
-    MANY_TO_MANYImpl manY_TO_MANY = new MANY_TO_MANYImpl();
-    return manY_TO_MANY;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ONE_TO_ONE createONE_TO_ONE()
-  {
-    ONE_TO_ONEImpl onE_TO_ONE = new ONE_TO_ONEImpl();
-    return onE_TO_ONE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MANY_TO_ONE createMANY_TO_ONE()
-  {
-    MANY_TO_ONEImpl manY_TO_ONE = new MANY_TO_ONEImpl();
-    return manY_TO_ONE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ONE_TO_MANY createONE_TO_MANY()
-  {
-    ONE_TO_MANYImpl onE_TO_MANY = new ONE_TO_MANYImpl();
-    return onE_TO_MANY;
   }
 
   /**

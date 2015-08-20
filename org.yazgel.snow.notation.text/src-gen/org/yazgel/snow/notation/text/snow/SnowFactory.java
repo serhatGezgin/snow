@@ -77,51 +77,6 @@ public interface SnowFactory extends EFactory
   Property createProperty();
 
   /**
-   * Returns a new object of class '<em>Property Annotation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Property Annotation</em>'.
-   * @generated
-   */
-  PropertyAnnotation createPropertyAnnotation();
-
-  /**
-   * Returns a new object of class '<em>MANY TO MANY</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>MANY TO MANY</em>'.
-   * @generated
-   */
-  MANY_TO_MANY createMANY_TO_MANY();
-
-  /**
-   * Returns a new object of class '<em>ONE TO ONE</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>ONE TO ONE</em>'.
-   * @generated
-   */
-  ONE_TO_ONE createONE_TO_ONE();
-
-  /**
-   * Returns a new object of class '<em>MANY TO ONE</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>MANY TO ONE</em>'.
-   * @generated
-   */
-  MANY_TO_ONE createMANY_TO_ONE();
-
-  /**
-   * Returns a new object of class '<em>ONE TO MANY</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>ONE TO MANY</em>'.
-   * @generated
-   */
-  ONE_TO_MANY createONE_TO_MANY();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -14,7 +14,7 @@ import com.google.inject.name.Names;
  * Manual modifications go to {org.yazgel.snow.notation.text.SnowRuntimeModule}
  */
 @SuppressWarnings("all")
-public abstract class AbstractSnowRuntimeModule extends org.eclipse.xtext.xbase.DefaultXbaseRuntimeModule {
+public abstract class AbstractSnowRuntimeModule extends org.eclipse.xtext.xbase.annotations.DefaultXbaseWithAnnotationsRuntimeModule {
 
 	protected Properties properties = null;
 
@@ -91,11 +91,6 @@ public abstract class AbstractSnowRuntimeModule extends org.eclipse.xtext.xbase.
 	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.ITokenDefProvider> bindITokenDefProvider() {
 		return org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
-	public Class<? extends org.eclipse.xtext.parser.antlr.IUnorderedGroupHelper> bindIUnorderedGroupHelper() {
-		return org.eclipse.xtext.parser.antlr.UnorderedGroupHelper.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.validation.ValidatorFragment

@@ -18,7 +18,7 @@ public class SnowStandaloneSetupGenerated implements ISetup {
 
 	@Override
 	public Injector createInjectorAndDoEMFRegistration() {
-		org.eclipse.xtext.xbase.XbaseStandaloneSetup.doSetup();
+		org.eclipse.xtext.xbase.annotations.XbaseWithAnnotationsStandaloneSetup.doSetup();
 
 		Injector injector = createInjector();
 		register(injector);

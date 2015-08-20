@@ -10,7 +10,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  * Manual modifications go to {org.yazgel.snow.notation.text.ui.SnowUiModule}
  */
 @SuppressWarnings("all")
-public abstract class AbstractSnowUiModule extends org.eclipse.xtext.xbase.ui.DefaultXbaseUiModule {
+public abstract class AbstractSnowUiModule extends org.eclipse.xtext.xbase.annotations.ui.DefaultXbaseWithAnnotationsUiModule {
 	
 	public AbstractSnowUiModule(AbstractUIPlugin plugin) {
 		super(plugin);

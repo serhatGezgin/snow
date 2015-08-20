@@ -6,6 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
+import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Property</b></em>'.
@@ -28,7 +30,7 @@ public interface Property extends Feature
 {
   /**
    * Returns the value of the '<em><b>Property Annotation</b></em>' containment reference list.
-   * The list contents are of type {@link org.yazgel.snow.notation.text.snow.PropertyAnnotation}.
+   * The list contents are of type {@link org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Property Annotation</em>' containment reference list isn't clear,
@@ -40,7 +42,7 @@ public interface Property extends Feature
    * @model containment="true"
    * @generated
    */
-  EList<PropertyAnnotation> getPropertyAnnotation();
+  EList<XAnnotation> getPropertyAnnotation();
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

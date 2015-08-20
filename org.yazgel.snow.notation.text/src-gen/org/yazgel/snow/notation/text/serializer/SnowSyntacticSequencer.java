@@ -10,7 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -22,16 +21,7 @@ import org.yazgel.snow.notation.text.services.SnowGrammarAccess;
 public class SnowSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected SnowGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_MANY_TO_MANY___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q;
-	protected AbstractElementAlias match_MANY_TO_ONE___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q;
-	protected AbstractElementAlias match_ONE_TO_MANY___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_1_1__a;
-	protected AbstractElementAlias match_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_LeftCurlyBracketKeyword_2_0_0_a__p;
-	protected AbstractElementAlias match_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_a_LeftCurlyBracketKeyword_2_0_0__p;
-	protected AbstractElementAlias match_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_p_LeftCurlyBracketKeyword_2_0_0_p__p;
-	protected AbstractElementAlias match_ONE_TO_ONE___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_2_1__a;
-	protected AbstractElementAlias match_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_LeftCurlyBracketKeyword_2_0_0_a__p;
-	protected AbstractElementAlias match_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_a_LeftCurlyBracketKeyword_2_0_0__p;
-	protected AbstractElementAlias match_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_p_LeftCurlyBracketKeyword_2_0_0_p__p;
+	protected AbstractElementAlias match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q;
 	protected AbstractElementAlias match_XBlockExpression_SemicolonKeyword_2_1_q;
 	protected AbstractElementAlias match_XExpressionInClosure_SemicolonKeyword_1_1_q;
 	protected AbstractElementAlias match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q;
@@ -42,16 +32,7 @@ public class SnowSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SnowGrammarAccess) access;
-		match_MANY_TO_MANY___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMANY_TO_MANYAccess().getLeftCurlyBracketKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getMANY_TO_MANYAccess().getRightCurlyBracketKeyword_2_2()));
-		match_MANY_TO_ONE___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getMANY_TO_ONEAccess().getLeftCurlyBracketKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getMANY_TO_ONEAccess().getRightCurlyBracketKeyword_2_2()));
-		match_ONE_TO_MANY___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_1_1__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getONE_TO_MANYAccess().getLeftCurlyBracketKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getONE_TO_MANYAccess().getRightCurlyBracketKeyword_2_1_1()));
-		match_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_LeftCurlyBracketKeyword_2_0_0_a__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getONE_TO_MANYAccess().getRightCurlyBracketKeyword_2_1_1()), new TokenAlias(true, true, grammarAccess.getONE_TO_MANYAccess().getLeftCurlyBracketKeyword_2_0_0()));
-		match_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_a_LeftCurlyBracketKeyword_2_0_0__p = new GroupAlias(true, false, new TokenAlias(true, true, grammarAccess.getONE_TO_MANYAccess().getRightCurlyBracketKeyword_2_1_1()), new TokenAlias(false, false, grammarAccess.getONE_TO_MANYAccess().getLeftCurlyBracketKeyword_2_0_0()));
-		match_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_p_LeftCurlyBracketKeyword_2_0_0_p__p = new GroupAlias(true, false, new TokenAlias(true, false, grammarAccess.getONE_TO_MANYAccess().getRightCurlyBracketKeyword_2_1_1()), new TokenAlias(true, false, grammarAccess.getONE_TO_MANYAccess().getLeftCurlyBracketKeyword_2_0_0()));
-		match_ONE_TO_ONE___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_2_1__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getONE_TO_ONEAccess().getLeftCurlyBracketKeyword_2_0_0()), new TokenAlias(false, false, grammarAccess.getONE_TO_ONEAccess().getRightCurlyBracketKeyword_2_2_1()));
-		match_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_LeftCurlyBracketKeyword_2_0_0_a__p = new GroupAlias(true, false, new TokenAlias(false, false, grammarAccess.getONE_TO_ONEAccess().getRightCurlyBracketKeyword_2_2_1()), new TokenAlias(true, true, grammarAccess.getONE_TO_ONEAccess().getLeftCurlyBracketKeyword_2_0_0()));
-		match_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_a_LeftCurlyBracketKeyword_2_0_0__p = new GroupAlias(true, false, new TokenAlias(true, true, grammarAccess.getONE_TO_ONEAccess().getRightCurlyBracketKeyword_2_2_1()), new TokenAlias(false, false, grammarAccess.getONE_TO_ONEAccess().getLeftCurlyBracketKeyword_2_0_0()));
-		match_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_p_LeftCurlyBracketKeyword_2_0_0_p__p = new GroupAlias(true, false, new TokenAlias(true, false, grammarAccess.getONE_TO_ONEAccess().getRightCurlyBracketKeyword_2_2_1()), new TokenAlias(true, false, grammarAccess.getONE_TO_ONEAccess().getLeftCurlyBracketKeyword_2_0_0()));
+		match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXAnnotationAccess().getLeftParenthesisKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getXAnnotationAccess().getRightParenthesisKeyword_3_2()));
 		match_XBlockExpression_SemicolonKeyword_2_1_q = new TokenAlias(false, true, grammarAccess.getXBlockExpressionAccess().getSemicolonKeyword_2_1());
 		match_XExpressionInClosure_SemicolonKeyword_1_1_q = new TokenAlias(false, true, grammarAccess.getXExpressionInClosureAccess().getSemicolonKeyword_1_1());
 		match_XFunctionTypeRef___LeftParenthesisKeyword_0_0_RightParenthesisKeyword_0_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getLeftParenthesisKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getXFunctionTypeRefAccess().getRightParenthesisKeyword_0_2()));
@@ -97,26 +78,8 @@ public class SnowSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_MANY_TO_MANY___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q.equals(syntax))
-				emit_MANY_TO_MANY___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_MANY_TO_ONE___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q.equals(syntax))
-				emit_MANY_TO_ONE___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ONE_TO_MANY___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_1_1__a.equals(syntax))
-				emit_ONE_TO_MANY___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_LeftCurlyBracketKeyword_2_0_0_a__p.equals(syntax))
-				emit_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_LeftCurlyBracketKeyword_2_0_0_a__p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_a_LeftCurlyBracketKeyword_2_0_0__p.equals(syntax))
-				emit_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_a_LeftCurlyBracketKeyword_2_0_0__p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_p_LeftCurlyBracketKeyword_2_0_0_p__p.equals(syntax))
-				emit_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_p_LeftCurlyBracketKeyword_2_0_0_p__p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ONE_TO_ONE___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_2_1__a.equals(syntax))
-				emit_ONE_TO_ONE___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_2_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_LeftCurlyBracketKeyword_2_0_0_a__p.equals(syntax))
-				emit_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_LeftCurlyBracketKeyword_2_0_0_a__p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_a_LeftCurlyBracketKeyword_2_0_0__p.equals(syntax))
-				emit_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_a_LeftCurlyBracketKeyword_2_0_0__p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_p_LeftCurlyBracketKeyword_2_0_0_p__p.equals(syntax))
-				emit_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_p_LeftCurlyBracketKeyword_2_0_0_p__p(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q.equals(syntax))
+				emit_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XBlockExpression_SemicolonKeyword_2_1_q.equals(syntax))
 				emit_XBlockExpression_SemicolonKeyword_2_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_XExpressionInClosure_SemicolonKeyword_1_1_q.equals(syntax))
@@ -135,128 +98,12 @@ public class SnowSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     ('{' '}')?
+	 *     ('(' ')')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) '@ManyToMany' (ambiguity) (rule start)
+	 *     annotationType=[JvmAnnotationType|QualifiedName] (ambiguity) (rule end)
 	 */
-	protected void emit_MANY_TO_MANY___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('{' '}')?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '@ManyToOne' (ambiguity) (rule start)
-	 */
-	protected void emit_MANY_TO_ONE___LeftCurlyBracketKeyword_2_0_RightCurlyBracketKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('{' | '}')*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '@OneToMany' (ambiguity) 'orphanRemoval' orphanRemoval=XBooleanLiteral
-	 *     (rule start) '@OneToMany' (ambiguity) (rule start)
-	 *     mappedBy=ID (ambiguity) 'orphanRemoval' orphanRemoval=XBooleanLiteral
-	 *     mappedBy=ID (ambiguity) (rule end)
-	 */
-	protected void emit_ONE_TO_MANY___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('}' '{'*)+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     orphanRemoval=XBooleanLiteral (ambiguity) 'orphanRemoval' orphanRemoval=XBooleanLiteral
-	 *     orphanRemoval=XBooleanLiteral (ambiguity) (rule end)
-	 */
-	protected void emit_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_LeftCurlyBracketKeyword_2_0_0_a__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('}'* '{')+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '@OneToMany' (ambiguity) 'mappedBy' mappedBy=ID
-	 *     mappedBy=ID (ambiguity) 'mappedBy' mappedBy=ID
-	 */
-	protected void emit_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_a_LeftCurlyBracketKeyword_2_0_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('}'+ '{'+)+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     orphanRemoval=XBooleanLiteral (ambiguity) 'mappedBy' mappedBy=ID
-	 */
-	protected void emit_ONE_TO_MANY___RightCurlyBracketKeyword_2_1_1_p_LeftCurlyBracketKeyword_2_0_0_p__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('{' | '}')*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '@OneToOne' (ambiguity) 'optional' optional=XBooleanLiteral
-	 *     (rule start) '@OneToOne' (ambiguity) 'orphanRemoval' orphanRemoval=XBooleanLiteral
-	 *     (rule start) '@OneToOne' (ambiguity) (rule start)
-	 *     mappedBy=ID (ambiguity) 'optional' optional=XBooleanLiteral
-	 *     mappedBy=ID (ambiguity) 'orphanRemoval' orphanRemoval=XBooleanLiteral
-	 *     mappedBy=ID (ambiguity) (rule end)
-	 *     optional=XBooleanLiteral (ambiguity) 'optional' optional=XBooleanLiteral
-	 *     optional=XBooleanLiteral (ambiguity) 'orphanRemoval' orphanRemoval=XBooleanLiteral
-	 *     optional=XBooleanLiteral (ambiguity) (rule end)
-	 */
-	protected void emit_ONE_TO_ONE___LeftCurlyBracketKeyword_2_0_0_or_RightCurlyBracketKeyword_2_2_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('}' '{'*)+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     orphanRemoval=XBooleanLiteral (ambiguity) 'optional' optional=XBooleanLiteral
-	 *     orphanRemoval=XBooleanLiteral (ambiguity) 'orphanRemoval' orphanRemoval=XBooleanLiteral
-	 *     orphanRemoval=XBooleanLiteral (ambiguity) (rule end)
-	 */
-	protected void emit_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_LeftCurlyBracketKeyword_2_0_0_a__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('}'* '{')+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '@OneToOne' (ambiguity) 'mappedBy' mappedBy=ID
-	 *     mappedBy=ID (ambiguity) 'mappedBy' mappedBy=ID
-	 *     optional=XBooleanLiteral (ambiguity) 'mappedBy' mappedBy=ID
-	 */
-	protected void emit_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_a_LeftCurlyBracketKeyword_2_0_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     ('}'+ '{'+)+
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     orphanRemoval=XBooleanLiteral (ambiguity) 'mappedBy' mappedBy=ID
-	 */
-	protected void emit_ONE_TO_ONE___RightCurlyBracketKeyword_2_2_1_p_LeftCurlyBracketKeyword_2_0_0_p__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_XAnnotation___LeftParenthesisKeyword_3_0_RightParenthesisKeyword_3_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

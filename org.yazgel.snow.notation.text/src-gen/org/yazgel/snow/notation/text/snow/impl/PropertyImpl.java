@@ -19,8 +19,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.xtext.common.types.JvmTypeReference;
 
+import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation;
+
 import org.yazgel.snow.notation.text.snow.Property;
-import org.yazgel.snow.notation.text.snow.PropertyAnnotation;
 import org.yazgel.snow.notation.text.snow.SnowPackage;
 
 /**
@@ -48,7 +49,7 @@ public class PropertyImpl extends FeatureImpl implements Property
    * @generated
    * @ordered
    */
-  protected EList<PropertyAnnotation> propertyAnnotation;
+  protected EList<XAnnotation> propertyAnnotation;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -106,11 +107,11 @@ public class PropertyImpl extends FeatureImpl implements Property
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<PropertyAnnotation> getPropertyAnnotation()
+  public EList<XAnnotation> getPropertyAnnotation()
   {
     if (propertyAnnotation == null)
     {
-      propertyAnnotation = new EObjectContainmentEList<PropertyAnnotation>(PropertyAnnotation.class, this, SnowPackage.PROPERTY__PROPERTY_ANNOTATION);
+      propertyAnnotation = new EObjectContainmentEList<XAnnotation>(XAnnotation.class, this, SnowPackage.PROPERTY__PROPERTY_ANNOTATION);
     }
     return propertyAnnotation;
   }
@@ -237,7 +238,7 @@ public class PropertyImpl extends FeatureImpl implements Property
     {
       case SnowPackage.PROPERTY__PROPERTY_ANNOTATION:
         getPropertyAnnotation().clear();
-        getPropertyAnnotation().addAll((Collection<? extends PropertyAnnotation>)newValue);
+        getPropertyAnnotation().addAll((Collection<? extends XAnnotation>)newValue);
         return;
       case SnowPackage.PROPERTY__NAME:
         setName((String)newValue);

@@ -105,31 +105,6 @@ public class SnowAdapterFactory extends AdapterFactoryImpl
         return createPropertyAdapter();
       }
       @Override
-      public Adapter casePropertyAnnotation(PropertyAnnotation object)
-      {
-        return createPropertyAnnotationAdapter();
-      }
-      @Override
-      public Adapter caseMANY_TO_MANY(MANY_TO_MANY object)
-      {
-        return createMANY_TO_MANYAdapter();
-      }
-      @Override
-      public Adapter caseONE_TO_ONE(ONE_TO_ONE object)
-      {
-        return createONE_TO_ONEAdapter();
-      }
-      @Override
-      public Adapter caseMANY_TO_ONE(MANY_TO_ONE object)
-      {
-        return createMANY_TO_ONEAdapter();
-      }
-      @Override
-      public Adapter caseONE_TO_MANY(ONE_TO_MANY object)
-      {
-        return createONE_TO_MANYAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -237,81 +212,6 @@ public class SnowAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPropertyAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.yazgel.snow.notation.text.snow.PropertyAnnotation <em>Property Annotation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.yazgel.snow.notation.text.snow.PropertyAnnotation
-   * @generated
-   */
-  public Adapter createPropertyAnnotationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.yazgel.snow.notation.text.snow.MANY_TO_MANY <em>MANY TO MANY</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.yazgel.snow.notation.text.snow.MANY_TO_MANY
-   * @generated
-   */
-  public Adapter createMANY_TO_MANYAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.yazgel.snow.notation.text.snow.ONE_TO_ONE <em>ONE TO ONE</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.yazgel.snow.notation.text.snow.ONE_TO_ONE
-   * @generated
-   */
-  public Adapter createONE_TO_ONEAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.yazgel.snow.notation.text.snow.MANY_TO_ONE <em>MANY TO ONE</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.yazgel.snow.notation.text.snow.MANY_TO_ONE
-   * @generated
-   */
-  public Adapter createMANY_TO_ONEAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.yazgel.snow.notation.text.snow.ONE_TO_MANY <em>ONE TO MANY</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.yazgel.snow.notation.text.snow.ONE_TO_MANY
-   * @generated
-   */
-  public Adapter createONE_TO_MANYAdapter()
   {
     return null;
   }

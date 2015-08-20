@@ -53,7 +53,10 @@ import org.eclipse.xtext.xbase.XUnaryOperation;
 import org.eclipse.xtext.xbase.XVariableDeclaration;
 import org.eclipse.xtext.xbase.XWhileExpression;
 import org.eclipse.xtext.xbase.XbasePackage;
-import org.eclipse.xtext.xbase.serializer.XbaseSemanticSequencer;
+import org.eclipse.xtext.xbase.annotations.serializer.XbaseWithAnnotationsSemanticSequencer;
+import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation;
+import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotationElementValuePair;
+import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotationsPackage;
 import org.eclipse.xtext.xtype.XFunctionTypeRef;
 import org.eclipse.xtext.xtype.XImportDeclaration;
 import org.eclipse.xtext.xtype.XImportSection;
@@ -61,16 +64,12 @@ import org.eclipse.xtext.xtype.XtypePackage;
 import org.yazgel.snow.notation.text.services.SnowGrammarAccess;
 import org.yazgel.snow.notation.text.snow.DomainModel;
 import org.yazgel.snow.notation.text.snow.Entity;
-import org.yazgel.snow.notation.text.snow.MANY_TO_MANY;
-import org.yazgel.snow.notation.text.snow.MANY_TO_ONE;
-import org.yazgel.snow.notation.text.snow.ONE_TO_MANY;
-import org.yazgel.snow.notation.text.snow.ONE_TO_ONE;
 import org.yazgel.snow.notation.text.snow.PackageDeclaration;
 import org.yazgel.snow.notation.text.snow.Property;
 import org.yazgel.snow.notation.text.snow.SnowPackage;
 
 @SuppressWarnings("all")
-public class SnowSemanticSequencer extends XbaseSemanticSequencer {
+public class SnowSemanticSequencer extends XbaseWithAnnotationsSemanticSequencer {
 
 	@Inject
 	private SnowGrammarAccess grammarAccess;
@@ -83,18 +82,6 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 				return; 
 			case SnowPackage.ENTITY:
 				sequence_Entity(context, (Entity) semanticObject); 
-				return; 
-			case SnowPackage.MANY_TO_MANY:
-				sequence_MANY_TO_MANY(context, (MANY_TO_MANY) semanticObject); 
-				return; 
-			case SnowPackage.MANY_TO_ONE:
-				sequence_MANY_TO_ONE(context, (MANY_TO_ONE) semanticObject); 
-				return; 
-			case SnowPackage.ONE_TO_MANY:
-				sequence_ONE_TO_MANY(context, (ONE_TO_MANY) semanticObject); 
-				return; 
-			case SnowPackage.ONE_TO_ONE:
-				sequence_ONE_TO_ONE(context, (ONE_TO_ONE) semanticObject); 
 				return; 
 			case SnowPackage.PACKAGE_DECLARATION:
 				sequence_PackageDeclaration(context, (PackageDeclaration) semanticObject); 
@@ -150,6 +137,14 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 				sequence_JvmWildcardTypeReference(context, (JvmWildcardTypeReference) semanticObject); 
 				return; 
 			}
+		else if(semanticObject.eClass().getEPackage() == XAnnotationsPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case XAnnotationsPackage.XANNOTATION:
+				sequence_XAnnotation(context, (XAnnotation) semanticObject); 
+				return; 
+			case XAnnotationsPackage.XANNOTATION_ELEMENT_VALUE_PAIR:
+				sequence_XAnnotationElementValuePair(context, (XAnnotationElementValuePair) semanticObject); 
+				return; 
+			}
 		else if(semanticObject.eClass().getEPackage() == XbasePackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case XbasePackage.XASSIGNMENT:
 				sequence_XAssignment_XMemberFeatureCall(context, (XAssignment) semanticObject); 
@@ -165,6 +160,10 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 				   context == grammarAccess.getXAdditiveExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
 				   context == grammarAccess.getXAndExpressionRule() ||
 				   context == grammarAccess.getXAndExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
+				   context == grammarAccess.getXAnnotationElementValueRule() ||
+				   context == grammarAccess.getXAnnotationElementValueOrCommaListRule() ||
+				   context == grammarAccess.getXAnnotationElementValueOrCommaListAccess().getXListLiteralElementsAction_1_1_0() ||
+				   context == grammarAccess.getXAnnotationOrExpressionRule() ||
 				   context == grammarAccess.getXAssignmentRule() ||
 				   context == grammarAccess.getXAssignmentAccess().getXBinaryOperationLeftOperandAction_1_1_0_0_0() ||
 				   context == grammarAccess.getXBlockExpressionRule() ||
@@ -216,6 +215,10 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 				   context == grammarAccess.getXAdditiveExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
 				   context == grammarAccess.getXAndExpressionRule() ||
 				   context == grammarAccess.getXAndExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
+				   context == grammarAccess.getXAnnotationElementValueRule() ||
+				   context == grammarAccess.getXAnnotationElementValueOrCommaListRule() ||
+				   context == grammarAccess.getXAnnotationElementValueOrCommaListAccess().getXListLiteralElementsAction_1_1_0() ||
+				   context == grammarAccess.getXAnnotationOrExpressionRule() ||
 				   context == grammarAccess.getXAssignmentRule() ||
 				   context == grammarAccess.getXAssignmentAccess().getXBinaryOperationLeftOperandAction_1_1_0_0_0() ||
 				   context == grammarAccess.getXCastedExpressionRule() ||
@@ -270,8 +273,52 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 				sequence_XRelationalExpression(context, (XInstanceOfExpression) semanticObject); 
 				return; 
 			case XbasePackage.XLIST_LITERAL:
-				sequence_XListLiteral(context, (XListLiteral) semanticObject); 
-				return; 
+				if(context == grammarAccess.getXAnnotationElementValueOrCommaListRule()) {
+					sequence_XAnnotationElementValueOrCommaList_XListLiteral(context, (XListLiteral) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getXAnnotationElementValueRule()) {
+					sequence_XAnnotationElementValue_XListLiteral(context, (XListLiteral) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getXAdditiveExpressionRule() ||
+				   context == grammarAccess.getXAdditiveExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
+				   context == grammarAccess.getXAndExpressionRule() ||
+				   context == grammarAccess.getXAndExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
+				   context == grammarAccess.getXAnnotationElementValueOrCommaListAccess().getXListLiteralElementsAction_1_1_0() ||
+				   context == grammarAccess.getXAnnotationOrExpressionRule() ||
+				   context == grammarAccess.getXAssignmentRule() ||
+				   context == grammarAccess.getXAssignmentAccess().getXBinaryOperationLeftOperandAction_1_1_0_0_0() ||
+				   context == grammarAccess.getXCastedExpressionRule() ||
+				   context == grammarAccess.getXCastedExpressionAccess().getXCastedExpressionTargetAction_1_0_0_0() ||
+				   context == grammarAccess.getXCollectionLiteralRule() ||
+				   context == grammarAccess.getXEqualityExpressionRule() ||
+				   context == grammarAccess.getXEqualityExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
+				   context == grammarAccess.getXExpressionRule() ||
+				   context == grammarAccess.getXExpressionOrVarDeclarationRule() ||
+				   context == grammarAccess.getXListLiteralRule() ||
+				   context == grammarAccess.getXLiteralRule() ||
+				   context == grammarAccess.getXMemberFeatureCallRule() ||
+				   context == grammarAccess.getXMemberFeatureCallAccess().getXAssignmentAssignableAction_1_0_0_0_0() ||
+				   context == grammarAccess.getXMemberFeatureCallAccess().getXMemberFeatureCallMemberCallTargetAction_1_1_0_0_0() ||
+				   context == grammarAccess.getXMultiplicativeExpressionRule() ||
+				   context == grammarAccess.getXMultiplicativeExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
+				   context == grammarAccess.getXOrExpressionRule() ||
+				   context == grammarAccess.getXOrExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
+				   context == grammarAccess.getXOtherOperatorExpressionRule() ||
+				   context == grammarAccess.getXOtherOperatorExpressionAccess().getXBinaryOperationLeftOperandAction_1_0_0_0() ||
+				   context == grammarAccess.getXParenthesizedExpressionRule() ||
+				   context == grammarAccess.getXPostfixOperationRule() ||
+				   context == grammarAccess.getXPostfixOperationAccess().getXPostfixOperationOperandAction_1_0_0() ||
+				   context == grammarAccess.getXPrimaryExpressionRule() ||
+				   context == grammarAccess.getXRelationalExpressionRule() ||
+				   context == grammarAccess.getXRelationalExpressionAccess().getXBinaryOperationLeftOperandAction_1_1_0_0_0() ||
+				   context == grammarAccess.getXRelationalExpressionAccess().getXInstanceOfExpressionExpressionAction_1_0_0_0_0() ||
+				   context == grammarAccess.getXUnaryOperationRule()) {
+					sequence_XListLiteral(context, (XListLiteral) semanticObject); 
+					return; 
+				}
+				else break;
 			case XbasePackage.XMEMBER_FEATURE_CALL:
 				sequence_XMemberFeatureCall(context, (XMemberFeatureCall) semanticObject); 
 				return; 
@@ -352,42 +399,6 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (mappedBy=ID?)
-	 */
-	protected void sequence_MANY_TO_MANY(EObject context, MANY_TO_MANY semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (optional=XBooleanLiteral?)
-	 */
-	protected void sequence_MANY_TO_ONE(EObject context, MANY_TO_ONE semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     ((mappedBy=ID? orphanRemoval=XBooleanLiteral?)?)
-	 */
-	protected void sequence_ONE_TO_MANY(EObject context, ONE_TO_MANY semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     ((mappedBy=ID? optional=XBooleanLiteral? orphanRemoval=XBooleanLiteral?)?)
-	 */
-	protected void sequence_ONE_TO_ONE(EObject context, ONE_TO_ONE semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (name=QualifiedName elements+=AbstractElement*)
 	 */
 	protected void sequence_PackageDeclaration(EObject context, PackageDeclaration semanticObject) {
@@ -397,7 +408,7 @@ public class SnowSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((propertyAnnotation+=PropertyAnnotation propertyAnnotation+=PropertyAnnotation*)? name=ValidID type=JvmTypeReference)
+	 *     ((propertyAnnotation+=XAnnotation propertyAnnotation+=XAnnotation*)? name=ValidID type=JvmTypeReference)
 	 */
 	protected void sequence_Property(EObject context, Property semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

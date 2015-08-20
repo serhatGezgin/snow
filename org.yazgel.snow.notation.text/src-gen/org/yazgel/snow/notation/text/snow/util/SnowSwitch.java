@@ -117,45 +117,6 @@ public class SnowSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case SnowPackage.PROPERTY_ANNOTATION:
-      {
-        PropertyAnnotation propertyAnnotation = (PropertyAnnotation)theEObject;
-        T result = casePropertyAnnotation(propertyAnnotation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SnowPackage.MANY_TO_MANY:
-      {
-        MANY_TO_MANY manY_TO_MANY = (MANY_TO_MANY)theEObject;
-        T result = caseMANY_TO_MANY(manY_TO_MANY);
-        if (result == null) result = casePropertyAnnotation(manY_TO_MANY);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SnowPackage.ONE_TO_ONE:
-      {
-        ONE_TO_ONE onE_TO_ONE = (ONE_TO_ONE)theEObject;
-        T result = caseONE_TO_ONE(onE_TO_ONE);
-        if (result == null) result = casePropertyAnnotation(onE_TO_ONE);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SnowPackage.MANY_TO_ONE:
-      {
-        MANY_TO_ONE manY_TO_ONE = (MANY_TO_ONE)theEObject;
-        T result = caseMANY_TO_ONE(manY_TO_ONE);
-        if (result == null) result = casePropertyAnnotation(manY_TO_ONE);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case SnowPackage.ONE_TO_MANY:
-      {
-        ONE_TO_MANY onE_TO_MANY = (ONE_TO_MANY)theEObject;
-        T result = caseONE_TO_MANY(onE_TO_MANY);
-        if (result == null) result = casePropertyAnnotation(onE_TO_MANY);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -252,86 +213,6 @@ public class SnowSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseProperty(Property object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Property Annotation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Property Annotation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePropertyAnnotation(PropertyAnnotation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>MANY TO MANY</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>MANY TO MANY</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMANY_TO_MANY(MANY_TO_MANY object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>ONE TO ONE</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>ONE TO ONE</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseONE_TO_ONE(ONE_TO_ONE object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>MANY TO ONE</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>MANY TO ONE</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMANY_TO_ONE(MANY_TO_ONE object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>ONE TO MANY</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>ONE TO MANY</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseONE_TO_MANY(ONE_TO_MANY object)
   {
     return null;
   }
